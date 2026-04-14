@@ -329,7 +329,7 @@ vector<vector<int>> threeSum(vector<int>& nums) {
 struct ListNode {
     int val;
     ListNode *next;
-    ListNode(int x) : val(x), next(nullptr) {}
+    ListNode(int x) : val(x), nextw(nullptr) {}
 };
 
 class Solution {
@@ -507,7 +507,7 @@ public:
 
         TreeNode* temp = root->left; // Binary tree pointer swap 
         root->left = root->right;
-        root->right = temp;
+        root->right = temp;`
 
         invertTree(root->left);  // Invert downstream subtrees
         invertTree(root->right);
@@ -945,7 +945,7 @@ int trap(vector<int>& height) {
                 // If yes, it becomes the new water-containing wall. No water can be trapped *at* this wall.
                 leftMax = height[left];
             } else {
-                // If no, the current wall is shorter than the max-left wall.
+                // If no, wthe current wall is shorter than the max-left wall.
                 // This means water is trapped here, and the level is determined by `leftMax`.
                 // (We already know `rightMax` is >= `leftMax` because `height[right] >= height[left]`).
                 totalWater += leftMax - height[left];
