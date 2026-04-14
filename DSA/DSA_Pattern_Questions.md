@@ -217,12 +217,12 @@
 
 ### 9b — General Graph DFS / BFS
 
-| # | Problem | Difficulty | Pattern |
-|---|---------|-----------|---------|
-| 1 | [Clone Graph](https://leetcode.com/problems/clone-graph/) | Medium | DFS + HashMap old→new |
-| 2 | [Word Ladder](https://leetcode.com/problems/word-ladder/) | Hard | BFS shortest transformation |
-| 3 | [Number of Connected Components in Undirected Graph](https://leetcode.com/problems/number-of-connected-components-in-an-undirected-graph/) | Medium | DFS or Union-Find components |
-| 4 | [Graph Valid Tree](https://leetcode.com/problems/graph-valid-tree/) | Medium | Union-Find + edge count check |
+| #   | Problem                                                                                                                                    | Difficulty | Pattern                       |
+| --- | ------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | ----------------------------- |
+| 1   | [Clone Graph](https://leetcode.com/problems/clone-graph/)                                                                                  | Medium     | DFS + HashMap old→new         |
+| 2   | [Word Ladder](https://leetcode.com/problems/word-ladder/)                                                                                  | Hard       | BFS shortest transformation   |
+| 3   | [Number of Connected Components in Undirected Graph](https://leetcode.com/problems/number-of-connected-components-in-an-undirected-graph/) | Medium     | DFS or Union-Find components  |
+| 4   | [Graph Valid Tree](https://leetcode.com/problems/graph-valid-tree/)                                                                        | Medium     | Union-Find + edge count check |
 
 ### 9c — Topological Sort
 
