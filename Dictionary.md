@@ -285,3 +285,54 @@ In managed cloud services, many of these node types are:
 - **Replaced** (e.g., cloud object storage S3/ADLS replaces DataNodes)
 
 If you'd like a diagram of how these nodes communicate or a deep dive into any specific node type, let me know!
+
+
+# Slowing of writes due to indexing 
+To understand why a unique constraint slows down `INSERT` and `UPDATE` operations, we have to look at how databases enforce this rule under the hood.
+
+In relational database systems (like PostgreSQL, MySQL, or SQL Server), a unique constraint is not just a metadata flag. **It is physically implemented by creating a Unique B-Tree Index** on the constrained column(s).
+
+Every time you write data, the database must interact with this B-Tree. Here is the technical breakdown of the overhead introduced during those write operations.
+
+### 1. The Synchronous Read Penalty
+
+Normally, an `INSERT` is a pure write operation. The database finds free space in a page (or heap) and writes the row. However, with a unique constraint, the database must perform a read before it can write.
+
+When you execute an `INSERT`, or an `UPDATE` that modifies the constrained column:
+
+1. The database must traverse the B-Tree index from the root node down to the leaf node to check if the value already exists.
+    
+2. This lookup takes $O(\log N)$ time, where $N$ is the number of rows in the table.
+    
+3. If the working set (the index pages) does not fit entirely in memory (RAM), traversing the B-Tree requires fetching index pages from disk into the buffer pool. This introduces **random disk I/O**, which is significantly slower than sequential writes.
+    
+
+### 2. Index Maintenance and Write Amplification
+
+Once the database confirms the value is unique, it cannot simply write the data to the table. It must also maintain the index.
+
+- **Double Writing:** An `INSERT` now requires writing to the main table data (the heap or clustered index) **and** writing the new key into the unique secondary index.
+    
+- **Page Splits:** B-Trees store data in fixed-size blocks (pages). If the index page where the new value needs to be inserted is already full, the database must perform a **page split**. It allocates a new page, moves half the data to the new page, and updates the parent nodes. This requires multiple disk writes and consumes extra CPU cycles.
+    
+- **Updates are Deletes + Inserts:** If you `UPDATE` the value of a uniquely constrained column, the database must locate and physically delete the old index entry, and then insert the new index entry into a different part of the B-Tree, potentially triggering page splits.
+    
+
+### 3. Concurrency and Locking Overhead
+
+Unique constraints introduce complex locking mechanisms to prevent race conditions. Imagine two separate transactions trying to insert the exact same value simultaneously. To guarantee integrity, the database must use locks.
+
+- **Pessimistic Locking:** When a transaction checks for uniqueness, it must acquire a lock on the index record (or a "gap lock" / "next-key lock" in engines like InnoDB) to ensure no other transaction inserts that value before the current transaction commits.
+    
+- **Lock Contention:** If multiple transactions are inserting values that fall into the same index page (e.g., sequentially increasing numbers, or just colliding hashes), they will compete for latches (lightweight memory locks) on that specific B-Tree page. This serialization bottlenecks high-throughput write workloads.
+    
+
+### 4. Defeating Write Optimizations
+
+Modern database engines use in-memory structures to delay and batch index updates to improve write performance (e.g., the **Change Buffer** in InnoDB).
+
+If you insert a row, the database can write the table data and temporarily cache the index update in memory, merging it to disk later. **Unique constraints completely bypass this optimization.** Because the database _must_ guarantee uniqueness immediately, it cannot defer the index check. It is forced to perform a synchronous disk read and write for the index update right then and there.
+
+### Summary
+
+While standard indexes slow down writes by requiring extra storage maintenance, **unique constraints** add the strict requirement of $O(\log N)$ lookups, potential random disk reads, and heavy concurrency locking prior to every single insert or relevant update.
