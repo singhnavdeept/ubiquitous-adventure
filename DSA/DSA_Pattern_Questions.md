@@ -361,48 +361,49 @@
 
 > If you have less than 2 weeks, do only these. They cover the maximum number of patterns in minimum time.
 
-| # | Problem | Topic |
-|---|---------|-------|
-| 1 | [Two Sum](https://leetcode.com/problems/two-sum/) | HashMap |
-| 2 | [Best Time to Buy and Sell Stock](https://leetcode.com/problems/best-time-to-buy-and-sell-stock/) | Arrays |
-| 3 | [Valid Anagram](https://leetcode.com/problems/valid-anagram/) | HashMap |
-| 4 | [Maximum Subarray](https://leetcode.com/problems/maximum-subarray/) | Kadane's |
-| 5 | [Product of Array Except Self](https://leetcode.com/problems/product-of-array-except-self/) | Prefix/Suffix |
-| 6 | [3Sum](https://leetcode.com/problems/3sum/) | Two Pointers |
-| 7 | [Container With Most Water](https://leetcode.com/problems/container-with-most-water/) | Two Pointers |
-| 8 | [Longest Substring Without Repeating Characters](https://leetcode.com/problems/longest-substring-without-repeating-characters/) | Sliding Window |
-| 9 | [Minimum Window Substring](https://leetcode.com/problems/minimum-window-substring/) | Sliding Window |
-| 10 | [Binary Search](https://leetcode.com/problems/binary-search/) | Binary Search |
-| 11 | [Search in Rotated Sorted Array](https://leetcode.com/problems/search-in-rotated-sorted-array/) | Binary Search |
-| 12 | [Koko Eating Bananas](https://leetcode.com/problems/koko-eating-bananas/) | Binary Search on answer |
-| 13 | [Reverse Linked List](https://leetcode.com/problems/reverse-linked-list/) | Linked List |
-| 14 | [Linked List Cycle](https://leetcode.com/problems/linked-list-cycle/) | Fast/Slow pointers |
-| 15 | [Reorder List](https://leetcode.com/problems/reorder-list/) | Linked List |
-| 16 | [Valid Parentheses](https://leetcode.com/problems/valid-parentheses/) | Stack |
-| 17 | [Daily Temperatures](https://leetcode.com/problems/daily-temperatures/) | Monotonic Stack |
-| 18 | [Largest Rectangle in Histogram](https://leetcode.com/problems/largest-rectangle-in-histogram/) | Monotonic Stack |
-| 19 | [Invert Binary Tree](https://leetcode.com/problems/invert-binary-tree/) | Tree DFS |
-| 20 | [Binary Tree Level Order Traversal](https://leetcode.com/problems/binary-tree-level-order-traversal/) | Tree BFS |
-| 21 | [Lowest Common Ancestor of a Binary Tree](https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/) | Tree DFS |
-| 22 | [Binary Tree Maximum Path Sum](https://leetcode.com/problems/binary-tree-maximum-path-sum/) | Tree DFS hard |
-| 23 | [Validate Binary Search Tree](https://leetcode.com/problems/validate-binary-search-tree/) | BST |
-| 24 | [Climbing Stairs](https://leetcode.com/problems/climbing-stairs/) | DP 1D |
-| 25 | [House Robber](https://leetcode.com/problems/house-robber/) | DP 1D |
-| 26 | [Coin Change](https://leetcode.com/problems/coin-change/) | DP Knapsack |
-| 27 | [Longest Increasing Subsequence](https://leetcode.com/problems/longest-increasing-subsequence/) | DP Subsequence |
-| 28 | [Longest Common Subsequence](https://leetcode.com/problems/longest-common-subsequence/) | DP 2D |
-| 29 | [Word Break](https://leetcode.com/problems/word-break/) | DP + HashSet |
-| 30 | [Partition Equal Subset Sum](https://leetcode.com/problems/partition-equal-subset-sum/) | DP 0/1 Knapsack |
-| 31 | [Number of Islands](https://leetcode.com/problems/number-of-islands/) | Graph DFS |
-| 32 | [Course Schedule](https://leetcode.com/problems/course-schedule/) | Topological Sort |
-| 33 | [Pacific Atlantic Water Flow](https://leetcode.com/problems/pacific-atlantic-water-flow/) | Multi-source BFS |
-| 34 | [Redundant Connection](https://leetcode.com/problems/redundant-connection/) | Union-Find |
-| 35 | [Subsets](https://leetcode.com/problems/subsets/) | Backtracking |
-| 36 | [Combination Sum](https://leetcode.com/problems/combination-sum/) | Backtracking |
-| 37 | [Permutations](https://leetcode.com/problems/permutations/) | Backtracking |
-| 38 | [Merge Intervals](https://leetcode.com/problems/merge-intervals/) | Greedy Intervals |
-| 39 | [Find Median from Data Stream](https://leetcode.com/problems/find-median-from-data-stream/) | Two Heaps |
-| 40 | [Implement Trie](https://leetcode.com/problems/implement-trie-prefix-tree/) | Trie |
+| #   | Problem                                                                                                                         | Topic                   |
+| --- | ------------------------------------------------------------------------------------------------------------------------------- | ----------------------- |
+| 1   | [Two Sum](https://leetcode.com/problems/two-sum/)                                                                               | HashMap                 |
+| 2   | [Best Time to Buy and Sell Stock](https://leetcode.com/problems/best-time-to-buy-and-sell-stock/)                               | Arrays                  |
+| 3   | [Valid Anagram](https://leetcode.com/problems/valid-anagram/)                                                                   | HashMap                 |
+| 4   | [Maximum Subarray](https://leetcode.com/problems/maximum-subarray/)                                                             | Kadane's                |
+| 5   | [Product of Array Except Self](https://leetcode.com/problems/product-of-array-except-self/)                                     | Prefix/Suffix           |
+| 6   | [3Sum](https://leetcode.com/problems/3sum/)                                                                                     | Two Pointers            |
+| 7   | [Container With Most Water](https://leetcode.com/problems/container-with-most-water/)                                           | Two Pointers            |
+| 8   | [Longest Substring Without Repeating Characters](https://leetcode.com/problems/longest-substring-without-repeating-characters/) | Sliding Window          |
+| 9   | [Minimum Window Substring](https://leetcode.com/problems/minimum-window-substring/)                                             | Sliding Window          |
+| 10  | [Binary Search](https://leetcode.com/problems/binary-search/)                                                                   | Binary Search           |
+| 11  | [Search in Rotated Sorted Array](https://leetcode.com/problems/search-in-rotated-sorted-array/)                                 | Binary Search           |
+| 12  | [Koko Eating Bananas](https://leetcode.com/problems/koko-eating-bananas/)                                                       | Binary Search on answer |
+| 13  | [Reverse Linked List](https://leetcode.com/problems/reverse-linked-list/)                                                       | Linked List             |
+| 14  | [Linked List Cycle](https://leetcode.com/problems/linked-list-cycle/)                                                           | Fast/Slow pointers      |
+| 15  | [Reorder List](https://leetcode.com/problems/reorder-list/)                                                                     | Linked List             |
+| 16  | [Valid Parentheses](https://leetcode.com/problems/valid-parentheses/)                                                           | Stack                   |
+| 17  | [Daily Temperatures](https://leetcode.com/problems/daily-temperatures/)                                                         | Monotonic Stack         |
+| 18  | [Largest Rectangle in Histogram](https://leetcode.com/problems/largest-rectangle-in-histogram/)                                 | Monotonic Stack         |
+| 19  | [Invert Binary Tree](https://leetcode.com/problems/invert-binary-tree/)                                                         | Tree DFS                |
+| 20  | [Binary Tree Level Order Traversal](https://leetcode.com/problems/binary-tree-level-order-traversal/)                           | Tree BFS                |
+| 21  | [Lowest Common Ancestor of a Binary Tree](https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/)               | Tree DFS                |
+| 22  | [Binary Tree Maximum Path Sum](https://leetcode.com/problems/binary-tree-maximum-path-sum/)                                     | Tree DFS hard           |
+| 23  | [Validate Binary Search Tree](https://leetcode.com/problems/validate-binary-search-tree/)                                       | BST                     |
+| 24  | [Climbing Stairs](https://leetcode.com/problems/climbing-stairs/)                                                               | DP 1D                   |
+| 25  | [House Robber](https://leetcode.com/problems/house-robber/)                                                                     | DP 1D                   |
+| 26  | [Coin Change](https://leetcode.com/problems/coin-change/)                                                                       | DP Knapsack             |
+| 27  | [Longest Increasing Subsequence](https://leetcode.com/problems/longest-increasing-subsequence/)                                 | DP Subsequence          |
+| 28  | [Longest Common Subsequence](https://leetcode.com/problems/longest-common-subsequence/)                                         | DP 2D                   |
+| 29  | [Word Break](https://leetcode.com/problems/word-break/)                                                                         | DP + HashSet            |
+| 30  | [Partition Equal Subset Sum](https://leetcode.com/problems/partition-equal-subset-sum/)                                         | DP 0/1 Knapsack         |
+| 31  | [Number of Islands](https://leetcode.com/problems/number-of-islands/)                                                           | Graph DFS               |
+| 32  | [Course Schedule](https://leetcode.com/problems/course-schedule/)                                                               | Topological Sort        |
+| 33  | [Pacific Atlantic Water Flow](https://leetcode.com/problems/pacific-atlantic-water-flow/)                                       | Multi-source BFS        |
+| 34  | [Redundant Connection](https://leetcode.com/problems/redundant-connection/)                                                     | Union-Find              |
+| 35  | [Subsets](https://leetcode.com/problems/subsets/)[[Practice run 1#19. Subsets]]                                                 | Backtracking            |
+| 36  | [Combination Sum](https://leetcode.com/problems/combination-sum/)                                                               | Backtracking            |
+| 37  | [Permutations](https://leetcode.com/problems/permutations/)                                                                     | Backtracking            |
+| 38  | [Merge Intervals](https://leetcode.com/problems/merge-intervals/)                                                               | Greedy Intervals        |
+| 39  | [Find Median from Data Stream](https://leetcode.com/problems/find-median-from-data-stream/)                                     | Two Heaps               |
+| 40  | [Implement Trie](https://leetcode.com/problems/implement-trie-prefix-tree/)                                                     | Trie                    |
+|     |                                                                                                                                 |                         |
 
 ---
 

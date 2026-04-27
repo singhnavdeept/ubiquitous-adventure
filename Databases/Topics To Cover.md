@@ -23,9 +23,9 @@ Date: 16-April-2026
 
 - **[[2.1 SQL fundamentals]]** — SELECT, JOIN, GROUP BY, ORDER BY, HAVING
 - **[[2.2 Window Functions]]** — ROW_NUMBER, RANK, LEAD/LAG, PARTITION BY
-- **CTEs** — recursive and non-recursive (`WITH` clauses)
+- **[[2.3 CTE]]** — recursive and non-recursive (`WITH` clauses)
 - **Subqueries** — correlated vs non-correlated
-- **Aggregations** — ROLLUP, CUBE, GROUPING SETS
+- **[[2.4 Aggregation]]** — ROLLUP, CUBE, GROUPING SETS
 - **Full-text search** — tsvector, tsquery, relevance ranking
 - **Execution plans** — EXPLAIN, EXPLAIN ANALYZE, query cost
 
