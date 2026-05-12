@@ -231,3 +231,99 @@ The following table breaks down the most important architectures:
 | **Graph Neural Network (GNN)**                      | Graph & 3D            | Designed to operate on data structured as graphs (nodes and edges).                                                       | Can learn relationships and dependencies in non-Euclidean spaces.                                                             | Social network analysis, drug discovery, recommendation systems, traffic prediction.                      |
 
 If any of these architectures pique your interest, feel free to ask, and we can explore it in more detail.
+
+
+```mermaid 
+mindmap
+  root((Machine Learning<br/>Algorithms))
+    
+    ::icon(fa fa-brain)
+    Supervised Learning
+      Classification
+        Logistic Regression
+          ⚙️ Not Distance‑Based / Probabilistic
+          Sigmoid function for binary & multi‑class
+        K‑Nearest Neighbors (KNN)
+          📍 Distance‑Based / Lazy Learner
+          Majority vote among k closest points
+        Support Vector Machine (SVM)
+          📍 Distance‑Based (with kernel) / Max Margin
+          Finds optimal separating hyperplane
+        Naive Bayes
+          ⚙️ Not Distance‑Based / Probabilistic
+          Assumes feature independence (spam filter)
+        Decision Tree
+          ⚙️ Not Distance‑Based / Tree‑Based
+          Splits data using Gini/Entropy purity
+        Random Forest
+          ⚙️ Not Distance‑Based / Ensemble (Bagging)
+          Hundreds of trees on data subsets
+        Gradient Boosting (XGBoost/LightGBM)
+          ⚙️ Not Distance‑Based / Ensemble (Boosting)
+          Sequentially corrects previous errors
+        Neural Networks (MLP)
+          ⚙️ Not Distance‑Based / Backpropagation
+          Layers of neurons for deep patterns
+      
+      Regression
+        Linear Regression
+          ⚙️ Not Distance‑Based / Least Squares
+          Fits straight line minimizing error
+        Polynomial Regression
+          ⚙️ Not Distance‑Based / Feature Engineering
+          Curves by adding powers of features
+        Ridge / Lasso
+          ⚙️ Not Distance‑Based / Regularization
+          Penalizes complexity to prevent overfitting
+        KNN Regressor
+          📍 Distance‑Based / Lazy Learner
+          Averages values of nearest neighbors
+        SVR (Support Vector Regressor)
+          📍 Distance‑Based (with kernel) / Epsilon Tube
+          Fits tube ignoring small errors
+        Decision Tree Regressor
+          ⚙️ Not Distance‑Based / Variance Reduction
+          Splits to minimize target spread
+
+    Unsupervised Learning
+      Clustering
+        K‑Means
+          📍 Distance‑Based / Centroid
+          Iteratively moves k centers to means
+        Hierarchical Clustering
+          📍 Distance‑Based / Linkage Dendrogram
+          Merges closest clusters step by step
+        DBSCAN
+          📍 Distance‑Based / Density
+          Forms arbitrary shapes & detects outliers
+        Gaussian Mixture Models (GMM)
+          📍 Distance‑Based (Mahalanobis) / Soft Prob.
+          Probability of belonging to each cluster
+        Mean Shift
+          📍 Distance‑Based / Kernel Density
+          Walks points uphill to density peaks
+
+      Dimensionality Reduction & Association
+        PCA (Principal Component Analysis)
+          📍 Distance‑Based (covariance) / Eigenvectors
+          Finds directions of maximum variance
+        t‑SNE
+          📍 Distance‑Based (probabilistic) / Visualization
+          Preserves neighbors for 2D/3D plotting
+        Apriori / ECLAT
+          ⚙️ Not Distance‑Based / Frequency
+          Market basket analysis (e.g., bread → eggs)
+
+    Semi‑Supervised & Reinforcement
+      Semi‑Supervised
+        Label Propagation
+          📍 Distance‑Based (graph)
+          Spreads labels through similarity graph
+      
+      Reinforcement Learning
+        Q‑Learning / DQN
+          ⚙️ Not Distance‑Based / Action‑Reward
+          Agent learns policy to maximize cumulative reward
+```
+
+

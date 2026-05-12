@@ -100,7 +100,7 @@ public:
     bool isEndOfWord;
 
     TrieNode() : isEndOfWord(false) {
-        children.fill(nullptr);
+	        children.fill(nullptr);
     }
 };
 
@@ -1550,10 +1550,14 @@ vector<int> spiralOrder(vector<vector<int>>& matrix) {
         }
     }
 
+
     return result;
 }
 ```
 
----
 
-_Good luck with your technical round! Remember: clarify the problem, think out loud, start with brute force, then optimize._
+# 83 Rotate Matrix by 90
+
+```cpp
+
+```

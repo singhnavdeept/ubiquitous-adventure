@@ -1,37 +1,17 @@
+	
 
 
-> **Goal:** Systematic mastery of competitive programming from Div. 2 A/B to Div. 1 D/E level.  
-> **Difficulty Scale:** ⭐ = 800–1200 | ⭐⭐ = 1200–1600 | ⭐⭐⭐ = 1600–2000 | ⭐⭐⭐⭐ = 2000–2400 | ⭐⭐⭐⭐⭐ = 2400+  
+> **Difficulty Scale:** 
+> ⭐ = 800–1200 
+> ⭐⭐ = 1200–1600 
+> ⭐⭐⭐ = 1600–2000 
+> ⭐⭐⭐⭐ = 2000–2400 
+> ⭐⭐⭐⭐⭐ = 2400+  
 > **Legend:** ✅ Solved | 🔁 Revisit | ❌ Unsolved
 
 ---
 
-## 📋 Table of Contents
 
-1. [Implementation & Brute Force](https://claude.ai/chat/371f658b-228b-4f5f-a9c3-3fb225920e79#1-implementation--brute-force)
-2. [Math & Number Theory](https://claude.ai/chat/371f658b-228b-4f5f-a9c3-3fb225920e79#2-math--number-theory)
-3. [Sorting & Greedy](https://claude.ai/chat/371f658b-228b-4f5f-a9c3-3fb225920e79#3-sorting--greedy)
-4. [Binary Search](https://claude.ai/chat/371f658b-228b-4f5f-a9c3-3fb225920e79#4-binary-search)
-5. [Two Pointers & Sliding Window](https://claude.ai/chat/371f658b-228b-4f5f-a9c3-3fb225920e79#5-two-pointers--sliding-window)
-6. [Prefix Sums & Difference Arrays](https://claude.ai/chat/371f658b-228b-4f5f-a9c3-3fb225920e79#6-prefix-sums--difference-arrays)
-7. [Recursion & Backtracking](https://claude.ai/chat/371f658b-228b-4f5f-a9c3-3fb225920e79#7-recursion--backtracking)
-8. [Data Structures — STL & Basic](https://claude.ai/chat/371f658b-228b-4f5f-a9c3-3fb225920e79#8-data-structures--stl--basic)
-9. [Stacks, Queues & Deques](https://claude.ai/chat/371f658b-228b-4f5f-a9c3-3fb225920e79#9-stacks-queues--deques)
-10. [Hashing & Maps](https://claude.ai/chat/371f658b-228b-4f5f-a9c3-3fb225920e79#10-hashing--maps)
-11. [Strings & String Algorithms](https://claude.ai/chat/371f658b-228b-4f5f-a9c3-3fb225920e79#11-strings--string-algorithms)
-12. [Graphs — BFS & DFS](https://claude.ai/chat/371f658b-228b-4f5f-a9c3-3fb225920e79#12-graphs--bfs--dfs)
-13. [Shortest Paths](https://claude.ai/chat/371f658b-228b-4f5f-a9c3-3fb225920e79#13-shortest-paths)
-14. [Trees & Tree DP](https://claude.ai/chat/371f658b-228b-4f5f-a9c3-3fb225920e79#14-trees--tree-dp)
-15. [Dynamic Programming — 1D & 2D](https://claude.ai/chat/371f658b-228b-4f5f-a9c3-3fb225920e79#15-dynamic-programming--1d--2d)
-16. [DP on Intervals & Bitmask](https://claude.ai/chat/371f658b-228b-4f5f-a9c3-3fb225920e79#16-dp-on-intervals--bitmask)
-17. [Segment Trees & BIT (Fenwick)](https://claude.ai/chat/371f658b-228b-4f5f-a9c3-3fb225920e79#17-segment-trees--bit-fenwick)
-18. [Divide & Conquer](https://claude.ai/chat/371f658b-228b-4f5f-a9c3-3fb225920e79#18-divide--conquer)
-19. [Disjoint Set Union (DSU)](https://claude.ai/chat/371f658b-228b-4f5f-a9c3-3fb225920e79#19-disjoint-set-union-dsu)
-20. [Game Theory](https://claude.ai/chat/371f658b-228b-4f5f-a9c3-3fb225920e79#20-game-theory)
-21. [Flows & Matching](https://claude.ai/chat/371f658b-228b-4f5f-a9c3-3fb225920e79#21-flows--matching)
-22. [Geometry](https://claude.ai/chat/371f658b-228b-4f5f-a9c3-3fb225920e79#22-geometry)
-23. [Advanced Topics](https://claude.ai/chat/371f658b-228b-4f5f-a9c3-3fb225920e79#23-advanced-topics)
-24. [Mixed Bag — Contest Grinders](https://claude.ai/chat/371f658b-228b-4f5f-a9c3-3fb225920e79#24-mixed-bag--contest-grinders)
 
 ---
 
@@ -41,10 +21,10 @@
 
 | #   | Problem                                                                            | Rating | Tag       | Status | Notes                 |
 | --- | ---------------------------------------------------------------------------------- | ------ | --------- | ------ | --------------------- |
-| 1   | [Theatre Square — 1A](https://codeforces.com/problemset/problem/1/A)               | ⭐      | Math/Impl | ❌      | Classic first problem |
-| 2   | [Way Too Long Words — 71A](https://codeforces.com/problemset/problem/71/A)         | ⭐      | Strings   | ❌      |                       |
-| 3   | [Team — 231A](https://codeforces.com/problemset/problem/231/A)                     | ⭐      | Impl      | ❌      |                       |
-| 4   | [Bit++ — 282A](https://codeforces.com/problemset/problem/282/A)                    | ⭐      | Impl      | ❌      |                       |
+| 1   | [Theatre Square — 1A](https://codeforces.com/problemset/problem/1/A)               | ⭐      | Math/Impl | ✅      | Classic first problem |
+| 2   | [Way Too Long Words — 71A](https://codeforces.com/problemset/problem/71/A)         | ⭐      | Strings   | ✅      |                       |
+| 3   | [Team — 231A](https://codeforces.com/problemset/problem/231/A)                     | ⭐      | Impl      | ✅      |                       |
+| 4   | [Bit++ — 282A](https://codeforces.com/problemset/problem/282/A)                    | ⭐      | Impl      | ✅      |                       |
 | 5   | [Next Round — 158A](https://codeforces.com/problemset/problem/158/A)               | ⭐      | Impl      | ❌      |                       |
 | 6   | [Petya and Strings — 196A](https://codeforces.com/problemset/problem/196/A)        | ⭐      | Impl      | ❌      |                       |
 | 7   | [Domino piling — 50A](https://codeforces.com/problemset/problem/50/A)              | ⭐      | Math      | ❌      |                       |

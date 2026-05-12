@@ -5,7 +5,7 @@
 > **How this file is structured:** Each problem teaches one specific graph instinct. Read the _"what this teaches you"_ line before coding — that's the point of the problem. Every solution is written in clean Python with line-by-line comments.
 
 ---
-6
+
 ## 3 Python Graph Templates
 
 Burn these into memory. Every problem below is a variation of one of these.

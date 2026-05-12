@@ -1,4 +1,4 @@
-#problems/deepdive
+	#problems/deepdive
 # Solving "Redundant Connection" (LeetCode 684) using DSU
 
 ## Problem Statement (simplified)

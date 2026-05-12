@@ -1,15 +1,3 @@
----
-
-excalidraw-plugin: parsed
-tags: [excalidraw]
-
----
-==⚠  Switch to EXCALIDRAW VIEW in the MORE OPTIONS menu of this document. ⚠== You can decompress Drawing data with the command palette: 'Decompress current Excalidraw file'. For more info check in plugin settings under 'Saving'
-
-
-
-# nsmm
-
 Excellent clarification. Here is a complete set of **expert-level notes on the Java Stream API (`java.util.stream`)**—a deep dive that covers not just *how* to use streams but *how they work under the hood*, the full taxonomy of operations, and the principles that separate expert usage from naive usage.
 
 ---
@@ -22,12 +10,12 @@ A **Stream** in Java is *not* a data structure. It is a **declarative, functiona
 
 **The key philosophical shift from pre-Java-8 programming:**
 
-| Imperative Style (Pre-Streams) | Declarative Style (Streams) |
-|--------------------------------|----------------------------|
-| *How* to do it: loop, accumulate, mutate | *What* you want: filter, transform, collect |
-| External iteration (you control the loop) | Internal iteration (the library controls the loop) |
-| Mutable state, accidental complexity | Immutability, functional purity |
-| Sequential by default; parallelism is a rewrite | `.parallelStream()` is a one-word change |
+| Imperative Style (Pre-Streams)                  | Declarative Style (Streams)                        |
+| ----------------------------------------------- | -------------------------------------------------- |
+| *How* to do it: loop, accumulate, mutate        | *What* you want: filter, transform, collect        |
+| External iteration (you control the loop)       | Internal iteration (the library controls the loop) |
+| Mutable state, accidental complexity            | Immutability, functional purity                    |
+| Sequential by default; parallelism is a rewrite | `.parallelStream()` is a one-word change           |
 
 A stream pipeline consists of three parts:
 1.  **A source** – a collection, array, generator function, or I/O channel.
@@ -486,122 +474,3 @@ Expert usage demands understanding the distinction between stateless and statefu
 ---
 
 If you'd like to dive deeper into any specific area—such as **custom collector design with detailed examples**, **parallel stream performance tuning with JMH benchmarks**, or a **side‑by‑side comparison of equivalent stream vs. imperative implementations for common problem sets**—please let me know.
-
-# Excalidraw Data
-
-## Text Elements
-FUNCTIONAL Requirements 
-     ^Soxl42Hz
-
-Able to login and Signup 
-Search train by searching station A to B 
-Book ticket
-Show available tickets or seats
-
- ^0myYBpC7
-
-Low Level Design 
-     ^o3d8CCxn
-
-Entities 
-    User  ^y1D04uNo
-
-String Name 
-string UserID 
-string HashedPassword
-Tickets Booked (list>
- ^N7cpNLSZ
-
-Ticket 
-    String ticket is
-    String Userid
-    DateTime
-    String source 
-    String Destination
-    Train
-
-Train
-    String trainid
-    String trainno
-    Datetime Departtime
-    DateTime Arrivaltime
-    list<list<boolean>>seats ^XU712LL7
-
-Service The Business logic that will use the entities  ^Suv4EkEt
-
-User Booking Service
-    login user (user used)
-    signup(user used)
-    fetchbooking(user used)
-    cancelbooking
- ^tZX27NGa
-
-Train Service  ^Cw0fb3bn
-
-Searchtrain (string a, stringb)
-getseatsavailable ^KF9WS2SB
-
-%%
-## Drawing
-```compressed-json
-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
-```
-%%
