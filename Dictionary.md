@@ -336,3 +336,10 @@ If you insert a row, the database can write the table data and temporarily cache
 ### Summary
 
 While standard indexes slow down writes by requiring extra storage maintenance, **unique constraints** add the strict requirement of $O(\log N)$ lookups, potential random disk reads, and heavy concurrency locking prior to every single insert or relevant update.
+
+
+
+## RPC
+
+## Predeclared views
+

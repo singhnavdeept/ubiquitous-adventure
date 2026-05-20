@@ -1,5 +1,5 @@
 #concept/remembring
-Here’s a complete, step‑by‑step explanation of how a compiler transforms source code into a running program and produces the final output. We’ll follow a typical compiler for a language like C, but the principles apply broadly.
+
 
 ---
 ![[Pasted image 20260412192723.png]]

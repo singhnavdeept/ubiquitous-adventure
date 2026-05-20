@@ -78,7 +78,7 @@ As more CPU is used, the chance of spilling on to more cores increases, resultin
 
 ### Memory
 
-If nothing else, more in-flight requests consume more RAM from allocating the request, response, and RPC objects. Memory exhaustion can cause the following effects:
+If nothing else, more in-flight requests consume more RAM from allocating the request, response, and RPC [[Dictionary#RPC]] objects. Memory exhaustion can cause the following effects:
 
 Dying tasks
 
