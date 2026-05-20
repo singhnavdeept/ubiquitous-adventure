@@ -99,6 +99,7 @@ def floodFill(image, sr, sc, color):
 
 **Key Python habit:** No need to track a separate `visited` set here — painting the cell to the new color IS the visited marker.
 
+
 ---
 
 ### Problem 2 — Island Perimeter
@@ -904,4 +905,6 @@ def minReorder(n, connections):
 
 ---
 
-_Work through these in order. By problem 10, the BFS and DFS templates will feel automatic. By problem 20, you'll start seeing graphs in problems that don't say "graph" anywhere._
+
+
+---

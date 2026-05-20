@@ -93,7 +93,7 @@
 
 - [ ] When to use NoSQL vs relational — trade-offs
 - [ ] Document stores — MongoDB basics, when documents make sense
-- [ ] Wide-column — Cassandra, use cases (time-series, IoT)
+- [ ] Wide-column — [[Architecture of Cassandra]], use cases (time-series, IoT)
 - [ ] Key-value — Redis for caching and fast lookups
 - [ ] DynamoDB — partition keys, sort keys, access patterns first
 

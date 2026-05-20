@@ -1,3 +1,5 @@
+
+
 This is a classic point of confusion because both `GROUP BY` and `PARTITION BY` operate on "groups" of rows. The critical difference is **what the database returns to you**.
 
 - **`GROUP BY`** is an **aggregation tool**. It **collapses** many rows into one row per group.

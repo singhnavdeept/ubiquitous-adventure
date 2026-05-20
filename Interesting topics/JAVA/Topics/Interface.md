@@ -18,17 +18,17 @@ This is the essence of **abstraction**: the interface defines *what* a class mus
 
 While both are reference types from which objects can be created (via `new` with a concrete class), interfaces and classes differ at a fundamental design level.
 
-| Aspect | Interface | Class |
-|--------|-----------|-------|
-| **Purpose** | Defines a contract / capability (*what* should be done) | Defines a concrete entity with state and behavior (*how* it is done) |
-| **Instantiation** | Cannot be instantiated directly (no `new MyInterface()`) | Concrete classes can be instantiated (`new MyClass()`) |
-| **Constructors** | Cannot have constructors | Always has at least one constructor |
-| **Instance variables** | Only `public static final` constants allowed | All types of instance variables (private, protected, public) |
-| **Method implementations** | Abstract methods (no body) by default; `default` and `static` methods (Java 8+); `private` methods (Java 9+) can have bodies | All methods can have implementations |
-| **Inheritance** | A class can **implement multiple interfaces** | A class can **extend only one class** (single inheritance) |
-| **Access modifiers on members** | All methods are implicitly `public`; variables are `public static final` | Full range of access modifiers (`private`, `protected`, `public`, package-private) |
-| **State** | Cannot hold instance state (no non‑static fields) | Holds instance state through fields |
-| **Keyword for relationship** | `implements` (class to interface); `extends` (interface to interface) | `extends` (class to class) |
+| Aspect                          | Interface                                                                                                                    | Class                                                                              |
+| ------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
+| **Purpose**                     | Defines a contract / capability (*what* should be done)                                                                      | Defines a concrete entity with state and behavior (*how* it is done)               |
+| **Instantiation**               | Cannot be instantiated directly (no `new MyInterface()`)                                                                     | Concrete classes can be instantiated (`new MyClass()`)                             |
+| **Constructors**                | Cannot have constructors                                                                                                     | Always has at least one constructor                                                |
+| **Instance variables**          | Only `public static final` constants allowed                                                                                 | All types of instance variables (private, protected, public)                       |
+| **Method implementations**      | Abstract methods (no body) by default; `default` and `static` methods (Java 8+); `private` methods (Java 9+) can have bodies | All methods can have implementations                                               |
+| **Inheritance**                 | A class can **implement multiple interfaces**                                                                                | A class can **extend only one class** (single inheritance)                         |
+| **Access modifiers on members** | All methods are implicitly `public`; variables are `public static final`                                                     | Full range of access modifiers (`private`, `protected`, `public`, package-private) |
+| **State**                       | Cannot hold instance state (no non‑static fields)                                                                            | Holds instance state through fields                                                |
+| **Keyword for relationship**    | `implements` (class to interface); `extends` (interface to interface)                                                        | `extends` (class to class)                                                         |
 
 **The core philosophical difference:** A class describes *identity* (what something *is*), while an interface describes *capability* (what something *can do*). A `Dog` class might implement `Runnable`, `Swimmable`, and `Pet` interfaces—it *is* a dog, but it *can do* running, swimming, and being a pet.
 
