@@ -133,7 +133,7 @@ def islandPerimeter(grid):
 
 ---
 
-### Problem 3 — Count Sub Islands
+### Problem 3 — Count Sub Islands -d
 
 **Link:** https://leetcode.com/problems/count-sub-islands/ **Difficulty:** Medium **What this teaches you:** DFS with a twist — you need to check a condition _across two grids simultaneously_ during the traversal. This pattern (DFS + external condition) appears in many harder problems.
 
@@ -230,7 +230,7 @@ def nearestExit(maze, entrance):
 
         for dr, dc in dirs:
             nr, nc = r+dr, c+dc
-
+	
             if 0 <= nr < rows and 0 <= nc < cols and maze[nr][nc] == '.':
                 # Is this cell on the border? If so, it's an exit
                 if nr == 0 or nc == 0 or nr == rows-1 or nc == cols-1:
