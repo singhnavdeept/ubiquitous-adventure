@@ -9,7 +9,6 @@ banner: a_city_with_buildings_and_lights.jpg
 read: false
 ---
 
-
 ``
 Databases are a fundamental and core aspect of system design, and one of the most versatile / popular databases to have in your toolbox is [Cassandra](https://cassandra.apache.org/_/index.html). Cassandra was originally built by Facebook to support its rapidly scaling inbox search feature. Since then, Cassandra has been adopted by [countless companies](https://cassandra.apache.org/_/case-studies.html) to rapidly scale data storage, throughput, and readback. From Discord (explored later in this post), to Netflix, to Apple, to Bloomberg, Cassandra is a NoSQL database that is here to stay, used by a wide array of firms for a large set of use-cases.
 
