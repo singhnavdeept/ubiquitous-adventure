@@ -146,83 +146,364 @@ networks:
 
 ---
 
-## 🐙 2. Git: Merging & Interactive Rebasing
+## 🐙 2. Git: Comprehensive Version Control Reference
 
-### A. Merging (Fast-Forward vs. Recursive Merge Commit)
-```bash
-# 1. Create and switch to a feature branch
-git checkout -b feature-branch
-
-# 2. Make changes and commit
-git add .
-git commit -m "feat: implement database connection"
-
-# 3. Switch back to main
-git checkout main
-
-# 4. Scenario A: Fast-Forward Merge (main had no new commits)
-# Directly moves the main branch pointer forward to the last commit of feature-branch
-git merge feature-branch
-
-# 5. Scenario B: Force a Merge Commit (prevents fast-forward, creates history bubble)
-git merge --no-ff feature-branch
-```
-
-#### How to Resolve a Merge Conflict:
-If both `main` and `feature-branch` modified the same line:
-1. Running `git merge feature-branch` will output: `CONFLICT (content): Merge conflict in file.txt`.
-2. Open `file.txt`. Locate the conflict markers:
-   ```text
-   <<<<<<< HEAD
-   This is the text on the main branch.
-   =======
-   This is the text on the feature branch.
-   >>>>>>> feature-branch
-   ```
-3. Edit the file: remove the markers (`<<<<<<<`, `=======`, `>>>>>>>`) and keep the desired final code state.
-4. Stage and commit the resolved files:
-   ```bash
-   git add file.txt
-   git commit -m "merge: resolve conflict between main and feature-branch"
-   ```
+Git tracks files in three main areas: the **Working Directory** (unsaved edits), the **Staging Area/Index** (prepared edits), and the **Local Repository** (committed history). Below are the essential commands and workflows required for both practical exams and day-to-day operations.
 
 ---
 
-### B. Interactive Rebasing (`git rebase -i`)
-Rebasing reapplies commits from your branch on top of another branch, linearizing history. Interactive rebasing (`-i`) allows you to modify, squash, reorder, or delete commits.
+### A. Repository Setup & Branching
 
-```bash
-# Start interactive rebase for the last 3 commits on your current branch
-git rebase -i HEAD~3
+#### 1. Repository Initialization & Cloning
+* Initialize a new Git repository in the current directory:
+  ```bash
+  git init
+  ```
+* Clone a remote repository over HTTPS or SSH:
+  ```bash
+  git clone https://github.com/username/repository.git
+  ```
+* Perform a **Shallow Clone** (downloads only the latest $N$ commits to save bandwidth and speed up build pipelines):
+  ```bash
+  git clone --depth 1 https://github.com/username/repository.git
+  ```
+
+#### 2. Branch Management (`git branch`)
+Branches are lightweight pointers to specific commits.
+* List all local branches (active branch is marked with `*`):
+  ```bash
+  git branch
+  ```
+* List all local and remote-tracking branches:
+  ```bash
+  git branch -a
+  ```
+* Create a new branch (without switching to it):
+  ```bash
+  git branch feature-name
+  ```
+* Delete a branch locally (fails if the branch contains unmerged changes):
+  ```bash
+  git branch -d branch-name
+  ```
+* Force delete a branch locally (discarding all unmerged changes):
+  ```bash
+  git branch -D branch-name
+  ```
+* Rename the current branch:
+  ```bash
+  git branch -m new-branch-name
+  ```
+* Delete a remote branch on the GitHub origin server:
+  ```bash
+  git push origin --delete branch-name
+  ```
+
+#### 3. Switching Branches (`git checkout` vs. `git switch`)
+In Git 2.23+, `git switch` was introduced to separate branch switching logic from file recovery (which is handled by `git restore`).
+* Switch to an existing branch:
+  ```bash
+  git switch branch-name
+  # Or legacy: git checkout branch-name
+  ```
+* Create a new branch and switch to it immediately:
+  ```bash
+  git switch -c new-branch-name
+  # Or legacy: git checkout -b new-branch-name
+  ```
+* Switch back to the previous branch you were on:
+  ```bash
+  git switch -
+  # Or legacy: git checkout -
+  ```
+
+---
+
+### B. Staging, Committing & Undoing Changes
+
+#### 1. Checking Status & Visualizing Changes
+* Check status of files (untracked, modified, staged):
+  ```bash
+  git status
+  ```
+* Short status view (useful for scripting):
+  ```bash
+  git status -s
+  ```
+* Show differences between working directory and staging area:
+  ```bash
+  git diff
+  ```
+* Show differences between staged changes and the last commit:
+  ```bash
+  git diff --staged
+  # Or: git diff --cached
+  ```
+
+#### 2. Staging Changes (`git add`)
+* Stage a specific file:
+  ```bash
+  git add filename.txt
+  ```
+* Stage all changes (new, modified, and deleted files):
+  ```bash
+  git add .
+  # Or: git add -A
+  ```
+* **Interactive Patching** (opens an interactive prompt to stage specific chunks/lines of a file rather than the whole file):
+  ```bash
+  git add -p filename.txt
+  # Key options: 'y' (stage hunk), 'n' (skip hunk), 's' (split hunk into smaller pieces)
+  ```
+
+#### 3. Committing Changes (`git commit`)
+* Commit staged changes with a commit message:
+  ```bash
+  git commit -m "feat: implement database connector"
+  ```
+* Stage and commit all modified files in a single step (does not stage new untracked files):
+  ```bash
+  git commit -am "fix: correct authentication routing typo"
+  ```
+* **Amend the last commit** (adds newly staged changes to the last commit and/or lets you rewrite the last commit message):
+  ```bash
+  git commit --amend -m "feat: implement DB connector with connection pooling"
+  # WARNING: Only use this if the commit hasn't been pushed to a remote branch.
+  ```
+
+#### 4. Restoring & Cleaning Files
+* Discard changes in a modified file (reverts it back to the state in the index or HEAD):
+  ```bash
+  git restore filename.txt
+  # Or legacy: git checkout -- filename.txt
+  ```
+* Unstage a staged file (moves it back from staging area to working directory modifications):
+  ```bash
+  git restore --staged filename.txt
+  # Or legacy: git reset HEAD filename.txt
+  ```
+* Remove untracked files and directories from the working directory:
+  ```bash
+  # Dry-run (lists what would be deleted without actually deleting)
+  git clean -fdn
+  # Execute clean (f = force, d = directories)
+  git clean -fd
+  ```
+
+---
+
+### C. Stashing (Temporary Work Preservation)
+Stashing takes your modified working directory files and staged changes, saves them on a local stack, and resets your working directory to clean HEAD state.
+
+#### 1. Push to Stash
+* Stash modifications (untracked files are ignored by default):
+  ```bash
+  git stash
+  # Or with a descriptive message:
+  git stash push -m "work-in-progress: checkout schema logic"
+  ```
+* Include untracked files in the stash:
+  ```bash
+  git stash -u
+  # Or: git stash --include-untracked
+  ```
+* Stash all files including ignored files:
+  ```bash
+  git stash -a
+  # Or: git stash --all
+  ```
+
+#### 2. Inspecting the Stash Stack
+* List all stashed states:
+  ```bash
+  git stash list
+  # Format output: stash@{0}: WIP on main: a17a326 feat: base setup
+  ```
+* Show the diff changes inside a specific stash:
+  ```bash
+  git stash show -p stash@{0}
+  ```
+
+#### 3. Applying Stashed Work
+* Apply the latest stash (`stash@{0}`) and **remove it** from the stack:
+  ```bash
+  git stash pop
+  ```
+* Apply a specific stash and **keep it** on the stack for safety:
+  ```bash
+  git stash apply stash@{1}
+  ```
+
+#### 4. Dropping & Cleaning Stash
+* Delete a specific stash from the stack:
+  ```bash
+  git stash drop stash@{0}
+  ```
+* Clear the entire stash stack:
+  ```bash
+  git stash clear
+  ```
+
+---
+
+### D. Merging, Rebasing & Cherry-Picking
+
+#### 1. Merging Branches (`git merge`)
+Combines work from two branches.
+* **Fast-Forward Merge**: If the target branch has no new commits since the source branch split off, Git simply moves the target pointer forward to the source branch's last commit. No new commit is created.
+  ```bash
+  git checkout main
+  git merge feature-branch
+  ```
+* **Recursive 3-way Merge (Merge Commit)**: If both branches have diverged, Git combines the histories and creates a new **Merge Commit** tying them together.
+  * Force a merge commit even if a fast-forward is possible (useful to maintain clear historical branch boundaries):
+    ```bash
+    git merge --no-ff feature-branch
+    ```
+* **Aborting a Merge**: If a merge conflict occurs and you want to cancel the merge and return your working directory to its pre-merge state:
+  ```bash
+  git merge --abort
+  ```
+
+#### 2. Rebasing (`git rebase`)
+Rebasing reapplies commits from your current branch on top of another base branch. It rewrites commit hashes to create a clean, linear history.
+
+```
+Diverged History:
+      A---B---C (main)
+           \
+            D---E (feature)
+
+After "git rebase main" on feature branch:
+      A---B---C (main)
+               \
+                D'---E' (feature)
 ```
 
-This opens a text file in your terminal editor (Vim/Nano) listing your commits chronologically (oldest to newest):
+* Rebase the active branch on top of `main`:
+  ```bash
+  git switch feature-branch
+  git rebase main
+  ```
+* **Handling Conflicts During Rebase**:
+  1. Git will pause on the first conflicting commit.
+  2. Resolve the conflicts manually in the files.
+  3. Stage the files: `git add <file>`.
+  4. Continue rebase: `git rebase --continue`.
+  5. (Repeat until done).
+  * If you get stuck and want to cancel the rebase completely:
+    ```bash
+    git rebase --abort
+    ```
+* **Interactive Rebasing (`git rebase -i`)**:
+  Allows restructuring, squashing, reordering, or deleting commits.
+  ```bash
+  # Rebase the last 4 commits interactively
+  git rebase -i HEAD~4
+  ```
+  In the editor list, change the action keyword before each commit:
+  * `pick` (or `p`): Use the commit as is.
+  * `reword` (or `r`): Use the commit, but edit the commit message.
+  * `squash` (or `s`): Meld this commit's changes into the *previous* commit above it.
+  * `drop` (or `d`): Remove the commit entirely.
 
-```text
-pick a17a326 feat: create user schema
-pick 8bc28b5 fix: resolve db typo
-pick 30e44e5 docs: update API documentation
+#### 3. Cherry-Picking (`git cherry-pick`)
+Applies the changes introduced by a specific commit from another branch onto your active branch as a new commit.
+* Cherry-pick a specific commit:
+  ```bash
+  git cherry-pick <commit-hash>
+  ```
+* Abort cherry-pick if conflicts occur:
+  ```bash
+  git cherry-pick --abort
+  ```
 
-# Rebase Commands:
-# p, pick = use commit
-# r, reword = use commit, but edit the commit message
-# e, edit = use commit, but stop for amending
-# s, squash = use commit, but meld into previous commit
-# d, drop = remove commit
-```
+---
 
-#### Steps to Squash Commits:
-1. Change `pick` to `squash` (or `s`) for the commits you want to merge *up* into the previous one:
-   ```text
-   pick a17a326 feat: create user schema
-   squash 8bc28b5 fix: resolve db typo
-   squash 30e44e5 docs: update API documentation
-   ```
-2. Save and close the editor (In Vim: `:wq` and hit Enter).
-3. A second editor window opens prompting you to write a consolidated commit message. Edit the message, save, and exit.
-4. Your history is now linearized into a single clean commit.
-   > [!WARNING]
-   > Never rebase commits that have already been pushed to a public remote repository shared by other developers. It rewrites git hashes and breaks history mapping.
+### E. Undoing Commits & History Rewriting
+
+#### 1. Resetting History (`git reset`)
+Resets the current HEAD branch pointer to a specified commit. It is used to undo commits locally.
+
+> [!CAUTION]
+> `git reset` alters history. Never use it on shared/public remote branches, as it will cause synchronization issues for others.
+
+* **Soft Reset (`--soft`)**:
+  * **Behavior**: Moves the HEAD branch pointer back, but **preserves all changes** in your Staging Area (index) and Working Directory. No code changes are lost.
+  * *Use case*: You committed too early, want to undo the commit, and restructure/re-stage the changes.
+  ```bash
+  git reset --soft HEAD~1
+  ```
+* **Mixed Reset (`--mixed` - Default)**:
+  * **Behavior**: Moves the HEAD branch pointer back and **unstages changes** (clears index), but keeps changes in your working directory.
+  * *Use case*: Undo the commit and unstage everything, but keep your edits to work on them.
+  ```bash
+  git reset HEAD~1
+  # Equivalent to: git reset --mixed HEAD~1
+  ```
+* **Hard Reset (`--hard`)**:
+  * **Behavior**: Moves HEAD, clears the staging index, and **permanently deletes all changes** in the working directory. Any unsaved edits and commits are lost forever.
+  * *Use case*: Completely discard the last commit and all associated file changes.
+  ```bash
+  git reset --hard HEAD~1
+  ```
+
+#### 2. Reverting Commits (`git revert`)
+* **Behavior**: Creates a **new commit** that introduces the exact opposite changes of a past commit. It does not rewrite history; it appends to it.
+* **Use Case**: Safe to use on public/shared remote branches. If a bug goes to production, you run `git revert <bad-commit-hash>` to commit a fix that undoes the changes.
+  ```bash
+  git revert <bad-commit-hash>
+  ```
+
+---
+
+### F. Remote Repository Synchronization
+
+#### 1. Managing Remotes
+* Show remote repository names and URLs:
+  ```bash
+  git remote -v
+  ```
+* Add a new remote connection reference:
+  ```bash
+  git remote add origin https://github.com/username/repo.git
+  ```
+
+#### 2. Remote Updates (`git fetch` vs. `git pull`)
+* **Fetch**: Downloads new branches, tags, and commits from the remote repository to your local tracking database (e.g. into `origin/main`), but does not modify your working directory files.
+  ```bash
+  git fetch origin
+  ```
+* **Pull**: Executes a `git fetch` followed by a `git merge` to integrate remote changes directly into your active branch.
+  ```bash
+  git pull origin main
+  ```
+* **Pull with Rebase** (Recommended to avoid merge commits when pulling team updates):
+  ```bash
+  git pull --rebase origin main
+  ```
+
+#### 3. Uploading Changes (`git push`)
+* Push your branch to the remote origin server (setting upstream tracking):
+  ```bash
+  git push -u origin feature-branch
+  ```
+* **Force Pushing**: Required after rebasing or resetting commits that were already pushed.
+  * **DANGEROUS FORCE** (overwrites remote history blindly, even if others pushed in the meantime):
+    ```bash
+    git push --force
+    # Or: git push -f
+    ```
+  * **SAFE FORCE** (only pushes if no one else has pushed updates to the remote branch since your last fetch):
+    ```bash
+    git push --force-with-lease
+    ```
+
+#### 4. Formatting Logs
+* Print a beautiful, compact commit graph:
+  ```bash
+  git log --graph --oneline --decorate --all
+  ```
 
 ---
 
