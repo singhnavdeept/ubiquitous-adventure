@@ -36,6 +36,23 @@ Since your Hive & Hadoop stack is running inside **Ubuntu on WSL**, you must spe
 > tr -d '\r' < /mnt/c/Users/navde/Desktop/student_cs.csv > /home/ubuntu/student_cs.csv
 > ```
 
+> [!CAUTION]
+> **SemanticException: Invalid path - Relative vs. Absolute Paths**:
+> If you write a path without a leading slash, such as `'home/nav/data/student_cs.csv'`, Hive treats it as a relative path.
+> 
+> If you launched Hive from `/home/nav`, Hive will append your path to the current directory, resulting in:
+> `file:/home/nav/home/nav/data/student_cs.csv` (which does not exist and throws a SemanticException).
+> 
+> **To resolve this, do one of the following**:
+> 1. Use the **absolute path** (must start with `/`):
+>    ```sql
+>    LOAD DATA LOCAL INPATH '/home/nav/data/student_cs.csv' ...
+>    ```
+> 2. Use the correct **relative path** from your active shell directory (since you are in `/home/nav`, use `data/` directly):
+>    ```sql
+>    LOAD DATA LOCAL INPATH 'data/student_cs.csv' ...
+>    ```
+
 ---
 
 ## 🛠️ 2. Step 1: Prepare the Local Data Files
