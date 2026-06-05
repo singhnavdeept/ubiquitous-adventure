@@ -66,14 +66,15 @@ When you inject a `JpaRepository` interface, the runtime proxy directs calls to 
 The `save()` method does double duty. It handles both **Inserts** and **Updates** by checking the entity state:
 - **How it works**:
   ```java
-  // Simplified SimpleJpaRepository implementation
-  @Transactional
+  // Simplified Spring Data JPA's SimpleJpaRepository class implementation under the hood
+  @Transactional // Ensures the save method executes inside a database transaction boundary
   public <S extends T> S save(S entity) {
+      // Checks if the entity has no ID (meaning it is a new record)
       if (entityInformation.isNew(entity)) {
-          entityManager.persist(entity); // Triggers SQL INSERT
-          return entity;
+          entityManager.persist(entity); // Calls JPA EntityManager to schedule a SQL INSERT statement
+          return entity; // Returns the original entity reference
       } else {
-          return entityManager.merge(entity); // Triggers SQL UPDATE / SELECT
+          return entityManager.merge(entity); // Calls JPA EntityManager to update the record in the DB (creates a merged copy)
       }
   }
   ```
@@ -83,7 +84,9 @@ The `save()` method does double duty. It handles both **Inserts** and **Updates*
 - **How it works**: Calls `entityManager.find(Class<T> entityClass, Object primaryKey)`.
 - **Optional Wrapper**: It returns `java.util.Optional<T>` instead of raw type `T`. This forces the developer to handle the "resource not found" scenario cleanly, preventing `NullPointerException` bugs.
   ```java
-  Student student = studentRepository.findById(1L)
+  // Executed in Service layer
+  Student student = studentRepository.findById(1L) // Searches database table for student where primary key id = 1
+      // Returns an Optional. If no record matches id = 1, throws ResourceNotFoundException
       .orElseThrow(() -> new ResourceNotFoundException("Student not found"));
   ```
 
@@ -106,21 +109,27 @@ Method names must follow the convention: `find[Subject]By[Predicate]`:
 
 ### Common Derived Query Patterns:
 ```java
+// The interface extends JpaRepository to inherit database access methods
 public interface StudentRepository extends JpaRepository<Student, Long> {
     
-    // SQL: SELECT * FROM students WHERE email = ?
+    // Derived query finding a single student record matching the exact email parameter
+    // SQL equivalent: SELECT * FROM students WHERE email = ?
     Optional<Student> findByEmail(String email);
 
-    // SQL: SELECT * FROM students WHERE name = ? AND age = ?
+    // Derived query matching name and age exactly
+    // SQL equivalent: SELECT * FROM students WHERE name = ? AND age = ?
     List<Student> findByNameAndAge(String name, Integer age);
 
-    // SQL: SELECT * FROM students WHERE age > ? ORDER BY name ASC
+    // Derived query filtering age greater than input and sorting by name ascending
+    // SQL equivalent: SELECT * FROM students WHERE age > ? ORDER BY name ASC
     List<Student> findByAgeGreaterThanOrderByNameAsc(Integer age);
 
-    // SQL: SELECT * FROM students WHERE email LIKE '%@gmail.com'
+    // Derived query performing a suffix wildcard match on email
+    // SQL equivalent: SELECT * FROM students WHERE email LIKE '%?1'
     List<Student> findByEmailEndingWith(String suffix);
 
-    // SQL: SELECT * FROM students WHERE LOWER(name) = LOWER(?)
+    // Derived query performing case-insensitive matching on the name field
+    // SQL equivalent: SELECT * FROM students WHERE LOWER(name) = LOWER(?)
     List<Student> findByNameIgnoreCase(String name);
 }
 ```
@@ -134,33 +143,35 @@ For complex queries (e.g., joins, reporting, bulk updates), derived queries beco
 ### 1. JPQL (Java Persistence Query Language)
 JPQL queries **Entities (Java classes) and class variables**, not actual database tables and columns. It is database-agnostic.
 ```java
-// Note: We use the Entity class 'Student' and variable names 'email', not database column names.
-@Query("SELECT s FROM Student s WHERE s.email = :email")
-Optional<Student> findByEmailCustom(@Param("email") String email);
+// Uses Entity class name 'Student' and property variable 'email' (not database columns)
+@Query("SELECT s FROM Student s WHERE s.email = :email") // Defines custom JPQL query string
+Optional<Student> findByEmailCustom(@Param("email") String email); // Binds method argument 'email' to query parameter ':email'
 ```
 
 ### 2. Native SQL
 Queries the **actual database tables and columns** directly. Useful for database-specific features (e.g. Postgres JSON/vector functions).
 ```java
-@Query(value = "SELECT * FROM students WHERE email_address = :email", nativeQuery = true)
-Optional<Student> findByEmailNative(@Param("email") String email);
+// Uses actual physical database table 'students' and column 'email_address'
+@Query(value = "SELECT * FROM students WHERE email_address = :email", nativeQuery = true) // nativeQuery=true executes SQL directly
+Optional<Student> findByEmailNative(@Param("email") String email); // Binds 'email' method argument to query parameter ':email'
 ```
 
 ### 3. Parameter Binding
 - **Named Parameters (Recommended)**: Uses `:parameterName` matched via `@Param("parameterName")`.
 - **Positional Parameters**: Uses `?1`, `?2` based on argument order.
   ```java
-  @Query("SELECT s FROM Student s WHERE s.name = ?1 AND s.age = ?2")
-  List<Student> findByNameAndAgePositional(String name, Integer age);
+  // Positional bindings map arguments based on order sequence: ?1 binds to 'name', ?2 binds to 'age'
+  @Query("SELECT s FROM Student s WHERE s.name = ?1 AND s.age = ?2") // Defines JPQL query with positional parameters
+  List<Student> findByNameAndAgePositional(String name, Integer age); // Method signature
   ```
 
 ### 4. Modifying Queries (UPDATE / DELETE)
 For write operations using `@Query`, you **must** annotate the method with `@Modifying`.
 ```java
-@Modifying
-@Transactional
-@Query("UPDATE Student s SET s.department = :dept WHERE s.id = :id")
-int updateDepartment(@Param("id") Long id, @Param("dept") String dept);
+@Modifying // Tells Spring to treat this query as a write operation (DML: UPDATE/DELETE) rather than a read operation (SELECT)
+@Transactional // Enforces transaction boundary required for database modifications
+@Query("UPDATE Student s SET s.department = :dept WHERE s.id = :id") // Defines JPQL update query
+int updateDepartment(@Param("id") Long id, @Param("dept") String dept); // Returns the count of affected database rows
 ```
 - **Why `@Modifying`?**: It tells Spring to execute the query as an update statement rather than a select query, returning the number of affected rows (an `int` or `void`) instead of a result list.
 
@@ -198,22 +209,23 @@ At the end of the transaction, Hibernate performs a dirty-check, identifies that
 
 #### Example:
 ```java
-@Service
+@Service // Registers this class as the business logic service bean in Spring context
 public class StudentService {
     
-    @Autowired
+    @Autowired // Auto-wires dependency injection for repository layer
     private StudentRepository repository;
 
-    @Transactional
+    @Transactional // Starts a database transaction. Auto-commits and flushes changes on method success.
     public void updateAge(Long id, Integer newAge) {
-        // 1. Fetching puts the object in the MANAGED state
+        // 1. Fetching the student record loads it from DB. It is placed in the Persistent (MANAGED) state.
         Student student = repository.findById(id).orElseThrow();
         
-        // 2. Modifying the object directly
+        // 2. Modifying the managed entity object's field directly in memory.
         student.setAge(newAge);
         
-        // NO NEED to call repository.save(student);
-        // Hibernate automatically detects the change and flushes SQL UPDATE on method exit.
+        // CRITICAL: NO NEED TO CALL repository.save(student);
+        // On method exit, the transaction commits. Hibernate performs "Dirty Checking", 
+        // detects that 'age' was modified in the Persistence Context, and automatically triggers SQL UPDATE.
     }
 }
 ```
@@ -228,17 +240,20 @@ For large datasets, loading all rows via `findAll()` will cause Out-Of-Memory er
 Inject a `Pageable` parameter into your controller and pass it to the repository:
 
 ```java
-// Controller Layer
-@GetMapping("/paginated")
+// Controller Web Endpoint
+@GetMapping("/paginated") // Maps GET requests to /paginated path
 public ResponseEntity<Page<Student>> getStudents(
-        @RequestParam(defaultValue = "0") int page,
-        @RequestParam(defaultValue = "10") int size,
-        @RequestParam(defaultValue = "id") String sortBy) {
+        @RequestParam(defaultValue = "0") int page, // Page index query parameter (defaults to page 0)
+        @RequestParam(defaultValue = "10") int size, // Page size query parameter (defaults to 10 rows per page)
+        @RequestParam(defaultValue = "id") String sortBy) { // Column name used to sort the dataset (defaults to ID)
             
-    // Create Pageable configuration
+    // Creates a Pageable configuration containing page index, size, and sort order (ID descending)
     Pageable pageable = PageRequest.of(page, size, Sort.by(sortBy).descending());
     
+    // Queries the database. Executes SELECT LIMIT OFFSET and SELECT COUNT queries.
     Page<Student> result = studentRepository.findAll(pageable);
+    
+    // Returns the Page payload containing metadata (totalPages, totalElements) and data list with HTTP 200 OK
     return ResponseEntity.ok(result);
 }
 ```

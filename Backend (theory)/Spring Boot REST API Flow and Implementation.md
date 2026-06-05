@@ -184,33 +184,33 @@ Represents the database table schema.
 ```java
 package com.example.demo.entity;
 
-import jakarta.persistence.*;
-import lombok.*;
+import jakarta.persistence.*; // Import JPA annotations for ORM mapping
+import lombok.*; // Import Lombok annotations to reduce boilerplate code
 
-@Entity
-@Table(name = "students")
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
-@Builder
+@Entity // Marks this Java class as a JPA entity mapped to a database table
+@Table(name = "students") // Explicitly names the target database table as "students"
+@Getter // Lombok: Generates getter methods for all fields automatically at compile time
+@Setter // Lombok: Generates setter methods for all fields automatically at compile time
+@NoArgsConstructor // Lombok: Generates a default constructor with no parameters (required by Hibernate)
+@AllArgsConstructor // Lombok: Generates a constructor initializing all fields in order
+@Builder // Lombok: Implements the Builder design pattern for clean object instantiations
 public class Student {
     
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @Id // Marks this field as the primary key of the database table
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // Database automatically increments this ID value (Auto-Increment)
+    private Long id; // Unique identifier for each student record
     
-    @Column(nullable = false)
-    private String name;
+    @Column(nullable = false) // Maps to a database column that cannot be NULL
+    private String name; // Holds the student's full name
     
-    @Column(nullable = false, unique = true)
-    private String email;
+    @Column(nullable = false, unique = true) // Column cannot be NULL and must contain unique values across the table
+    private String email; // Holds the student's unique email address (used as login/username identifier)
     
-    @Column(nullable = false)
-    private Integer age;
+    @Column(nullable = false) // Column cannot be NULL
+    private Integer age; // Holds the student's age
     
-    @Column(nullable = false)
-    private String department;
+    @Column(nullable = false) // Column cannot be NULL
+    private String department; // Holds the department name (e.g., "Computer Science")
 }
 ```
 
@@ -219,38 +219,38 @@ Defines the structure for incoming payloads and outgoing JSON.
 ```java
 package com.example.demo.dto;
 
-import jakarta.validation.constraints.*;
-import lombok.*;
+import jakarta.validation.constraints.*; // Import validation constraint annotations (JSR-380)
+import lombok.*; // Import Lombok annotations for getters, setters, and builders
 
-// Request DTO (includes JSR validation annotations)
-@Data
+// Request DTO (holds payload validation rules for incoming requests)
+@Data // Lombok: Generates getters, setters, toString, equals, and hashCode methods
 public class StudentRequestDto {
     
-    @NotBlank(message = "Name cannot be empty")
-    @Size(min = 2, max = 50, message = "Name must be between 2 and 50 characters")
-    private String name;
+    @NotBlank(message = "Name cannot be empty") // Validates that the name has text and isn't just whitespace
+    @Size(min = 2, max = 50, message = "Name must be between 2 and 50 characters") // Enforces character count constraints
+    private String name; // Input field for student's name
     
-    @Email(message = "Please enter a valid email address")
-    @NotBlank(message = "Email cannot be empty")
-    private String email;
+    @Email(message = "Please enter a valid email address") // Validates standard email pattern formatting
+    @NotBlank(message = "Email cannot be empty") // Email cannot be null or empty string
+    private String email; // Input field for student's email
     
-    @Min(value = 18, message = "Student must be at least 18 years old")
-    @Max(value = 120, message = "Age limit exceeded")
-    private Integer age;
+    @Min(value = 18, message = "Student must be at least 18 years old") // Enforces lower age limit
+    @Max(value = 120, message = "Age limit exceeded") // Enforces upper age limit
+    private Integer age; // Input field for student's age
     
-    @NotBlank(message = "Department cannot be empty")
-    private String department;
+    @NotBlank(message = "Department cannot be empty") // Department cannot be null or empty
+    private String department; // Input field for student's department
 }
 
-// Response DTO (clean output representation)
-@Data
-@Builder
+// Response DTO (clean representation returned back to the client)
+@Data // Lombok: Generates getters, setters, toString, equals, and hashCode
+@Builder // Lombok: Generates a fluent builder API for object creation
 public class StudentResponseDto {
-    private Long id;
-    private String name;
-    private String email;
-    private Integer age;
-    private String department;
+    private Long id; // Read-only: Unique database ID of the student
+    private String name; // Name of the student
+    private String email; // Email address of the student
+    private Integer age; // Age of the student
+    private String department; // Department of the student
 }
 ```
 
@@ -258,15 +258,22 @@ public class StudentResponseDto {
 ```java
 package com.example.demo.repository;
 
-import com.example.demo.entity.Student;
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Repository;
+import com.example.demo.entity.Student; // Import Student Entity class
+import org.springframework.data.jpa.repository.JpaRepository; // Import JpaRepository parent interface
+import org.springframework.stereotype.Repository; // Import repository stereotype annotation
 
-import java.util.Optional;
+import java.util.Optional; // Import java.util.Optional for null safety
 
-@Repository
+@Repository // Registers this interface as a database access bean in Spring's ApplicationContext
 public interface StudentRepository extends JpaRepository<Student, Long> {
+    // Extends JpaRepository, specifying the Entity class 'Student' and ID type 'Long'
+    
+    // Derived query: Spring generates SQL to query by email automatically
+    // SQL: SELECT * FROM students WHERE email = ?
     Optional<Student> findByEmail(String email);
+    
+    // Derived query: Spring generates SQL to check if an email exists
+    // SQL: SELECT COUNT(*) FROM students WHERE email = ?
     boolean existsByEmail(String email);
 }
 ```
@@ -275,7 +282,10 @@ public interface StudentRepository extends JpaRepository<Student, Long> {
 ```java
 package com.example.demo.exception;
 
+// Custom Runtime Exception thrown when a requested database entity is missing
 public class ResourceNotFoundException extends RuntimeException {
+    
+    // Passes custom error message description to the base JVM RuntimeException class
     public ResourceNotFoundException(String message) {
         super(message);
     }
@@ -286,49 +296,56 @@ public class ResourceNotFoundException extends RuntimeException {
 ```java
 package com.example.demo.service;
 
-import com.example.demo.dto.StudentRequestDto;
-import com.example.demo.dto.StudentResponseDto;
+import com.example.demo.dto.StudentRequestDto; // Import request payload structure
+import com.example.demo.dto.StudentResponseDto; // Import response payload structure
 
-import java.util.List;
+import java.util.List; // Import java.util.List for collecting search results
 
 public interface StudentService {
-    StudentResponseDto createStudent(StudentRequestDto request);
-    StudentResponseDto getStudentById(Long id);
-    List<StudentResponseDto> getAllStudents();
-    void deleteStudent(Long id);
+    // Core business contract interface for Student operations
+    
+    StudentResponseDto createStudent(StudentRequestDto request); // Saves a student and returns its DTO
+    
+    StudentResponseDto getStudentById(Long id); // Fetches a student by ID or throws an error
+    
+    List<StudentResponseDto> getAllStudents(); // Fetches all students in the database
+    
+    void deleteStudent(Long id); // Removes a student from the database
 }
 ```
 
 ```java
 package com.example.demo.service.impl;
 
-import com.example.demo.dto.StudentRequestDto;
-import com.example.demo.dto.StudentResponseDto;
-import com.example.demo.entity.Student;
-import com.example.demo.exception.ResourceNotFoundException;
-import com.example.demo.repository.StudentRepository;
-import com.example.demo.service.StudentService;
-import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
+import com.example.demo.dto.StudentRequestDto; // Import request DTO
+import com.example.demo.dto.StudentResponseDto; // Import response DTO
+import com.example.demo.entity.Student; // Import Student database Entity
+import com.example.demo.exception.ResourceNotFoundException; // Import custom 404 Exception
+import com.example.demo.repository.StudentRepository; // Import JPA Repository layer
+import com.example.demo.service.StudentService; // Import Service interface
+import lombok.RequiredArgsConstructor; // Import Lombok constructor generator
+import org.springframework.stereotype.Service; // Import Service stereotype annotation
+import org.springframework.transaction.annotation.Transactional; // Import transactional annotation
 
-import java.util.List;
-import java.util.stream.Collectors;
+import java.util.List; // Import Java List
+import java.util.stream.Collectors; // Import stream utility to convert objects
 
-@Service
-@RequiredArgsConstructor // Automatically generates constructor for dependency injection of repository
+@Service // Registers this class as the business logic service bean in Spring context
+@RequiredArgsConstructor // Lombok: Generates constructor for all 'final' fields (enables Constructor-based Dependency Injection)
 public class StudentServiceImpl implements StudentService {
     
+    // Injection of database access layer (declared final for safety and testability)
     private final StudentRepository studentRepository;
     
-    @Override
-    @Transactional // Enforces transaction boundary
+    @Override // Declares implementation of the interface method
+    @Transactional // Starts a database transaction. Rollback occurs automatically if a RuntimeException is thrown.
     public StudentResponseDto createStudent(StudentRequestDto request) {
+        // Business Rule: Emails must be unique
         if (studentRepository.existsByEmail(request.getEmail())) {
-            throw new IllegalArgumentException("Email already in use!");
+            throw new IllegalArgumentException("Email already in use!"); // Throws exception if email duplicate is found
         }
         
-        // Map DTO to Entity
+        // Maps incoming Request DTO properties into the database Entity object
         Student student = Student.builder()
                 .name(request.getName())
                 .email(request.getEmail())
@@ -336,36 +353,45 @@ public class StudentServiceImpl implements StudentService {
                 .department(request.getDepartment())
                 .build();
                 
+        // Saves the entity to the DB via Hibernate. Triggers INSERT statement.
         Student savedStudent = studentRepository.save(student);
+        
+        // Maps the saved Entity back to a Response DTO and returns it
         return mapToResponseDto(savedStudent);
     }
     
     @Override
-    @Transactional(readOnly = true)
+    @Transactional(readOnly = true) // Read-only optimization: disables Hibernate dirty check tracking, saving memory.
     public StudentResponseDto getStudentById(Long id) {
+        // Queries DB. If Optional is empty, throws custom ResourceNotFoundException
         Student student = studentRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Student not found with ID: " + id));
+        
+        // Returns the mapped Response DTO representation of the student
         return mapToResponseDto(student);
     }
     
     @Override
-    @Transactional(readOnly = true)
+    @Transactional(readOnly = true) // Read-only optimization for fetching lists
     public List<StudentResponseDto> getAllStudents() {
+        // Fetches all student records, maps each to Response DTO using Java Stream API, and returns as a List
         return studentRepository.findAll().stream()
                 .map(this::mapToResponseDto)
                 .collect(Collectors.toList());
     }
     
     @Override
-    @Transactional
+    @Transactional // Write operation transaction
     public void deleteStudent(Long id) {
+        // Enforces check: Student must exist to be deleted
         if (!studentRepository.existsById(id)) {
             throw new ResourceNotFoundException("Cannot delete: Student not found with ID: " + id);
         }
+        // Deletes the student record from the database. Triggers DELETE statement.
         studentRepository.deleteById(id);
     }
     
-    // Helper mapper method
+    // Helper mapper method to transform Entity objects into DTO outputs
     private StudentResponseDto mapToResponseDto(Student student) {
         return StudentResponseDto.builder()
                 .id(student.getId())
@@ -382,50 +408,60 @@ public class StudentServiceImpl implements StudentService {
 ```java
 package com.example.demo.controller;
 
-import com.example.demo.dto.StudentRequestDto;
-import com.example.demo.dto.StudentResponseDto;
-import com.example.demo.service.StudentService;
-import jakarta.validation.Valid;
-import lombok.RequiredArgsConstructor;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import com.example.demo.dto.StudentRequestDto; // Import incoming DTO schema
+import com.example.demo.dto.StudentResponseDto; // Import outgoing DTO schema
+import com.example.demo.service.StudentService; // Import service layer
+import jakarta.validation.Valid; // Import jakarta validation execution trigger
+import lombok.RequiredArgsConstructor; // Import Lombok constructor generator
+import org.springframework.http.HttpStatus; // Import HttpStatus code constants
+import org.springframework.http.ResponseEntity; // Import ResponseEntity wrapping class
+import org.springframework.web.bind.annotation.*; // Import Spring Web annotations
 
-import java.util.List;
+import java.util.List; // Import Java list
 
-@RestController
-@RequestMapping("/api/v1/students")
-@RequiredArgsConstructor
+@RestController // Combines @Controller and @ResponseBody (returns serializable DTOs directly as JSON)
+@RequestMapping("/api/v1/students") // Maps the base REST endpoint URL path for this controller
+@RequiredArgsConstructor // Lombok: Generates constructor for Service dependency injection
 public class StudentController {
     
+    // Injection of service layer bean
     private final StudentService studentService;
     
-    // HTTP POST: Create student
+    // HTTP POST: Creates a new student record
+    // Endpoint: POST /api/v1/students
     @PostMapping
     public ResponseEntity<StudentResponseDto> createStudent(@Valid @RequestBody StudentRequestDto request) {
-        StudentResponseDto response = studentService.createStudent(request);
-        return new ResponseEntity<>(response, HttpStatus.CREATED); // returns HTTP 201 Created
+        // @Valid: Triggers JSR-380 validation checks on the Request DTO
+        // @RequestBody: Instructs Spring to bind the incoming JSON payload to the DTO object
+        
+        StudentResponseDto response = studentService.createStudent(request); // Invokes business logic
+        return new ResponseEntity<>(response, HttpStatus.CREATED); // Returns response JSON with HTTP Status 201 Created
     }
     
-    // HTTP GET: Fetch specific student by path variable ID
+    // HTTP GET: Fetches a single student by path variable ID
+    // Endpoint: GET /api/v1/students/101
     @GetMapping("/{id}")
     public ResponseEntity<StudentResponseDto> getStudentById(@PathVariable Long id) {
-        StudentResponseDto response = studentService.getStudentById(id);
-        return ResponseEntity.ok(response); // returns HTTP 200 OK
+        // @PathVariable: Binds the '{id}' string from the URL path to the Long parameter
+        
+        StudentResponseDto response = studentService.getStudentById(id); // Invokes business logic
+        return ResponseEntity.ok(response); // Returns response JSON with HTTP Status 200 OK
     }
     
-    // HTTP GET: Fetch all students
+    // HTTP GET: Fetches all student records
+    // Endpoint: GET /api/v1/students
     @GetMapping
     public ResponseEntity<List<StudentResponseDto>> getAllStudents() {
-        List<StudentResponseDto> response = studentService.getAllStudents();
-        return ResponseEntity.ok(response); // returns HTTP 200 OK
+        List<StudentResponseDto> response = studentService.getAllStudents(); // Invokes business logic
+        return ResponseEntity.ok(response); // Returns list JSON with HTTP Status 200 OK
     }
     
-    // HTTP DELETE: Delete student
+    // HTTP DELETE: Deletes a specific student record
+    // Endpoint: DELETE /api/v1/students/101
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteStudent(@PathVariable Long id) {
-        studentService.deleteStudent(id);
-        return ResponseEntity.noContent().build(); // returns HTTP 204 No Content
+        studentService.deleteStudent(id); // Invokes business logic to delete
+        return ResponseEntity.noContent().build(); // Returns HTTP Status 204 No Content (standard for successful deletes)
     }
 }
 ```
@@ -434,70 +470,70 @@ public class StudentController {
 ```java
 package com.example.demo.exception;
 
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.validation.FieldError;
-import org.springframework.web.bind.MethodArgumentNotValidException;
-import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.bind.annotation.RestControllerAdvice;
+import org.springframework.http.HttpStatus; // Import HTTP Status code constants
+import org.springframework.http.ResponseEntity; // Import wrapper class for response headers, body, and status
+import org.springframework.validation.FieldError; // Import validation error class
+import org.springframework.web.bind.MethodArgumentNotValidException; // Import validation failure exception class
+import org.springframework.web.bind.annotation.ExceptionHandler; // Import ExceptionHandler annotation
+import org.springframework.web.bind.annotation.RestControllerAdvice; // Import advice controller annotation
 
-import java.time.LocalDateTime;
-import java.util.HashMap;
-import java.util.Map;
+import java.time.LocalDateTime; // Import time class
+import java.util.HashMap; // Import HashMap for key-value error packaging
+import java.util.Map; // Import Map
 
-@RestControllerAdvice
+@RestControllerAdvice // Acts as an interceptor capturing exceptions thrown by any Controller in the app context
 public class GlobalExceptionHandler {
     
-    // Handle Custom Resource Not Found Exception (Returns HTTP 404)
-    @ExceptionHandler(ResourceNotFoundException.class)
+    // Handle Custom Resource Not Found Exception (Returns HTTP 404 Not Found)
+    @ExceptionHandler(ResourceNotFoundException.class) // Declares this method as the handler for ResourceNotFoundException
     public ResponseEntity<Map<String, Object>> handleNotFound(ResourceNotFoundException ex) {
-        Map<String, Object> errorBody = new HashMap<>();
-        errorBody.put("timestamp", LocalDateTime.now());
-        errorBody.put("status", HttpStatus.NOT_FOUND.value());
-        errorBody.put("error", "Not Found");
-        errorBody.put("message", ex.getMessage());
-        return new ResponseEntity<>(errorBody, HttpStatus.NOT_FOUND);
+        Map<String, Object> errorBody = new HashMap<>(); // Create error body map
+        errorBody.put("timestamp", LocalDateTime.now()); // Record exact time of the error
+        errorBody.put("status", HttpStatus.NOT_FOUND.value()); // Set status number (404)
+        errorBody.put("error", "Not Found"); // Set standard HTTP error description string
+        errorBody.put("message", ex.getMessage()); // Package the exception error message
+        return new ResponseEntity<>(errorBody, HttpStatus.NOT_FOUND); // Return error map with HTTP 404 status
     }
     
     // Handle Input Validations Failures (Returns HTTP 400 Bad Request with field-specific errors)
-    @ExceptionHandler(MethodArgumentNotValidException.class)
+    @ExceptionHandler(MethodArgumentNotValidException.class) // Triggered when @Valid annotations fail validation checks
     public ResponseEntity<Map<String, Object>> handleValidationExceptions(MethodArgumentNotValidException ex) {
-        Map<String, Object> errorBody = new HashMap<>();
-        errorBody.put("timestamp", LocalDateTime.now());
-        errorBody.put("status", HttpStatus.BAD_REQUEST.value());
-        errorBody.put("error", "Validation Failed");
+        Map<String, Object> errorBody = new HashMap<>(); // Create base JSON response map
+        errorBody.put("timestamp", LocalDateTime.now()); // Record current time
+        errorBody.put("status", HttpStatus.BAD_REQUEST.value()); // Set status number (400)
+        errorBody.put("error", "Validation Failed"); // Set error category
         
-        Map<String, String> fieldErrors = new HashMap<>();
-        ex.getBindingResult().getAllErrors().forEach((error) -> {
-            String fieldName = ((FieldError) error).getField();
-            String errorMessage = error.getDefaultMessage();
-            fieldErrors.put(fieldName, errorMessage);
+        Map<String, String> fieldErrors = new HashMap<>(); // Map to hold specific failing fields (e.g. "email" -> "invalid formatting")
+        ex.getBindingResult().getAllErrors().forEach((error) -> { // Loop through all validation failures
+            String fieldName = ((FieldError) error).getField(); // Extract the name of the failing variable field
+            String errorMessage = error.getDefaultMessage(); // Extract the custom constraint message
+            fieldErrors.put(fieldName, errorMessage); // Store in the field errors map
         });
-        errorBody.put("validationErrors", fieldErrors);
+        errorBody.put("validationErrors", fieldErrors); // Attach the validation map onto the main JSON body
         
-        return new ResponseEntity<>(errorBody, HttpStatus.BAD_REQUEST);
+        return new ResponseEntity<>(errorBody, HttpStatus.BAD_REQUEST); // Return map with HTTP 400 status
     }
     
-    // Handle illegal arguments (Returns HTTP 400)
-    @ExceptionHandler(IllegalArgumentException.class)
+    // Handle illegal arguments (Returns HTTP 400 Bad Request)
+    @ExceptionHandler(IllegalArgumentException.class) // Catches custom illegal argument conditions (e.g. duplicate email checks)
     public ResponseEntity<Map<String, Object>> handleIllegalArgument(IllegalArgumentException ex) {
-        Map<String, Object> errorBody = new HashMap<>();
-        errorBody.put("timestamp", LocalDateTime.now());
-        errorBody.put("status", HttpStatus.BAD_REQUEST.value());
-        errorBody.put("error", "Bad Request");
-        errorBody.put("message", ex.getMessage());
-        return new ResponseEntity<>(errorBody, HttpStatus.BAD_REQUEST);
+        Map<String, Object> errorBody = new HashMap<>(); // Create error payload map
+        errorBody.put("timestamp", LocalDateTime.now()); // Log time
+        errorBody.put("status", HttpStatus.BAD_REQUEST.value()); // Set status number (400)
+        errorBody.put("error", "Bad Request"); // Category header
+        errorBody.put("message", ex.getMessage()); // Set message details
+        return new ResponseEntity<>(errorBody, HttpStatus.BAD_REQUEST); // Return with HTTP 400 status
     }
     
-    // Generic fallback handler for unhandled server exceptions (Returns HTTP 500)
-    @ExceptionHandler(Exception.class)
+    // Generic fallback handler for unhandled server exceptions (Returns HTTP 500 Internal Server Error)
+    @ExceptionHandler(Exception.class) // Catches all unhandled Java runtime exceptions (e.g. NullPointer, SQL errors)
     public ResponseEntity<Map<String, Object>> handleGeneralException(Exception ex) {
-        Map<String, Object> errorBody = new HashMap<>();
-        errorBody.put("timestamp", LocalDateTime.now());
-        errorBody.put("status", HttpStatus.INTERNAL_SERVER_ERROR.value());
-        errorBody.put("error", "Internal Server Error");
-        errorBody.put("message", "An unexpected error occurred: " + ex.getMessage());
-        return new ResponseEntity<>(errorBody, HttpStatus.INTERNAL_SERVER_ERROR);
+        Map<String, Object> errorBody = new HashMap<>(); // Create fallback error body
+        errorBody.put("timestamp", LocalDateTime.now()); // Log current time
+        errorBody.put("status", HttpStatus.INTERNAL_SERVER_ERROR.value()); // Set status number (500)
+        errorBody.put("error", "Internal Server Error"); // Category
+        errorBody.put("message", "An unexpected error occurred: " + ex.getMessage()); // Generic description (obscures database/system internals)
+        return new ResponseEntity<>(errorBody, HttpStatus.INTERNAL_SERVER_ERROR); // Return with HTTP 500 status
     }
 }
 ```
