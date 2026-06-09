@@ -69,17 +69,17 @@ banner: "[[a_group_of_people_in_a_room.jpg]]"
 
 ### ℹ️ 5. File Information & Metadata
 
-| Command | Description & Example |
-| :--- | :--- |
-| `-du` | Shows the disk usage (size) of files and directories. Use `-h` for human-readable format and `-s` for a summary. |
-| | **Example:** `hdfs dfs -du -h /user/hadoop/data/` |
-| | **Example:** `hdfs dfs -du -s /user/hadoop/` (Shows the total size of a directory) |
-| `-count` | Counts the number of directories, files, and bytes under a given path. |
-| | **Example:** `hdfs dfs -count /user/hadoop/data/` |
-| | **Example:** `hdfs dfs -count -v -h /user/hadoop/data/` (The `-v` flag adds a header line, `-h` makes sizes human-readable) |
-| `-stat` | Prints detailed statistics about a file or directory in a specified format. |
-| | **Example:** `hdfs dfs -stat "%F %b %o %r %n" /user/hadoop/file.txt` (Prints type, size in bytes, block size, replication, and name) |
-| | **Example:** `hdfs fs -stat "type:%F perm:%a %u:%g size:%b mtime:%y" /file` |
+| Command  | Description & Example                                                                                                                |
+| :------- | :----------------------------------------------------------------------------------------------------------------------------------- |
+| `-du`    | Shows the disk usage (size) of files and directories. Use `-h` for human-readable format and `-s` for a summary.                     |
+|          | **Example:** `hdfs dfs -du -h /user/hadoop/data/`                                                                                    |
+|          | **Example:** `hdfs dfs -du -s /user/hadoop/` (Shows the total size of a directory)                                                   |
+| `-count` | Counts the number of directories, files, and bytes under a given path.                                                               |
+|          | **Example:** `hdfs dfs -count /user/hadoop/data/`                                                                                    |
+|          | **Example:** `hdfs dfs -count -v -h /user/hadoop/data/` (The `-v` flag adds a header line, `-h` makes sizes human-readable)          |
+| `-stat`  | Prints detailed statistics about a file or directory in a specified format.                                                          |
+|          | **Example:** `hdfs dfs -stat "%F %b %o %r %n" /user/hadoop/file.txt` (Prints type, size in bytes, block size, replication, and name) |
+|          | **Example:** `hdfs fs -stat "type:%F perm:%a %u:%g size:%b mtime:%y" /file`                                                          |
 
 ### 🔒 6. Permissions & Ownership
 
@@ -198,7 +198,7 @@ Use the `-test -e` command. It returns exit code `0` if the file exists, and `1`
 
 ```bash
 # Check if the file exists (no output on success)
-hdfs dfs -test -e /user/hadoop/demo/employees.csv && echo "File EXISTS" || echo "File NOT FOUND"
+	hdfs dfs -test -e /user/hadoop/demo/employees.csv && echo "File EXISTS" || echo "File NOT FOUND"
 
 # Check a non-existent file
 hdfs dfs -test -e /user/hadoop/demo/missing_file.txt && echo "File EXISTS" || echo "File NOT FOUND"
