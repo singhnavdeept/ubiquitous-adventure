@@ -6,12 +6,12 @@ Welcome to the **Ubiquitous Adventure** repository. This is a production-grade, 
 
 ## 📂 Repository Directory Map
 
-Below is the exhaustive, multi-level map of the repository, providing clickable links to every directory and key note file:
+Below is the clean, high-level structural map of the repository showing where notes, roadmaps, and sandboxes are organized:
 
 ```
 ubiquitous-adventure/
 ├── 📁 Assets/                          # Centralized assets and technical diagrams
-│   ├── 🖼️ [PACELC_theorem.png](Assets/PACELC_theorem.png)
+│   ├── 🖼️ PACELC_theorem.png
 │   └── 🖼️ Pasted Image *
 │
 ├── 📁 APPLICATION Tracker/             # Job/application trackers and templates
@@ -21,159 +21,159 @@ ubiquitous-adventure/
 ├── 📁 Atomic Notes/                    # Interlinked slip-box style micro-notes
 │
 ├── 📁 Backend (theory)/                 # Server-side architecture & Framework internals
-│   ├── 📄 [HTTP HTTPS.md](Backend%20(theory)/HTTP%20HTTPS.md)                # HTTP/1.x vs 2 vs 3, TLS handshakes, HTTP status codes
-│   ├── 📄 [Backend Engineering Roadmap.md](Backend%20(theory)/Backend%20Engineering%20Roadmap.md) # Full technical stack blueprint for backend career paths
-│   ├── 📄 [Spring Boot REST API Flow and Implementation.md](Backend%20(theory)/Spring%20Boot%20REST%20API%20Flow%20and%20Implementation.md) # Tomcat, DispatcherServlet request flow
-│   └── 📄 [Spring Data JPA CRUD Internals.md](Backend%20(theory)/Spring%20Data%20JPA%20CRUD%20Internals.md)               # JpaRepository proxy, entity lifecycle states
+│   ├── 📄 HTTP HTTPS.md                # HTTP/1.x vs 2 vs 3, TLS handshakes, HTTP status codes
+│   ├── 📄 Backend Engineering Roadmap.md # Full technical stack blueprint for backend career paths
+│   ├── 📄 Spring Boot REST API Flow and Implementation.md # Tomcat, DispatcherServlet request flow
+│   └── 📄 Spring Data JPA CRUD Internals.md               # JpaRepository proxy, entity lifecycle states
 │
 ├── 📁 Big Data/                        # Distributed storage, parallel processing & NoSQL
-│   ├── 📄 [1. Introduction to Hadoop and HDFS.md](Big%20Data/1.%20Introduction%20to%20Hadoop%20and%20HDFS.md) # Data locality, replication, NameNode/DataNode
-│   ├── 📄 [2. MapReduce and YARN.md](Big%20Data/2.%20MapReduce%20and%20YARN.md)      # Map/Reduce processing, YARN resource allocation
-│   ├── 📄 [3. Apache Hive.md](Big%20Data/3.%20Apache%20Hive.md)             # Hive architecture, metastores, partitioning, bucketing
-│   ├── 📄 [3.1 Partitions and Buckets.md](Big%20Data/3.1%20Partitions%20and%20Buckets.md) # Deep-dive into partition and bucket performance gains
-│   ├── 📄 [3.2 Hive RDMS deep dive.md](Big%20Data/3.2%20Hive%20RDMS%20deep%20dive.md)    # Interfacing relational databases with Hive schemas
-│   ├── 📄 [4. Apache HBase.md](Big%20Data/4.%20Apache%20HBase.md)            # Column-oriented storage, LSM trees, RegionServers
-│   ├── 📄 [5. Apache Cassandra.md](Big%20Data/5.%20Apache%20Cassandra.md)        # Ring topology, consistent hashing, Cassandra keyspaces
-│   ├── 📄 [5.1 Cassandra Practice questions.md](Big%20Data/5.1%20Cassandra%20Practice%20questions.md) # Exam Q&As on Cassandra architecture
-│   ├── 📄 [6. Apache Hive Clustering and Bucketing Problems.md](Big%20Data/6.%20Apache%20Hive%20Clustering%20and%20Bucketing%20Problems.md) # Step-by-step practical clustering
-│   ├── 📄 [Installation Guide.md](Big%20Data/Installation%20Guide.md)         # WSL Ubuntu installation commands for Hadoop/Hive
-│   ├── 📄 [Sample question run 1.md](Big%20Data/Sample%20question%20run%201.md)      # Sample Hadoop exam questions
+│   ├── 📄 1. Introduction to Hadoop and HDFS.md # Data locality, replication, NameNode/DataNode
+│   ├── 📄 2. MapReduce and YARN.md      # Map/Reduce processing, YARN resource allocation
+│   ├── 📄 3. Apache Hive.md             # Hive architecture, metastores, partitioning, bucketing
+│   ├── 📄 3.1 Partitions and Buckets.md # Deep-dive into partition and bucket performance gains
+│   ├── 📄 3.2 Hive RDMS deep dive.md    # Interfacing relational databases with Hive schemas
+│   ├── 📄 4. Apache HBase.md            # Column-oriented storage, LSM trees, RegionServers
+│   ├── 📄 5. Apache Cassandra.md        # Ring topology, consistent hashing, Cassandra keyspaces
+│   ├── 📄 5.1 Cassandra Practice questions.md # Exam Q&As on Cassandra architecture
+│   ├── 📄 6. Apache Hive Clustering and Bucketing Problems.md # Step-by-step practical clustering
+│   ├── 📄 Installation Guide.md         # WSL Ubuntu installation commands for Hadoop/Hive
+│   ├── 📄 Sample question run 1.md      # Sample Hadoop exam questions
 │   └── 📁 Hadoop/                       # Hive practical command references
-│       ├── 📄 [Big data using JAVA.md](Big%20Data/Hadoop/Big%20data%20using%20JAVA.md)    # Java MapReduce API implementation examples
-│       ├── 📄 [Commands.md](Big%20Data/Hadoop/Commands.md)               # Core HDFS CLI commands reference
-│       ├── 📄 [Hive Commands.md](Big%20Data/Hadoop/Hive%20Commands.md)          # 80/20 rule Hive DDL and DML queries
-│       ├── 📄 [Joins in Hive.md](Big%20Data/Hadoop/Joins%20in%20Hive.md)          # Map-side joins, bucket map joins, outer joins
-│       ├── 📄 [Loading Local Data into Hive Partitions.md](Big%20Data/Hadoop/Loading%20Local%20Data%20into%20Hive%20Partitions.md) # WSL absolute vs relative paths guide
-│       └── 📄 [hbase-hive-commands.md](Big%20Data/Hadoop/hbase-hive-commands.md)    # HBase table integrations inside Hive
+│       ├── 📄 Big data using JAVA.md    # Java MapReduce API implementation examples
+│       ├── 📄 Commands.md               # Core HDFS CLI commands reference
+│       ├── 📄 Hive Commands.md          # 80/20 rule Hive DDL and DML queries
+│       ├── 📄 Joins in Hive.md          # Map-side joins, bucket map joins, outer joins
+│       ├── 📄 Loading Local Data into Hive Partitions.md # WSL absolute vs relative paths guide
+│       └── 📄 hbase-hive-commands.md    # HBase table integrations inside Hive
 │
 ├── 📁 DailyNotes/                       # Daily study journals and incremental logs
-│   ├── 📄 [2026-05-27.md](DailyNotes/2026-05-27.md)
-│   └── 📄 [2026-05-29.md](DailyNotes/2026-05-29.md)
+│   ├── 📄 2026-05-27.md
+│   └── 📄 2026-05-29.md
 │
 ├── 📁 Data Engineering/                 # General data engineering principles
-│   └── 📄 [Data Engineering Roadmap.md](Data%20Engineering/Data%20Engineering%20Roadmap.md)   # Modern data stack, storage, compute & pipelines
+│   └── 📄 Data Engineering Roadmap.md   # Modern data stack, storage, compute & pipelines
 │
 ├── 📁 Databases/                       # DBMS internals & transaction guarantees
-│   ├── 📄 [Topics To Cover.md](Databases/Topics%20To%20Cover.md)
+│   ├── 📄 Topics To Cover.md
 │   ├── 📁 COMMON TOPICS/
-│   │   ├── 📄 [1.1 Data Models.md](Databases/COMMON%20TOPICS/1.1%20Data%20Models.md)        # Relational, document, graph storage structures
-│   │   ├── 📄 [1.2 Schema design & Normalization.md](Databases/COMMON%20TOPICS/1.2%20Schema%20design%20&%20Normalization.md) # Normal forms (1NF-BCNF) & denormalization
-│   │   ├── 📄 [1.3 Data types.md](Databases/COMMON%20TOPICS/1.3%20Data%20types.md)         # Serialization, storage layout, precision bounds
-│   │   ├── 📄 [1.4 Constraints.md](Databases/COMMON%20TOPICS/1.4%20Constraints.md)        # Keys, checks, triggers, foreign keys
-│   │   ├── 📄 [1.5 Indexes.md](Databases/COMMON%20TOPICS/1.5%20Indexes.md)            # B-Tree, Hash, GiST, GIN, write amplification
-│   │   ├── 📄 [1.5.1 Database Indexes at scale.md](Databases/COMMON%20TOPICS/1.5.1%20Database%20Indexes%20at%20scale.md) # Composite ordering, covering indexes (INCLUDE)
-│   │   ├── 📄 [2.3 CTE.md](Databases/COMMON%20TOPICS/2.3%20CTE.md)                # Common Table Expressions, recursive query loops
-│   │   ├── 📄 [CAP Theorem.md](Databases/COMMON%20TOPICS/CAP%20Theorem.md)            # Consistency, availability, partition tolerance
-│   │   ├── 📄 [Database Locks & Concurrency.md](Databases/COMMON%20TOPICS/Database%20Locks%20&%20Concurrency.md) # Shared/exclusive locks, 2PL, deadlock detection
-│   │   ├── 📄 [Distributed Consensus.md](Databases/COMMON%20TOPICS/Distributed%20Consensus.md)  # Consensus logs (Paxos, Raft consensus)
-│   │   ├── 📄 [Multi-Version Concurrency Control (MVCC).md](Databases/COMMON%20TOPICS/Multi-Version%20Concurrency%20Control%20(MVCC).md) # snapshot isolation, undo logs, visibility
-│   │   ├── 📄 [SIMD (Single Instruction, Multiple Data).md](Databases/COMMON%20TOPICS/SIMD%20(Single%20Instruction,%20Multiple%20Data).md) # Vectorized analytic processing
-│   │   └── 📄 [Transaction Isolation & Anomalies.md](Databases/COMMON%20TOPICS/Transaction%20Isolation%20&%20Anomalies.md) # ANSI levels, Dirty/Phantom reads, write skew
+│   │   ├── 📄 1.1 Data Models.md        # Relational, document, graph storage structures
+│   │   ├── 📄 1.2 Schema design & Normalization.md # Normal forms (1NF-BCNF) & denormalization
+│   │   ├── 📄 1.3 Data types.md         # Serialization, storage layout, precision bounds
+│   │   ├── 📄 1.4 Constraints.md        # Keys, checks, triggers, foreign keys
+│   │   ├── 📄 1.5 Indexes.md            # B-Tree, Hash, GiST, GIN, write amplification
+│   │   ├── 📄 1.5.1 Database Indexes at scale.md # Composite ordering, covering indexes (INCLUDE)
+│   │   ├── 📄 2.3 CTE.md                # Common Table Expressions, recursive query loops
+│   │   ├── 📄 CAP Theorem.md            # Consistency, availability, partition tolerance
+│   │   ├── 📄 Database Locks & Concurrency.md # Shared/exclusive locks, 2PL, deadlock detection
+│   │   ├── 📄 Distributed Consensus.md  # Consensus logs (Paxos, Raft consensus)
+│   │   ├── 📄 Multi-Version Concurrency Control (MVCC).md # snapshot isolation, undo logs, visibility
+│   │   ├── 📄 SIMD (Single Instruction, Multiple Data).md # Vectorized analytic processing
+│   │   └── 📄 Transaction Isolation & Anomalies.md # ANSI levels, Dirty/Phantom reads, write skew
 │   ├── 📁 NO SQL/
-│   │   └── 📄 [Cassandra.md](Databases/NO%20SQL/Cassandra.md)              # Gossip, read/write repair, consistency tunables
+│   │   └── 📄 Cassandra.md              # Gossip, read/write repair, consistency tunables
 │   └── 📁 SQL/
-│       ├── 📄 [2.1 SQL fundamentals.md](Databases/SQL/2.1%20SQL%20fundamentals.md)   # Core DQL/DML queries
-│       ├── 📄 [2.2 Window Functions.md](Databases/SQL/2.2%20Window%20Functions.md)   # Partition, order, rank, lead, lag
-│       ├── 📄 [2.4 Aggregation.md](Databases/SQL/2.4%20Aggregation.md)        # Grouping set rollups, groupings
-│       ├── 📄 [2.5 Full-text search.md](Databases/SQL/2.5%20Full-text%20search.md)   # Inverted indices, BM25, lexeme parsing
-│       └── 📄 [MYSQL Overview.md](Databases/SQL/MYSQL%20Overview.md)         # InnoDB engines, redo/undo log architecture
+│       ├── 📄 2.1 SQL fundamentals.md   # Core DQL/DML queries
+│       ├── 📄 2.2 Window Functions.md   # Partition, order, rank, lead, lag
+│       ├── 📄 2.4 Aggregation.md        # Grouping set rollups, groupings
+│       ├── 📄 2.5 Full-text search.md   # Inverted indices, BM25, lexeme parsing
+│       └── 📄 MYSQL Overview.md         # InnoDB engines, redo/undo log architecture
 │
 ├── 📁 DEEP dive/                        # System architecture breakdowns
-│   ├── 📄 [README.md](DEEP%20dive/README.md)                    # Catalog of deep-dive cases
-│   ├── 📄 [Redis.md](DEEP%20dive/Redis.md)                     # Redis threading, persistence (AOF/RDB), cluster slots
-│   └── 📄 [Uber.md](DEEP%20dive/Uber.md)                      # Dispatch engines, geospatial indices (H3), WebSockets
+│   ├── 📄 README.md                    # Catalog of deep-dive cases
+│   ├── 📄 Redis.md                     # Redis threading, persistence (AOF/RDB), cluster slots
+│   └── 📄 Uber.md                      # Dispatch engines, geospatial indices (H3), WebSockets
 │
 ├── 📁 Django/                           # Python web development internals
-│   ├── 📄 [CORS and CSRF.md](Django/CORS%20and%20CSRF.md)              # Web security protocols and cross-origin resource sharing
-│   ├── 📄 [Django and NoSQL Database Relation.md](Django/Django%20and%20NoSQL%20Database%20Relation.md) # Non-relational mapping to Django ORM
-│   ├── 📄 [Django In-Depth.md](Django/Django%20In-Depth.md)            # MVT architecture, middleware chains, WSGI/ASGI handlers
-│   ├── 📄 [SQL .query() vs .explain().md](Django/SQL%20.query()%20vs%20.explain().md) # Query optimization, query plan evaluation
-│   └── 📄 [XSS.md](Django/XSS.md)                        # Cross-site scripting vulnerabilities and auto-escaping
+│   ├── 📄 CORS and CSRF.md              # Web security protocols and cross-origin resource sharing
+│   ├── 📄 Django and NoSQL Database Relation.md # Non-relational mapping to Django ORM
+│   ├── 📄 Django In-Depth.md            # MVT architecture, middleware chains, WSGI/ASGI handlers
+│   ├── 📄 SQL .query() vs .explain().md # Query optimization, query plan evaluation
+│   └── 📄 XSS.md                        # Cross-site scripting vulnerabilities and auto-escaping
 │
 ├── 📁 DSA/                             # Data Structures & Algorithms (C++ Focus)
-│   ├── 📄 [Codeforces Master Sheet.md](DSA/Codeforces%20Master%20Sheet.md)    # Competitive programming tracking & ratings
-│   ├── 📄 [DSA_Pattern_Questions.md](DSA/DSA_Pattern_Questions.md)      # Sliding window, two-pointer, DFS/BFS graph patterns
-│   ├── 📄 [Python DSA Guide.md](DSA/Python%20DSA%20Guide.md)           # Python collections, deque, heapq, bisect references
-│   ├── 📄 [Untitled.md](DSA/Untitled.md)                   # Scratch notes
+│   ├── 📄 Codeforces Master Sheet.md    # Competitive programming tracking & ratings
+│   ├── 📄 DSA_Pattern_Questions.md      # Sliding window, two-pointer, DFS/BFS graph patterns
+│   ├── 📄 Python DSA Guide.md           # Python collections, deque, heapq, bisect references
+│   ├── 📄 Untitled.md                   # Scratch notes
 │   ├── 📁 Bare Basics/
-│   │   ├── 📄 [How to.md](DSA/Bare%20Basics/How%20to.md)                 # Basic algorithms setup
-│   │   ├── 📄 [Juspay code analysis.md](DSA/Bare%20Basics/Juspay%20code%20analysis.md)   # Thread-safe tree locking algorithms
-│   │   └── 📄 [M-ary Tree Lock Unlock.md](DSA/Bare%20Basics/M-ary%20Tree%20Lock%20Unlock.md) # Lock propagation on parent-child trees
+│   │   ├── 📄 How to.md                 # Basic algorithms setup
+│   │   ├── 📄 Juspay code analysis.md   # Thread-safe tree locking algorithms
+│   │   └── 📄 M-ary Tree Lock Unlock.md # Lock propagation on parent-child trees
 │   ├── 📁 Cpp CP Test Prep/             # Placement test practice trackers
-│   │   └── 📄 [Practice Questions Tracker.md](DSA/Cpp%20CP%20Test%20Prep/Practice%20Questions%20Tracker.md) # C++ STL priority_queue, DSU, and 50 LeetCode links
+│   │   └── 📄 Practice Questions Tracker.md # C++ STL priority_queue, DSU, and 50 LeetCode links
 │   ├── 📁 Patterns Answer/
-│   │   ├── 📄 [Greedy.md](DSA/Patterns%20Answer/Greedy.md)                 # Greedy paradigms, intervals, knapsack
-│   │   ├── 📄 [Stack.md](DSA/Patterns%20Answer/Stack.md)                  # Monotonic stack patterns, next greater element
-│   │   └── 📄 [Untitled.md](DSA/Patterns%20Answer/Untitled.md)
+│   │   ├── 📄 Greedy.md                 # Greedy paradigms, intervals, knapsack
+│   │   ├── 📄 Stack.md                  # Monotonic stack patterns, next greater element
+│   │   └── 📄 Untitled.md
 │   └── 📁 Questions/                    # Topic-specific DSA interview questions
-│       ├── 📄 [03 Graphs question and solution.md](DSA/Questions/03%20Graphs%20question%20and%20solution.md)
-│       ├── 📄 [Binary Tree top 5 questions.md](DSA/Questions/Binary%20Tree%20top%205%20questions.md)
-│       ├── 📄 [DSU (Disjoint Set Union).md](DSA/Questions/DSU%20(Disjoint%20Set%20Union).md) # Union by rank, path compression
-│       ├── 📄 [Heaps Max-Heaps Min-Heaps Heapify.md](DSA/Questions/Heaps%20Max-Heaps%20Min-Heaps%20Heapify.md) # O(N) heap construction, heapify
-│       ├── 📄 [LFU Cache.md](DSA/Questions/LFU%20Cache.md)              # Least Frequently Used cache implementation
-│       ├── 📄 [Linked List top 5 question.md](DSA/Questions/Linked%20List%20top%205%20question.md)
-│       ├── 📄 [MCQs on Binary Trees.md](DSA/Questions/MCQs%20on%20Binary%20Trees.md)
-│       ├── 📄 [Practice run 1.md](DSA/Questions/Practice%20run%201.md)
-│       └── 📄 [Practice Run 2.md](DSA/Questions/Practice%20Run%202.md)
+│       ├── 📄 03 Graphs question and solution.md
+│       ├── 📄 Binary Tree top 5 questions.md
+│       ├── 📄 DSU (Disjoint Set Union).md # Union by rank, path compression
+│       ├── 📄 Heaps Max-Heaps Min-Heaps Heapify.md # O(N) heap construction, heapify
+│       ├── 📄 LFU Cache.md              # Least Frequently Used cache implementation
+│       ├── 📄 Linked List top 5 question.md
+│       ├── 📄 MCQs on Binary Trees.md
+│       ├── 📄 Practice run 1.md
+│       └── 📄 Practice Run 2.md
 │
 ├── 📁 Excalidraw/                      # System design and algorithm diagrams
-│   └── 📄 [*.excalidraw.md](Excalidraw/)               # Interactive drawings mapping queues, trees, and servers
+│   └── 📄 *.excalidraw.md               # Interactive drawings mapping queues, trees, and servers
 │
 ├── 📁 GOLANG/                          # Systems programming and microservices
-│   ├── 📄 [Complete Go Backend Mastery Roadmap.md](GOLANG/Complete%20Go%20Backend%20Mastery%20Roadmap.md)
+│   ├── 📄 Complete Go Backend Mastery Roadmap.md
 │   └── 📁 Notes/                        # Multi-phase Go mastery program
-│       ├── 📄 [Phase_1_Go_Language_Fundamentals.md](GOLANG/Notes/Phase_1_Go_Language_Fundamentals.md)
-│       ├── 📄 [Phase_2_Concurrency.md](GOLANG/Notes/Phase_2_Concurrency.md)     # Goroutines, Channels, Mutexes, Select blocks
-│       ├── 📄 [Phase_3_HTTP_Servers_REST_APIs.md](GOLANG/Notes/Phase_3_HTTP_Servers_REST_APIs.md)
-│       ├── 📄 [Phase_4_Databases.md](GOLANG/Notes/Phase_4_Databases.md)
-│       ├── 📄 [Phase_5_Authentication_Security.md](GOLANG/Notes/Phase_5_Authentication_Security.md)
-│       ├── 📄 [Phase_6_Testing.md](GOLANG/Notes/Phase_6_Testing.md)         # Unit testing, benchmarks, table-driven tests
-│       ├── 📄 [Phase_7_gRPC_Protocol_Buffers.md](GOLANG/Notes/Phase_7_gRPC_Protocol_Buffers.md)
-│       ├── 📄 [Phase_8_Microservices_Patterns.md](GOLANG/Notes/Phase_8_Microservices_Patterns.md)
-│       ├── 📄 [Phase_9_Deployment_DevOps.md](GOLANG/Notes/Phase_9_Deployment_DevOps.md)
-│       └── 📄 [Phase_10_Advanced_Go_Performance.md](GOLANG/Notes/Phase_10_Advanced_Go_Performance.md)
+│       ├── 📄 Phase_1_Go_Language_Fundamentals.md
+│       ├── 📄 Phase_2_Concurrency.md     # Goroutines, Channels, Mutexes, Select blocks
+│       ├── 📄 Phase_3_HTTP_Servers_REST_APIs.md
+│       ├── 📄 Phase_4_Databases.md
+│       ├── 📄 Phase_5_Authentication_Security.md
+│       ├── 📄 Phase_6_Testing.md         # Unit testing, benchmarks, table-driven tests
+│       ├── 📄 Phase_7_gRPC_Protocol_Buffers.md
+│       ├── 📄 Phase_8_Microservices_Patterns.md
+│       ├── 📄 Phase_9_Deployment_DevOps.md
+│       └── 📄 Phase_10_Advanced_Go_Performance.md
 │
 ├── 📁 Interesting topics/              # Miscellaneous computer science details
-│   ├── 📄 [Cascading Failures.md](Interesting%20topics/Cascading%20Failures.md)         # Circuit breakers, retries, jitter
-│   ├── 📄 [Componenets of AWS.md](Interesting%20topics/Componenets%20of%20AWS.md)         # AWS infrastructure, IAM, VPC, S3, RDS, Lambda
-│   ├── 📄 [Difference Between Partition BY and group by.md](Interesting%20topics/Difference%20Between%20Partition%20BY%20and%20group%20by.md) # Window vs GROUP BY grouping
-│   ├── 📄 [Giving Output at compile time.md](Interesting%20topics/Giving%20Output%20at%20compile%20time.md) # Metaprogramming, constexpr evaluation
-│   ├── 📄 [How a Compiler works.md](Interesting%20topics/How%20a%20Compiler%20works.md)      # AST, lexical parsing, code generation
-│   └── 📄 [Processing of SQL Query.md](Interesting%20topics/Processing%20of%20SQL%20Query.md)   # SQL parser engines, query execution planner
+│   ├── 📄 Cascading Failures.md         # Circuit breakers, retries, jitter
+│   ├── 📄 Componenets of AWS.md         # AWS infrastructure, IAM, VPC, S3, RDS, Lambda
+│   ├── 📄 Difference Between Partition BY and group by.md # Window vs GROUP BY grouping
+│   ├── 📄 Giving Output at compile time.md # Metaprogramming, constexpr evaluation
+│   ├── 📄 How a Compiler works.md      # AST, lexical parsing, code generation
+│   └── 📄 Processing of SQL Query.md   # SQL parser engines, query execution planner
 │
 ├── 📁 Projects/                        # End-to-end sandbox software applications
-│   ├── 📄 [MdMaker documentation.md](Projects/MdMaker%20documentation.md)      # Auto document builders
-│   ├── 📄 [Project Notes.md](Projects/Project%20Notes.md)
+│   ├── 📄 MdMaker documentation.md      # Auto document builders
+│   ├── 📄 Project Notes.md
 │   ├── 📁 Data Warehousing in Mysql/
-│   │   └── 📄 [Architecture.md](Projects/Data%20Warehousing%20in%20Mysql/Architecture.md)           # Star/snowflake architectures, ETL pipelines
+│   │   └── 📄 Architecture.md           # Star/snowflake architectures, ETL pipelines
 │   ├── 📁 Docker Cleanup Daemon/        # Go-based daemon managing docker disk pruning
-│   │   └── 📄 [Project Architecture & Go Learning Guide.md](Projects/Docker%20Cleanup%20Daemon/Project%20Architecture%20&%20Go%20Learning%20Guide.md)
+│   │   └── 📄 Project Architecture & Go Learning Guide.md
 │   └── 📁 Resume Collector/             # Fullstack CV collector and parsing pipeline
 │
 ├── 📁 System Design/                   # System scaling and pattern architectures
-│   ├── 📄 [1.1 Scaling to Millions.md](System%20Design/1.1%20Scaling%20to%20Millions.md)    # Vertical vs horizontal, stateless web, geo-routing
-│   └── 📄 [Rate limiter.md](System%20Design/Rate%20limiter.md)               # Token bucket, sliding window rate limiters
+│   ├── 📄 1.1 Scaling to Millions.md    # Vertical vs horizontal, stateless web, geo-routing
+│   └── 📄 Rate limiter.md               # Token bucket, sliding window rate limiters
 │
 ├── 📁 Templates/
-│   ├── 📄 [Daily Notes.md](Templates/Daily%20Notes.md)
-│   └── 📄 [Leetcode.md](Templates/Leetcode.md)
+│   ├── 📄 Daily Notes.md
+│   └── 📄 Leetcode.md
 │
 ├── 📁 Tools/                           # Development and Operations tooling
 │   ├── 📁 Docker/
-│   │   ├── 📄 [Docker Storyboard.md](Tools/Docker/Docker%20Storyboard.md)
-│   │   └── 📄 [Major Commands.md](Tools/Docker/Major%20Commands.md)
+│   │   ├── 📄 Docker Storyboard.md
+│   │   └── 📄 Major Commands.md
 │   ├── 📁 Jenkins/
-│   │   ├── 📄 [Deploy code for Nginx.md](Tools/Jenkins/Deploy%20code%20for%20Nginx.md)
-│   │   └── 📄 [Overview.md](Tools/Jenkins/Overview.md)
+│   │   ├── 📄 Deploy code for Nginx.md
+│   │   └── 📄 Overview.md
 │   └── 📁 Kubernetees/                  # Container orchestration engine
-│       ├── 📄 [01 Intro to K8.md](Tools/Kubernetees/01%20Intro%20to%20K8.md)
-│       ├── 📄 [02 Commands of K8S.md](Tools/Kubernetees/02%20Commands%20of%20K8S.md)
-│       └── 📄 [03 Architecture of K8.md](Tools/Kubernetees/03%20Architecture of K8.md)
+│       ├── 📄 01 Intro to K8.md
+│       ├── 📄 02 Commands of K8S.md
+│       └── 📄 03 Architecture of K8.md
 │
-├── 📄 [Dictionary.md](Dictionary.md)                    # Core computer science terminology glossary
-├── 📄 [Jenkinsfile](Jenkinsfile)                      # Pipeline-as-code deployment definitions
+├── 📄 Dictionary.md                    # Core computer science terminology glossary
+├── 📄 Jenkinsfile                      # Pipeline-as-code deployment definitions
 ├── 📄 LICENSE
-└── 📄 [Test BENCH.md](Test%20BENCH.md)                     # Sandbox testing notepad
+└── 📄 Test BENCH.md                     # Sandbox testing notepad
 ```
 
 ---
