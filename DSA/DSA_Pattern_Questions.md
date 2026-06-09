@@ -1,4 +1,10 @@
-# DSA Pattern Questions — Master List
+---
+tags:
+  - dsa
+  - concept/practice
+---
+
+
 ### Topic-wise problems to cover every pattern inside each topic
 
 > **How to use this list:** Work through one topic at a time, in order. Within each topic, problems are arranged from foundational → intermediate → advanced. Finishing a topic's list means you have seen every major pattern variation that topic can throw at you.

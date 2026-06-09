@@ -2,7 +2,7 @@
 tags:
 Date: 2026-05-23
 ---
-
+	kkkkk
 
 ## 
 create table using java api
@@ -153,7 +153,7 @@ public class InsertRecord {
         Connection con = ConnectionFactory.createConnection(conf);
 
         Table table = con.getTable(TableName.valueOf("students"));
-
+                                                                                                                            
         Put put = new Put(Bytes.toBytes("2001"));
         put.addColumn(Bytes.toBytes("personal"), Bytes.toBytes("name"),  Bytes.toBytes("Emma"));
         put.addColumn(Bytes.toBytes("personal"), Bytes.toBytes("age"),   Bytes.toBytes("22"));
