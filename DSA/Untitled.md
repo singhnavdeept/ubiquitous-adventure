@@ -3,36 +3,6 @@
 
 ---
 
-## 📦 Table of Contents
-
-1. [Java Containers / Data Structures Overview](https://claude.ai/chat/fdbfbbba-2187-479a-9e81-dc8408d030ae#1-java-containers--data-structures-overview)
-2. [Arrays](https://claude.ai/chat/fdbfbbba-2187-479a-9e81-dc8408d030ae#2-arrays)
-3. [Strings](https://claude.ai/chat/fdbfbbba-2187-479a-9e81-dc8408d030ae#3-strings)
-4. [ArrayList & LinkedList](https://claude.ai/chat/fdbfbbba-2187-479a-9e81-dc8408d030ae#4-arraylist--linkedlist)
-5. [Stack](https://claude.ai/chat/fdbfbbba-2187-479a-9e81-dc8408d030ae#5-stack)
-6. [Queue & Deque](https://claude.ai/chat/fdbfbbba-2187-479a-9e81-dc8408d030ae#6-queue--deque)
-7. [HashMap & HashSet](https://claude.ai/chat/fdbfbbba-2187-479a-9e81-dc8408d030ae#7-hashmap--hashset)
-8. [TreeMap & TreeSet](https://claude.ai/chat/fdbfbbba-2187-479a-9e81-dc8408d030ae#8-treemap--treeset)
-9. [PriorityQueue (Min/Max Heap)](https://claude.ai/chat/fdbfbbba-2187-479a-9e81-dc8408d030ae#9-priorityqueue-minmax-heap)
-10. [Linked List (Custom)](https://claude.ai/chat/fdbfbbba-2187-479a-9e81-dc8408d030ae#10-linked-list-custom)
-11. [Binary Tree & BST](https://claude.ai/chat/fdbfbbba-2187-479a-9e81-dc8408d030ae#11-binary-tree--bst)
-12. [Graph — Adjacency List](https://claude.ai/chat/fdbfbbba-2187-479a-9e81-dc8408d030ae#12-graph--adjacency-list)
-13. [Sorting Algorithms](https://claude.ai/chat/fdbfbbba-2187-479a-9e81-dc8408d030ae#13-sorting-algorithms)
-14. [Searching Algorithms](https://claude.ai/chat/fdbfbbba-2187-479a-9e81-dc8408d030ae#14-searching-algorithms)
-15. [Recursion & Backtracking](https://claude.ai/chat/fdbfbbba-2187-479a-9e81-dc8408d030ae#15-recursion--backtracking)
-16. [Dynamic Programming](https://claude.ai/chat/fdbfbbba-2187-479a-9e81-dc8408d030ae#16-dynamic-programming)
-17. [Two Pointers](https://claude.ai/chat/fdbfbbba-2187-479a-9e81-dc8408d030ae#17-two-pointers)
-18. [Sliding Window](https://claude.ai/chat/fdbfbbba-2187-479a-9e81-dc8408d030ae#18-sliding-window)
-19. [Binary Search (Patterns)](https://claude.ai/chat/fdbfbbba-2187-479a-9e81-dc8408d030ae#19-binary-search-patterns)
-20. [Graph Traversals — BFS & DFS](https://claude.ai/chat/fdbfbbba-2187-479a-9e81-dc8408d030ae#20-graph-traversals--bfs--dfs)
-21. [Trie](https://claude.ai/chat/fdbfbbba-2187-479a-9e81-dc8408d030ae#21-trie)
-22. [Union-Find (Disjoint Set)](https://claude.ai/chat/fdbfbbba-2187-479a-9e81-dc8408d030ae#22-union-find-disjoint-set)
-23. [Segment Tree](https://claude.ai/chat/fdbfbbba-2187-479a-9e81-dc8408d030ae#23-segment-tree)
-24. [Bit Manipulation Tricks](https://claude.ai/chat/fdbfbbba-2187-479a-9e81-dc8408d030ae#24-bit-manipulation-tricks)
-25. [Complexity Cheat Sheet](https://claude.ai/chat/fdbfbbba-2187-479a-9e81-dc8408d030ae#25-complexity-cheat-sheet)
-
----
-
 ## 1. Java Containers / Data Structures Overview
 
 ```
@@ -218,7 +188,7 @@ q.poll();        // dequeue → 1
 q.isEmpty();
 
 // ArrayDeque — use as both Queue and Stack (faster)
-Deque<Integer> dq = new ArrayDeque<>();
+	Deque<Integer> dq = new ArrayDeque<>();
 dq.offerFirst(0);  dq.offerLast(5);
 dq.peekFirst();    dq.peekLast();
 dq.pollFirst();    dq.pollLast();

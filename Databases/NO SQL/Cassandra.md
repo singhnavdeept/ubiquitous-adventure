@@ -3,6 +3,9 @@ Date: 2026-05-20
 tags:
   - concept/remembring
   - theory
+  - "#databases"
+  - "#cassandra"
+  - "#columnar-database"
 aliases:
   - Column Based Data
 banner: a_city_with_buildings_and_lights.jpg
