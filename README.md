@@ -8,7 +8,7 @@ Welcome to the **Ubiquitous Adventure** repository. This is a production-grade, 
 
 Below is the exhaustive, multi-level map of the repository, providing clickable links to every directory and key note file:
 
-
+---text
 ubiquitous-adventure/
 ├── 📁 Assets/                          # Centralized assets and technical diagrams
 │   ├── 🖼️ [PACELC_theorem.png](Assets/PACELC_theorem.png)
@@ -174,7 +174,7 @@ ubiquitous-adventure/
 ├── 📄 [Jenkinsfile](Jenkinsfile)                      # Pipeline-as-code deployment definitions
 ├── 📄 LICENSE
 └── 📄 [Test BENCH.md](Test%20BENCH.md)                     # Sandbox testing notepad
-
+---
 
 ---
 
