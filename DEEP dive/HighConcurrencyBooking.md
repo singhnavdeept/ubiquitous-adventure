@@ -82,7 +82,8 @@ When 1,000,000 users arrive at exactly 10:00 AM, we cannot let them all query th
     }
     ```
 3.  **Active Gatekeeping**: The frontend polls the Waiting Room. When the queue manager determines it is user `142095`'s turn, the token is updated with an `active: true` status.
-4.  **Edge Validation**: The API Gateway validates the signature of this token. If a user bypasses the waiting room, the API Gateway rejects the request with `403 Forbidden` at the network edge without querying the database or application servers.
+4.  **Edge Validation**: The API Gateway validates the signature of this token. If a user bypasses the waiting room, the API Gateway rejects the request with `403 Forbidden` at the network edge +
+5. without querying the database or application servers.
 
 ---
 

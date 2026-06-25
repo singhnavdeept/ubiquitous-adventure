@@ -1,13 +1,10 @@
 ---
-title: "Distributed Systems: The CAP Theorem & PACELC Extension"
 tags:
-  - databases
-  - distributed-systems
-  - cap-theorem
-  - pacelc
-  - study-guide
+  - database/distributed-systems
+  - database/cap-theorem
+  - database/theory
+category: distributed-systems
 created: 2026-05-29
-type: study-note
 ---
 
 # The CAP Theorem & PACELC: Theory, Trade-offs, and Database Selection

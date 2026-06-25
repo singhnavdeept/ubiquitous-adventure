@@ -1,15 +1,10 @@
 ---
-title: "Databases: Concurrency Control & Database Locking"
 tags:
-  - databases
-  - sql
-  - locks
-  - 2pl
-  - concurrency-control
-  - gap-locks
-  - interview-prep
+  - database/concurrency
+  - database/locks
+  - database/internals
+category: transactions
 created: 2026-05-29
-type: study-note
 ---
 
 # Database Locks & Concurrency Control

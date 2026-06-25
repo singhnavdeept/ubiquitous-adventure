@@ -1,15 +1,10 @@
 ---
-title: "Databases: Transaction Isolation Levels & Concurrency Anomalies"
 tags:
-  - databases
-  - sql
-  - transactions
-  - acid
-  - anomalies
-  - isolation-levels
-  - interview-prep
+  - database/transactions
+  - database/isolation-levels
+  - database/anomalies
+category: transactions
 created: 2026-05-29
-type: study-note
 ---
 
 # Transaction Isolation & Concurrency Anomalies

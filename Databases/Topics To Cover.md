@@ -27,19 +27,19 @@ Date: 16-April-2026
 - **Subqueries** — correlated vs non-correlated
 - **[[2.4 Aggregation]]** — ROLLUP, CUBE, GROUPING SETS
 - **Full-text search** — tsvector, tsquery, relevance ranking
-- **Execution plans** — EXPLAIN, EXPLAIN ANALYZE, query cost
+- **[[Query Optimization & Execution Plans|Execution plans]]** — EXPLAIN, EXPLAIN ANALYZE, query cost
 
 ---
 
 ## ⚙️ Storage & Internals
 
-- **Storage engines** — InnoDB, RocksDB, WiredTiger, LSM trees
-- **Page/block storage** — how data is laid out on disk
-- **Heap files vs clustered storage**
-- **Write-Ahead Log (WAL)** — durability, crash recovery, log replay
-- **Buffer pool / shared buffers** — caching pages in memory
-- **Vacuuming / compaction** — reclaiming dead rows (MVCC cleanup)
-- **Checkpointing** — flushing dirty pages to disk
+- **[[3.1 Database Storage Engines The Engines Beneath Your Data|Storage engines]]** — InnoDB, RocksDB, WiredTiger, LSM trees
+- **[[3.2 Page and Block Storage How Data Is Laid Out on Disk|Page/block storage]]** — how data is laid out on disk
+- **[[Database Internals & Storage Engines#3. Heap Files vs. Clustered Storage|Heap files vs clustered storage]]**
+- **[[Database Internals & Storage Engines#4. Write-Ahead Log (WAL)|Write-Ahead Log (WAL)]]** — durability, crash recovery, log replay
+- **[[Database Internals & Storage Engines#5. Buffer Pool & Shared Buffers|Buffer pool / shared buffers]]** — caching pages in memory
+- **[[Database Internals & Storage Engines#6. Vacuuming vs. Compaction (MVCC Cleanup)|Vacuuming / compaction]]** — reclaiming dead rows (MVCC cleanup)
+- **[[Database Internals & Storage Engines#7. Checkpointing|Checkpointing]]** — flushing dirty pages to disk
 
 ---
 
@@ -51,7 +51,7 @@ Date: 16-April-2026
 - **MVCC** — Multi-Version Concurrency Control
 - **Optimistic vs pessimistic locking**
 - **Deadlocks** — detection and prevention
-- **Two-phase commit (2PC)** — distributed transactions
+- **[[Distributed Transactions & Patterns#2. Two-Phase Commit (2PC)|Two-phase commit (2PC)]]** — distributed transactions
 - **Savepoints** — partial rollbacks
 
 ---
@@ -60,10 +60,10 @@ Date: 16-April-2026
 
 - **CAP theorem** — Consistency, Availability, Partition Tolerance
 - **BASE** — Basically Available, Soft state, Eventually consistent
-- **Sharding** — horizontal partitioning across nodes (hash vs range sharding)
-- **Replication** — primary-replica, multi-primary, synchronous vs async
+- **[[Sharding, Partitioning & Replication#1. Partitioning vs. Sharding|Sharding]]** — horizontal partitioning across nodes (hash vs range sharding)
+- **[[Sharding, Partitioning & Replication#3. Replication Topologies: Sync vs. Async|Replication]]** — primary-replica, multi-primary, synchronous vs async
 - **Consensus algorithms** — Raft, Paxos
-- **Distributed transactions** — saga pattern, outbox pattern
+- **[[Distributed Transactions & Patterns|Distributed transactions]]** — saga pattern, outbox pattern
 - **Idempotency** — safe retries in distributed operations
 - **Vector clocks / Lamport timestamps** — ordering events
 
@@ -71,8 +71,8 @@ Date: 16-April-2026
 
 ## 🧩 Partitioning
 
-- **Horizontal partitioning** — splitting rows across tables/nodes
-- **Vertical partitioning** — splitting columns
+- **[[Sharding, Partitioning & Replication#1. Partitioning vs. Sharding|Horizontal partitioning]]** — splitting rows across tables/nodes
+- **[[Sharding, Partitioning & Replication#1. Partitioning vs. Sharding|Vertical partitioning]]** — splitting columns
 - **Range, hash, list partitioning**
 - **Partition pruning** — query optimization with partitions
 - **Time-based partitioning** — common for logs/events
@@ -81,7 +81,7 @@ Date: 16-April-2026
 
 ## 📈 Performance & Optimization
 
-- **Query optimization** — planner statistics, cost models
+- **[[Query Optimization & Execution Plans|Query optimization]]** — planner statistics, cost models
 - **Index strategies** — partial indexes, expression indexes, index-only scans
 - **Connection pooling** — PgBouncer, HikariCP
 - **Caching layers** — Redis, Memcached in front of DB
@@ -116,7 +116,7 @@ Date: 16-April-2026
 
 - **Time-series databases** — TimescaleDB, InfluxDB
 - **Graph databases** — Neo4j, property graphs
-- **Vector databases** — pgvector, Pinecone (for AI/ML)
+- **[[Vector Databases & pgvector|Vector databases]]** — pgvector, Pinecone (for AI/ML)
 - **NewSQL** — CockroachDB, Spanner, YugabyteDB
 - **Event sourcing & CQRS** — storing state as events
 - **Multitenancy patterns** — schema-per-tenant, row-level security

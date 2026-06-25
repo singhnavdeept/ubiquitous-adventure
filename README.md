@@ -33,9 +33,9 @@ This workspace is categorized into specialized domains of learning:
     *   *Examples: Concurrent Seat Booking System, Docker Cleanup Daemon.*
 
 ### 🗄️ 4. Data & Infrastructure
-*   **[`/Databases`](./Databases/)**: Relational and NoSQL storage engines, indexing, and internal structures.
+*   **[`/Databases`](./Databases/)**: Relational/NoSQL storage engines, page/block file layouts, vector databases (pgvector), query optimizations, and execution planning.
 *   **[`/Big Data`](./Big%20Data/) & [`/Data Engineering`](./Data%20Engineering/)**: Distributed data processing and pipelines.
-*   **[`/DevOps Practical Prep`](./DevOps%20Practical%20Prep/)**: CI/CD pipelines, Docker, Kubernetes, and deployment automation.
+*   **[`/Tools`](./Tools/)**: CI/CD pipelines, container orchestration, API testing, and automation (Docker, Kubernetes, Jenkins, Postman/REST APIs).
 
 ### 📝 5. Personal Knowledge Management (PKM)
 *   **[`/Atomic Notes`](./Atomic%20Notes/) & [`/DailyNotes`](./DailyNotes/)**: Daily scratchpads and Zettelkasten-style interconnected thoughts.

@@ -1,4 +1,4 @@
-
+	
 
 At its core, networking is about connecting devices and enabling them to communicate. Networks are built on a layered architecture (the so-called ["OSI model"](https://en.wikipedia.org/wiki/OSI_model)) which greatly simplifies the world for us application developers who sit on top of it.
 

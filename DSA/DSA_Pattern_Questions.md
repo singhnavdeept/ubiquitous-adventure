@@ -15,23 +15,23 @@ tags:
 
 > **Patterns covered:** frequency counting, complement lookup, prefix sums, in-place manipulation, sorting tricks
 
-| # | Problem | Difficulty | Pattern |
-|---|---------|-----------|---------|
-| 1 | [Two Sum](https://leetcode.com/problems/two-sum/) | Easy | HashMap complement |
-| 2 | [Contains Duplicate](https://leetcode.com/problems/contains-duplicate/) | Easy | HashSet membership |
-| 3 | [Valid Anagram](https://leetcode.com/problems/valid-anagram/) | Easy | Frequency count |
-| 4 | [Move Zeroes](https://leetcode.com/problems/move-zeroes/) | Easy | In-place two-pointer |
-| 5 | [Best Time to Buy and Sell Stock](https://leetcode.com/problems/best-time-to-buy-and-sell-stock/) | Easy | Running min/max |
-| 6 | [Maximum Subarray](https://leetcode.com/problems/maximum-subarray/) | Medium | Kadane's algorithm |
-| 7 | [Product of Array Except Self](https://leetcode.com/problems/product-of-array-except-self/) | Medium | Prefix + suffix pass |
-| 8 | [Group Anagrams](https://leetcode.com/problems/group-anagrams/) | Medium | Sort-as-key HashMap |
-| 9 | [Top K Frequent Elements](https://leetcode.com/problems/top-k-frequent-elements/) | Medium | Frequency + heap/bucket |
-| 10 | [Subarray Sum Equals K](https://leetcode.com/problems/subarray-sum-equals-k/) | Medium | Prefix sum + HashMap |
-| 11 | [Longest Consecutive Sequence](https://leetcode.com/problems/longest-consecutive-sequence/) | Medium | HashSet streak counting |
-| 12 | [Sort Colors](https://leetcode.com/problems/sort-colors/) | Medium | Dutch National Flag / 3-way partition |
-| 13 | [Find All Duplicates in an Array](https://leetcode.com/problems/find-all-duplicates-in-an-array/) | Medium | Index marking trick |
-| 14 | [Maximum Product Subarray](https://leetcode.com/problems/maximum-product-subarray/) | Medium | Track min and max simultaneously |
-| 15 | [4Sum](https://leetcode.com/problems/4sum/) | Medium | Sorted + two nested loops + two pointers |
+| #   | Problem                                                                                           | Difficulty | Pattern                                  |
+| --- | ------------------------------------------------------------------------------------------------- | ---------- | ---------------------------------------- |
+| 1   | [Two Sum](https://leetcode.com/problems/two-sum/)                                                 | Easy       | HashMap complement                       |
+| 2   | [Contains Duplicate](https://leetcode.com/problems/contains-duplicate/)                           | Easy       | HashSet membership                       |
+| 3   | [Valid Anagram](https://leetcode.com/problems/valid-anagram/)                                     | Easy       | Frequency count                          |
+| 4   | [Move Zeroes](https://leetcode.com/problems/move-zeroes/)                                         | Easy       | In-place two-pointer                     |
+| 5   | [Best Time to Buy and Sell Stock](https://leetcode.com/problems/best-time-to-buy-and-sell-stock/) | Easy       | Running min/max                          |
+| 6   | [Maximum Subarray](https://leetcode.com/problems/maximum-subarray/)                               | Medium     | Kadane's algorithm                       |
+| 7   | [Product of Array Except Self](https://leetcode.com/problems/product-of-array-except-self/)       | Medium     | Prefix + suffix pass                     |
+| 8   | [Group Anagrams](https://leetcode.com/problems/group-anagrams/)                                   | Medium     | Sort-as-key HashMap                      |
+| 9   | [Top K Frequent Elements](https://leetcode.com/problems/top-k-frequent-elements/)                 | Medium     | Frequency + heap/bucket                  |
+| 10  | [Subarray Sum Equals K](https://leetcode.com/problems/subarray-sum-equals-k/)                     | Medium     | Prefix sum + HashMap                     |
+| 11  | [Longest Consecutive Sequence](https://leetcode.com/problems/longest-consecutive-sequence/)       | Medium     | HashSet streak counting                  |
+| 12  | [Sort Colors](https://leetcode.com/problems/sort-colors/)                                         | Medium     | Dutch National Flag / 3-way partition    |
+| 13  | [Find All Duplicates in an Array](https://leetcode.com/problems/find-all-duplicates-in-an-array/) | Medium     | Index marking trick                      |
+| 14  | [Maximum Product Subarray](https://leetcode.com/problems/maximum-product-subarray/)               | Medium     | Track min and max simultaneously         |
+| 15  | [4Sum](https://leetcode.com/problems/4sum/)                                                       | Medium     | Sorted + two nested loops + two pointers |
 
 ---
 
@@ -403,7 +403,7 @@ tags:
 | 32  | [Course Schedule](https://leetcode.com/problems/course-schedule/)                                                               | Topological Sort        |
 | 33  | [Pacific Atlantic Water Flow](https://leetcode.com/problems/pacific-atlantic-water-flow/)                                       | Multi-source BFS        |
 | 34  | [Redundant Connection](https://leetcode.com/problems/redundant-connection/)                                                     | Union-Find              |
-| 35  | [Subsets](https://leetcode.com/problems/subsets/)[[Practice run 1#19. Subsets]]                                                 | Backtracking            |
+| 35  | [Subsets](https://leetcode.com/problems/subsets/)[[Practice Run 1#19. Subsets]]                                                 | Backtracking            |
 | 36  | [Combination Sum](https://leetcode.com/problems/combination-sum/)                                                               | Backtracking            |
 | 37  | [Permutations](https://leetcode.com/problems/permutations/)                                                                     | Backtracking            |
 | 38  | [Merge Intervals](https://leetcode.com/problems/merge-intervals/)                                                               | Greedy Intervals        |

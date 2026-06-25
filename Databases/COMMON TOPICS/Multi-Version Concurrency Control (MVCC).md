@@ -1,3 +1,12 @@
+---
+tags:
+  - database/concurrency
+  - database/mvcc
+  - database/internals
+category: transactions
+created: 2026-06-15
+---
+
 ****Multi-Version Concurrency Control (MVCC)**** is a technique used in databases to allow many users to read and update data at the same time without blocking each other.
 
 Instead of overwriting a record when it is updated, the database creates a new version of that record. This means:

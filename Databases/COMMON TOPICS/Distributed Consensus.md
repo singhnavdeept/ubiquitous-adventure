@@ -1,15 +1,11 @@
 ---
-title: "Distributed Systems: Consensus Protocols (Paxos, Raft & ZooKeeper Zab)"
 tags:
-  - databases
-  - distributed-systems
-  - consensus
-  - raft
-  - paxos
-  - zookeeper
-  - interview-prep
+  - database/distributed-systems
+  - database/consensus
+  - database/raft
+  - database/paxos
+category: distributed-systems
 created: 2026-05-29
-type: study-note
 ---
 
 # Distributed Consensus: Paxos, Raft, and ZooKeeper Zab

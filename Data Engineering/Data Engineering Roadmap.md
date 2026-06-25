@@ -17,27 +17,27 @@
 
 ### Python
 
-- [ ] Variables, data types, loops, functions, list comprehensions
-- [ ] File I/O — reading/writing CSV, JSON, text files
-- [ ] Error handling — try/except, custom exceptions
-- [ ] `pandas` — DataFrames, filtering, groupby, merge, pivot
-- [ ] `numpy` — arrays, vectorised operations
-- [ ] Writing modular code — functions, modules, packages
-- [ ] Virtual environments — `venv`, `pip`, `requirements.txt`
-- [ ] Writing unit tests with `pytest`
-- [ ] Type hints and docstrings
+- [x] Variables, data types, loops, functions, list comprehensions
+- [x] File I/O — reading/writing CSV, JSON, text files
+- [x] Error handling — try/except, custom exceptions
+- [x] `pandas` — DataFrames, filtering, groupby, merge, pivot
+- [x] `numpy` — arrays, vectorised operations
+- [x] Writing modular code — functions, modules, packages
+- [x] Virtual environments — `venv`, `pip`, `requirements.txt`
+- [x] Writing unit tests with `pytest`
+- [x] Type hints and docstrings
 
 ### SQL
 
-- [ ] SELECT, WHERE, GROUP BY, ORDER BY, HAVING
-- [ ] JOINs — INNER, LEFT, RIGHT, FULL OUTER, CROSS
-- [ ] Subqueries and derived tables
-- [ ] Common Table Expressions (CTEs) — `WITH` clause
-- [ ] Window functions — `ROW_NUMBER`, `RANK`, `LAG`, `LEAD`, `SUM OVER`
-- [ ] Aggregation functions — `COUNT`, `SUM`, `AVG`, `MIN`, `MAX`
-- [ ] String, date, and type-casting functions
-- [ ] Understanding query execution plans (`EXPLAIN`)
-- [ ] Indexes — when and how they help
+- [x] SELECT, WHERE, GROUP BY, ORDER BY, HAVING
+- [x] JOINs — INNER, LEFT, RIGHT, FULL OUTER, CROSS
+- [x] Subqueries and derived tables
+- [x] Common Table Expressions (CTEs) — `WITH` clause
+- [x] Window functions — `ROW_NUMBER`, `RANK`, `LAG`, `LEAD`, `SUM OVER`
+- [x] Aggregation functions — `COUNT`, `SUM`, `AVG`, `MIN`, `MAX`
+- [x] String, date, and type-casting functions
+- [x] Understanding query execution plans (`EXPLAIN`)
+- [x] Indexes — when and how they help
 
 ### Linux & Shell
 
@@ -53,13 +53,13 @@
 
 ### Git & Version Control
 
-- [ ] Init, clone, add, commit, push, pull
-- [ ] Branching — `git branch`, `git checkout`, `git merge`
-- [ ] Resolving merge conflicts
-- [ ] Pull requests and code review workflow
-- [ ] `.gitignore` — what to exclude
-- [ ] Tagging releases
-- [ ] Basic CI understanding — what runs on a PR
+- [x] Init, clone, add, commit, push, pull
+- [x] Branching — `git branch`, `git checkout`, `git merge`
+- [x] Resolving merge conflicts
+- [x] Pull requests and code review workflow
+- [x] `.gitignore` — what to exclude
+- [x] Tagging releases
+- [x] Basic CI understanding — what runs on a PR
 
 **Phase 1 checkpoint:** You can write a Python script that reads a CSV, transforms it with pandas, queries a local Postgres database, and runs in a shell script triggered by cron.
 
@@ -224,9 +224,9 @@
 
 ### Kubernetes (K8s) Basics
 
-- [ ] What K8s solves — scheduling containers at scale
+- [x] What K8s solves — scheduling containers at scale
 - [ ] Core objects — Pod, Deployment, Service, Job, CronJob
-- [ ] `kubectl` — basic commands
+- [x] `kubectl` — basic commands
 - [ ] Helm — package manager for K8s apps
 - [ ] KubernetesExecutor in Airflow
 - [ ] Resource limits — CPU and memory requests
