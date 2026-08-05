@@ -16,6 +16,7 @@ Welcome to the **DEEP Dive** folder! This workspace is dedicated to in-depth res
 *   🚗 [Uber System Design](file:///c:/Users/navde/Desktop/ubiquitous-adventure/DEEP dive/Uber.md) — Real-time location tracking ingestion pipelines, H3 hexagonal geospatial partitioning, CockroachDB transaction schemas, Redis Cluster hot caching, and matching algorithms (Kuhn-Munkres).
 *   🎟️ [High-Concurrency Ticket Booking System](file:///c:/Users/navde/Desktop/ubiquitous-adventure/DEEP dive/HighConcurrencyBooking.md) — Traffic funnel optimization, virtual waiting room queuing, atomic Redis Lua pre-decrements, database sharding/row lock mitigation, distributed checkout state machine, and cache stampede safeguards.
 *   📦 [Dropbox System Design](file:///c:/Users/navde/Desktop/ubiquitous-adventure/DEEP dive/Dropbox.md) — 4MB fixed chunking, deduplication, strict separation of metadata from object block storage (Magic Pocket), erasure coding vs replication tradeoffs, delta sync algorithms, and conflict resolution mechanisms.
+*   💳 [Stripe Monolith Architecture](file:///c:/Users/navde/Desktop/ubiquitous-adventure/DEEP dive/StripeMonolith.md) — Scaling a 50M-line Ruby codebase via compiler tooling, Sorbet static typing, process-level concurrency to bypass the GIL, and dynamic selective CI test execution.
 
 
 ---

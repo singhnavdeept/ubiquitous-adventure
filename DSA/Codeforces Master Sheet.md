@@ -15,18 +15,18 @@ This tracking sheet is designed for developers aiming to grow from an absolute b
 ## 1. Implementation & Constructive Algorithms
 > **Focus:** Translating logic directly into code. Handling edge cases, simple loops, and simulation.
 
-| #   | Problem | Rating | Tag | Status | Notes |
-| --- | --- | --- | --- | --- | --- |
-| 1   | [Watermelon — 4A](https://codeforces.com/problemset/problem/4/A) | ⭐ | Math | ❌ | The classic first problem |
-| 2   | [Way Too Long Words — 71A](https://codeforces.com/problemset/problem/71/A) | ⭐ | Strings | ❌ | |
-| 3   | [Team — 231A](https://codeforces.com/problemset/problem/231/A) | ⭐ | Impl | ❌ | |
-| 4   | [Bit++ — 282A](https://codeforces.com/problemset/problem/282/A) | ⭐ | Impl | ❌ | |
-| 5   | [Beautiful Matrix — 263A](https://codeforces.com/problemset/problem/263/A) | ⭐ | Impl | ❌ | |
-| 6   | [Petya and Strings — 112A](https://codeforces.com/problemset/problem/112/A) | ⭐ | Strings | ❌ | |
-| 7   | [Helpful Maths — 339A](https://codeforces.com/problemset/problem/339/A) | ⭐ | Strings/Sort | ❌ | |
-| 8   | [Word Capitalization — 281A](https://codeforces.com/problemset/problem/281/A) | ⭐ | Strings | ❌ | |
-| 9   | [Boy or Girl — 236A](https://codeforces.com/problemset/problem/236/A) | ⭐ | Impl | ❌ | |
-| 10  | [Stones on the Table — 266A](https://codeforces.com/problemset/problem/266/A) | ⭐ | Impl | ❌ | |
+| #   | Problem                                                                       | Rating | Tag          | Status | Notes                     |
+| --- | ----------------------------------------------------------------------------- | ------ | ------------ | ------ | ------------------------- |
+| 1   | [Watermelon — 4A](https://codeforces.com/problemset/problem/4/A)              | ⭐      | Math         | ❌      | The classic first problem |
+| 2   | [Way Too Long Words — 71A](https://codeforces.com/problemset/problem/71/A)    | ⭐      | Strings      | ❌      |                           |
+| 3   | [Team — 231A](https://codeforces.com/problemset/problem/231/A)                | ⭐      | Impl         | ❌      |                           |
+| 4   | [Bit++ — 282A](https://codeforces.com/problemset/problem/282/A)               | ⭐      | Impl         | ❌      |                           |
+| 5   | [Beautiful Matrix — 263A](https://codeforces.com/problemset/problem/263/A)    | ⭐      | Impl         | ❌      |                           |
+| 6   | [Petya and Strings — 112A](https://codeforces.com/problemset/problem/112/A)   | ⭐      | Strings      | ❌      |                           |
+| 7   | [Helpful Maths — 339A](https://codeforces.com/problemset/problem/339/A)       | ⭐      | Strings/Sort | ❌      |                           |
+| 8   | [Word Capitalization — 281A](https://codeforces.com/problemset/problem/281/A) | ⭐      | Strings      | ❌      |                           |
+| 9   | [Boy or Girl — 236A](https://codeforces.com/problemset/problem/236/A)         | ⭐      | Impl         | ❌      |                           |
+| 10  | [Stones on the Table — 266A](https://codeforces.com/problemset/problem/266/A) | ⭐      | Impl         | ❌      | done                      |
 
 ---
 

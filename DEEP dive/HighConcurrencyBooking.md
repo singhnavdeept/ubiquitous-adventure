@@ -132,6 +132,12 @@ redis.call('HSET', held_users_key, user_id, redis.call('TIME')[1])
 return 1 -- Code 1: Success (Reservation held)
 ```
 
+### Golang Integration (The API Layer)
+While Lua handles the atomic database execution natively inside Redis, the backend server architecture is entirely decoupled and usually written in a highly concurrent language like **Golang**.
+* **Go Handles Scale**: Golang's lightweight Goroutines easily manage thousands of concurrent HTTP incoming requests, rate-limiting, and authentication.
+* **Network Injection**: When an authenticated user requests a ticket, the Go backend uses a client like `go-redis` to inject the raw Lua script string over the network into the Redis server.
+* **Separation of Concerns**: Go is never responsible for calculating the remaining inventory in its own memory (which avoids Check-Then-Act network race conditions). It merely asks Redis to execute the script and waits for the `1` (Success) or `-1` (Failed) response.
+
 ### Synchronizing Redis and DB (Eventual Consistency)
 *   **Write-Back Caching**: The database does *not* receive updates immediately.
 *   Once the Lua script returns `1`, the Order Service writes a pending order state to the Database and publishes a `TICKET_HELD` event to Kafka.
