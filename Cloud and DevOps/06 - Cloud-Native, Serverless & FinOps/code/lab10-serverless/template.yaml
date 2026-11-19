@@ -1,0 +1,37 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: 'INT378 Advancements in Cloud and DevOps - Lab 10: Serverless API'
+
+Globals:
+  Function:
+    Timeout: 10
+    MemorySize: 128
+    Runtime: python3.11
+
+Resources:
+  ServerlessApiFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: .
+      Handler: lambda_function.lambda_handler
+      Events:
+        GetItems:
+          Type: HttpApi
+          Properties:
+            Path: /items
+            Method: get
+        PostItems:
+          Type: HttpApi
+          Properties:
+            Path: /items
+            Method: post
+        HealthCheck:
+          Type: HttpApi
+          Properties:
+            Path: /health
+            Method: get
+
+Outputs:
+  ApiUrl:
+    Description: 'HTTP API Gateway endpoint URL'
+    Value: !Sub 'https://${ServerlessHttpApi}.execute-api.${AWS::Region}.amazonaws.com'

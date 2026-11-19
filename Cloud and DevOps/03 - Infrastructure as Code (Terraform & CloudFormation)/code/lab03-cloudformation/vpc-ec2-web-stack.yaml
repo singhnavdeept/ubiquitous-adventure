@@ -1,0 +1,137 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: 'INT378 Advancements in Cloud and DevOps - Lab 03: Automated VPC & Web Server Stack'
+
+Parameters:
+  InstanceType:
+    Description: 'EC2 instance compute size'
+    Type: String
+    Default: t2.micro
+    AllowedValues:
+      - t2.micro
+      - t3.micro
+    ConstraintDescription: 'Must be a free-tier eligible instance type (t2.micro or t3.micro).'
+
+  LatestAmiId:
+    Description: 'SSM parameter query for latest Amazon Linux 2023 AMI'
+    Type: 'AWS::SSM::Parameter::Value<AWS::EC2::Image::Id>'
+    Default: '/aws/service/ami-amazon-linux-latest/al2023-ami-kernel-default-x86_64'
+
+Resources:
+  # 1. Virtual Private Cloud
+  LabVPC:
+    Type: AWS::EC2::VPC
+    Properties:
+      CidrBlock: 10.0.0.0/16
+      EnableDnsSupport: true
+      EnableDnsHostnames: true
+      Tags:
+        - Key: Name
+          Value: int378-cfn-vpc
+
+  # 2. Internet Gateway
+  LabInternetGateway:
+    Type: AWS::EC2::InternetGateway
+    Properties:
+      Tags:
+        - Key: Name
+          Value: int378-cfn-igw
+
+  LabVPCGatewayAttachment:
+    Type: AWS::EC2::VPCGatewayAttachment
+    Properties:
+      VpcId: !Ref LabVPC
+      InternetGatewayId: !Ref LabInternetGateway
+
+  # 3. Public Subnet
+  LabSubnet:
+    Type: AWS::EC2::Subnet
+    Properties:
+      VpcId: !Ref LabVPC
+      CidrBlock: 10.0.1.0/24
+      MapPublicIpOnLaunch: true
+      AvailabilityZone: !Select [0, !GetAZs '']
+      Tags:
+        - Key: Name
+          Value: int378-cfn-public-subnet
+
+  # 4. Route Table and Default Internet Route
+  LabRouteTable:
+    Type: AWS::EC2::RouteTable
+    Properties:
+      VpcId: !Ref LabVPC
+      Tags:
+        - Key: Name
+          Value: int378-cfn-rtb
+
+  LabDefaultRoute:
+    Type: AWS::EC2::Route
+    DependsOn: LabVPCGatewayAttachment
+    Properties:
+      RouteTableId: !Ref LabRouteTable
+      DestinationCidrBlock: 0.0.0.0/0
+      GatewayId: !Ref LabInternetGateway
+
+  LabSubnetRouteTableAssociation:
+    Type: AWS::EC2::SubnetRouteTableAssociation
+    Properties:
+      SubnetId: !Ref LabSubnet
+      RouteTableId: !Ref LabRouteTable
+
+  # 5. Security Group
+  LabSecurityGroup:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupDescription: 'Allow HTTP and SSH inbound traffic'
+      VpcId: !Ref LabVPC
+      SecurityGroupIngress:
+        - IpProtocol: tcp
+          FromPort: 80
+          ToPort: 80
+          CidrIp: 0.0.0.0/0
+        - IpProtocol: tcp
+          FromPort: 22
+          ToPort: 22
+          CidrIp: 0.0.0.0/0
+      Tags:
+        - Key: Name
+          Value: int378-cfn-web-sg
+
+  # 6. Web Server Instance
+  WebServerInstance:
+    Type: AWS::EC2::Instance
+    Properties:
+      InstanceType: !Ref InstanceType
+      ImageId: !Ref LatestAmiId
+      SubnetId: !Ref LabSubnet
+      SecurityGroupIds:
+        - !Ref LabSecurityGroup
+      UserData:
+        Fn::Base64: !Sub |
+          #!/bin/bash
+          dnf update -y
+          dnf install -y httpd
+          systemctl enable httpd
+          systemctl start httpd
+          echo "<html><head><title>CloudFormation Stack</title></head><body style='font-family: Arial; text-align: center; margin-top: 50px;'><h1>INT378: Advancements in Cloud and DevOps</h1><p>Stack Name: <b>${AWS::StackName}</b></p><p>Region: <b>${AWS::Region}</b></p><p>Successfully deployed via CloudFormation IaC</p></body></html>" > /var/www/html/index.html
+      Tags:
+        - Key: Name
+          Value: int378-cfn-web-instance
+
+Outputs:
+  VpcId:
+    Description: 'The ID of the created VPC'
+    Value: !Ref LabVPC
+    Export:
+      Name: !Sub '${AWS::StackName}-VpcId'
+
+  InstanceId:
+    Description: 'The ID of the created Web Server'
+    Value: !Ref WebServerInstance
+
+  WebServerPublicIP:
+    Description: 'Public IP of the provisioned web server'
+    Value: !GetAtt WebServerInstance.PublicIp
+
+  WebsiteURL:
+    Description: 'HTTP URL of the deployed web application'
+    Value: !Sub 'http://${WebServerInstance.PublicIp}'

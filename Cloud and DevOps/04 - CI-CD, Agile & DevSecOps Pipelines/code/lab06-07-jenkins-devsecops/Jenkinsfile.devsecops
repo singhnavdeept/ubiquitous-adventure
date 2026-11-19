@@ -1,0 +1,107 @@
+pipeline {
+    agent any
+
+    environment {
+        APP_NAME     = 'int378-secure-app'
+        IMAGE_TAG    = "devsecops-${BUILD_NUMBER}"
+        DEPLOY_PORT  = '8081'
+        // Bind encrypted secret from Jenkins credential store
+        DB_SECRET    = credentials('PROD_DB_TOKEN')
+    }
+
+    stages {
+        stage('Checkout SCM') {
+            steps {
+                echo "Checking out source repository..."
+                checkout scm
+            }
+        }
+
+        stage('DevSecOps: Secret Detection') {
+            steps {
+                echo "Scanning codebase for hardcoded credentials (Gitleaks)..."
+                sh '''
+                    # Download or run Gitleaks container to scan workspace
+                    docker run --rm -v $(pwd):/repo zricethezav/gitleaks:latest detect --source="/repo" -v || {
+                        echo "SECURITY VIOLATION: Hardcoded secrets or private keys detected in repository!"
+                        exit 1
+                    }
+                '''
+            }
+        }
+
+        stage('DevSecOps: SAST Code Analysis') {
+            steps {
+                echo "Executing Static Application Security Testing (Semgrep)..."
+                sh '''
+                    # Run Semgrep with standard OWASP ruleset
+                    docker run --rm -v $(pwd):/src returntocorp/semgrep semgrep \
+                        --config=p/owasp-top-ten \
+                        --json \
+                        --output=/src/semgrep-report.json || true
+                    echo "SAST scan complete. Report recorded in semgrep-report.json"
+                '''
+            }
+        }
+
+        stage('Build Docker Image') {
+            steps {
+                echo "Compiling and packaging container image..."
+                sh '''
+                    docker build -t ${APP_NAME}:${IMAGE_TAG} .
+                '''
+            }
+        }
+
+        stage('DevSecOps: Container Vulnerability Scan') {
+            steps {
+                echo "Scanning container image with Aqua Trivy for known CVEs..."
+                sh '''
+                    # Generate human-readable HTML/table report
+                    docker run --rm -v /var/run/docker.sock:/var/run/docker.sock \
+                        aquasec/trivy:latest image \
+                        --severity HIGH,CRITICAL \
+                        ${APP_NAME}:${IMAGE_TAG}
+
+                    # Fail pipeline ONLY if CRITICAL unpatched CVEs exist
+                    docker run --rm -v /var/run/docker.sock:/var/run/docker.sock \
+                        aquasec/trivy:latest image \
+                        --exit-code 1 \
+                        --severity CRITICAL \
+                        ${APP_NAME}:${IMAGE_TAG}
+                '''
+            }
+        }
+
+        stage('Secure Deployment') {
+            steps {
+                echo "Deploying container with injected runtime secret..."
+                // Secret DB_SECRET is automatically masked in logs
+                sh '''
+                    docker stop ${APP_NAME} || true
+                    docker rm ${APP_NAME} || true
+
+                    # Securely inject DB_SECRET as runtime environment variable
+                    docker run -d --name ${APP_NAME} \
+                        -e DATABASE_AUTH_TOKEN="${DB_SECRET}" \
+                        -p ${DEPLOY_PORT}:5000 \
+                        ${APP_NAME}:${IMAGE_TAG}
+
+                    sleep 2
+                    curl -f http://localhost:${DEPLOY_PORT}/health || exit 1
+                    echo "Application deployed securely!"
+                '''
+            }
+        }
+    }
+
+    post {
+        always {
+            archiveArtifacts artifacts: '*.json', allowEmptyArchive: true
+            cleanWs()
+        }
+        failure {
+            echo "SECURITY GATE FAILED: Review scan logs to fix security vulnerabilities."
+        }
+    }
+}

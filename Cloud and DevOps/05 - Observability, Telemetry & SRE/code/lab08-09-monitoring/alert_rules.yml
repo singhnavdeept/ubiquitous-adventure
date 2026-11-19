@@ -1,0 +1,29 @@
+groups:
+  - name: InfrastructureAlerts
+    rules:
+      - alert: HostHighCpuLoad
+        expr: (100 - (avg by (instance) (rate(node_cpu_seconds_total{mode="idle"}[1m])) * 100)) > 80
+        for: 1m
+        labels:
+          severity: warning
+        annotations:
+          summary: "Host high CPU load detected on {{ $labels.instance }}"
+          description: "CPU load has remained above 80% for more than 1 minute."
+
+      - alert: HostLowMemory
+        expr: ((node_memory_MemAvailable_bytes / node_memory_MemTotal_bytes) * 100) < 15
+        for: 1m
+        labels:
+          severity: critical
+        annotations:
+          summary: "Host running out of physical memory on {{ $labels.instance }}"
+          description: "Available physical memory is below 15%."
+
+      - alert: ServiceDown
+        expr: up == 0
+        for: 1m
+        labels:
+          severity: critical
+        annotations:
+          summary: "Target service down: {{ $labels.instance }}"
+          description: "Prometheus failed to scrape endpoint {{ $labels.instance }} for > 1 minute."

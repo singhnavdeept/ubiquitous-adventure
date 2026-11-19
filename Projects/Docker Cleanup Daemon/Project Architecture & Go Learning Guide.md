@@ -1,4 +1,4 @@
-# Project Architecture & Go Learning Guide
+	# Project Architecture & Go Learning Guide
 
 Welcome to the **Docker Cleanup Daemon** project! This document serves as a guide to help you understand the architecture of this utility and learn the fundamentals of the Go programming language through its codebase.
 

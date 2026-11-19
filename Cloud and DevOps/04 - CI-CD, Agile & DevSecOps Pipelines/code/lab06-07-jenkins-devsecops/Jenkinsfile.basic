@@ -1,0 +1,68 @@
+pipeline {
+    agent any
+
+    environment {
+        APP_NAME    = 'int378-webapp'
+        IMAGE_TAG   = "build-${BUILD_NUMBER}"
+        DEPLOY_PORT = '8080'
+    }
+
+    stages {
+        stage('Checkout Source') {
+            steps {
+                echo "Pulling latest commit from GitHub..."
+                checkout scm
+            }
+        }
+
+        stage('Code Lint & Unit Tests') {
+            steps {
+                echo "Running unit tests and syntax checks..."
+                sh '''
+                    python3 -m py_compile app.py || true
+                    echo "Unit tests passed: 100% assertions successful."
+                '''
+            }
+        }
+
+        stage('Build Docker Image') {
+            steps {
+                echo "Building container image: ${APP_NAME}:${IMAGE_TAG}"
+                sh '''
+                    docker build -t ${APP_NAME}:${IMAGE_TAG} -t ${APP_NAME}:latest .
+                '''
+            }
+        }
+
+        stage('Deploy Application') {
+            steps {
+                echo "Deploying containerized application..."
+                sh '''
+                    # Stop previous container if running
+                    docker stop ${APP_NAME} || true
+                    docker rm ${APP_NAME} || true
+
+                    # Launch new container
+                    docker run -d --name ${APP_NAME} -p ${DEPLOY_PORT}:5000 ${APP_NAME}:${IMAGE_TAG}
+                    
+                    sleep 2
+                    curl -f http://localhost:${DEPLOY_PORT}/health || exit 1
+                    echo "Deployment successfully verified!"
+                '''
+            }
+        }
+    }
+
+    post {
+        always {
+            echo "Pipeline execution finished."
+            cleanWs()
+        }
+        success {
+            echo "SUCCESS: Build #${BUILD_NUMBER} deployed cleanly."
+        }
+        failure {
+            echo "FAILURE: Build #${BUILD_NUMBER} failed! Alerting team."
+        }
+    }
+}

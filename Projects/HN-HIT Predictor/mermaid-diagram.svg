@@ -1,0 +1,204 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1590.7171666666666 1699.3000000000002" width="1590.7171666666666" height="1699.3000000000002" style="--bg:#18181B;--fg:#F4F4F5;--line:#71717A;--muted:#A1A1AA;--surface:#27272A;--border:#3F3F46;background:var(--bg)">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap');
+  text { font-family: 'Inter', system-ui, sans-serif; }
+  svg {
+    /* Derived from --bg and --fg (overridable via --line, --accent, etc.) */
+    --_text:          var(--fg);
+    --_text-sec:      var(--muted, color-mix(in srgb, var(--fg) 60%, var(--bg)));
+    --_text-muted:    var(--muted, color-mix(in srgb, var(--fg) 40%, var(--bg)));
+    --_text-faint:    color-mix(in srgb, var(--fg) 25%, var(--bg));
+    --_line:          var(--line, color-mix(in srgb, var(--fg) 50%, var(--bg)));
+    --_arrow:         var(--accent, color-mix(in srgb, var(--fg) 85%, var(--bg)));
+    --_node-fill:     var(--surface, color-mix(in srgb, var(--fg) 3%, var(--bg)));
+    --_node-stroke:   var(--border, color-mix(in srgb, var(--fg) 20%, var(--bg)));
+    --_group-fill:    var(--bg);
+    --_group-hdr:     color-mix(in srgb, var(--fg) 5%, var(--bg));
+    --_inner-stroke:  color-mix(in srgb, var(--fg) 12%, var(--bg));
+    --_key-badge:     color-mix(in srgb, var(--fg) 10%, var(--bg));
+  }
+</style>
+<defs>
+  <marker id="arrowhead" markerWidth="8" markerHeight="5" refX="7" refY="2.5" orient="auto">
+    <polygon points="0 0, 8 2.5, 0 5" fill="var(--_arrow)" stroke="var(--_arrow)" stroke-width="0.75" stroke-linejoin="round" />
+  </marker>
+  <marker id="arrowhead-start" markerWidth="8" markerHeight="5" refX="1" refY="2.5" orient="auto-start-reverse">
+    <polygon points="8 0, 0 2.5, 8 5" fill="var(--_arrow)" stroke="var(--_arrow)" stroke-width="0.75" stroke-linejoin="round" />
+  </marker>
+</defs>
+<g class="subgraph" data-id="External" data-label="Public Internet &amp; Clients">
+  <rect x="610.5751666666665" y="40" width="469.19899999999996" height="113.80000000000001" rx="0" ry="0" fill="var(--_group-fill)" stroke="var(--_node-stroke)" stroke-width="1" />
+  <rect x="610.5751666666665" y="40" width="469.19899999999996" height="28" rx="0" ry="0" fill="var(--_group-hdr)" stroke="var(--_node-stroke)" stroke-width="1" />
+  <text x="622.5751666666665" y="54" font-size="12" font-weight="600" fill="var(--_text-sec)" dy="4.199999999999999">Public Internet &amp; Clients</text>
+</g>
+<g class="subgraph" data-id="AWS_Cloud" data-label="AWS Cloud (Free Tier - $0.00/month)">
+  <rect x="40" y="282.1" width="1510.7171666666666" height="1377.2" rx="0" ry="0" fill="var(--_group-fill)" stroke="var(--_node-stroke)" stroke-width="1" />
+  <rect x="40" y="282.1" width="1510.7171666666666" height="28" rx="0" ry="0" fill="var(--_group-hdr)" stroke="var(--_node-stroke)" stroke-width="1" />
+  <text x="52" y="296.1" font-size="12" font-weight="600" fill="var(--_text-sec)" dy="4.199999999999999">AWS Cloud (Free Tier - $0.00/month)</text>
+<g class="subgraph" data-id="IaC_Layer" data-label="Infrastructure Provisioning">
+  <rect x="262.861" y="326.1" width="227.33699999999996" height="113.80000000000001" rx="0" ry="0" fill="var(--_group-fill)" stroke="var(--_node-stroke)" stroke-width="1" />
+  <rect x="262.861" y="326.1" width="227.33699999999996" height="28" rx="0" ry="0" fill="var(--_group-hdr)" stroke="var(--_node-stroke)" stroke-width="1" />
+  <text x="274.861" y="340.1" font-size="12" font-weight="600" fill="var(--_text-sec)" dy="4.199999999999999">Infrastructure Provisioning</text>
+</g>
+<g class="subgraph" data-id="IAM_Layer" data-label="Identity &amp; Security Governance">
+  <rect x="302.6940833333333" y="562.2" width="268.092" height="147.60000000000002" rx="0" ry="0" fill="var(--_group-fill)" stroke="var(--_node-stroke)" stroke-width="1" />
+  <rect x="302.6940833333333" y="562.2" width="268.092" height="28" rx="0" ry="0" fill="var(--_group-hdr)" stroke="var(--_node-stroke)" stroke-width="1" />
+  <text x="314.6940833333333" y="576.2" font-size="12" font-weight="600" fill="var(--_text-sec)" dy="4.199999999999999">Identity &amp; Security Governance</text>
+</g>
+<g class="subgraph" data-id="Storage_Layer" data-label="S3 Object Storage Layer">
+  <rect x="56" y="1478.8000000000002" width="256.236" height="164.5" rx="0" ry="0" fill="var(--_group-fill)" stroke="var(--_node-stroke)" stroke-width="1" />
+  <rect x="56" y="1478.8000000000002" width="256.236" height="28" rx="0" ry="0" fill="var(--_group-hdr)" stroke="var(--_node-stroke)" stroke-width="1" />
+  <text x="68" y="1492.8000000000002" font-size="12" font-weight="600" fill="var(--_text-sec)" dy="4.199999999999999">S3 Object Storage Layer</text>
+</g>
+<g class="subgraph" data-id="Monitoring_Layer" data-label="Observability Layer">
+  <rect x="1066.2591666666667" y="1478.8000000000002" width="468.45799999999997" height="130.7" rx="0" ry="0" fill="var(--_group-fill)" stroke="var(--_node-stroke)" stroke-width="1" />
+  <rect x="1066.2591666666667" y="1478.8000000000002" width="468.45799999999997" height="28" rx="0" ry="0" fill="var(--_group-hdr)" stroke="var(--_node-stroke)" stroke-width="1" />
+  <text x="1078.2591666666667" y="1492.8000000000002" font-size="12" font-weight="600" fill="var(--_text-sec)" dy="4.199999999999999">Observability Layer</text>
+</g>
+<g class="subgraph" data-id="Network_Perimeter" data-label="Virtual Private Cloud (VPC)">
+  <rect x="262.202" y="838.1" width="1119.922" height="512.4000000000001" rx="0" ry="0" fill="var(--_group-fill)" stroke="var(--_node-stroke)" stroke-width="1" />
+  <rect x="262.202" y="838.1" width="1119.922" height="28" rx="0" ry="0" fill="var(--_group-hdr)" stroke="var(--_node-stroke)" stroke-width="1" />
+  <text x="274.202" y="852.1" font-size="12" font-weight="600" fill="var(--_text-sec)" dy="4.199999999999999">Virtual Private Cloud (VPC)</text>
+<g class="subgraph" data-id="EC2" data-label="Amazon EC2 Instance: t3.micro (Amazon Linux 2023)">
+  <rect x="278.202" y="1023.7" width="1087.922" height="304.8" rx="0" ry="0" fill="var(--_group-fill)" stroke="var(--_node-stroke)" stroke-width="1" />
+  <rect x="278.202" y="1023.7" width="1087.922" height="28" rx="0" ry="0" fill="var(--_group-hdr)" stroke="var(--_node-stroke)" stroke-width="1" />
+  <text x="290.202" y="1037.7" font-size="12" font-weight="600" fill="var(--_text-sec)" dy="4.199999999999999">Amazon EC2 Instance: t3.micro (Amazon Linux 2023)</text>
+<g class="subgraph" data-id="Docker_Engine" data-label="Docker Engine &amp; Compose Runtime">
+  <rect x="553.848" y="1073.7" width="589.982" height="232.8" rx="0" ry="0" fill="var(--_group-fill)" stroke="var(--_node-stroke)" stroke-width="1" />
+  <rect x="553.848" y="1073.7" width="589.982" height="28" rx="0" ry="0" fill="var(--_group-hdr)" stroke="var(--_node-stroke)" stroke-width="1" />
+  <text x="565.848" y="1087.7" font-size="12" font-weight="600" fill="var(--_text-sec)" dy="4.199999999999999">Docker Engine &amp; Compose Runtime</text>
+</g>
+</g>
+</g>
+</g>
+<polyline class="edge" data-from="CFN" data-to="Network_Perimeter" data-style="thick" data-arrow-start="false" data-arrow-end="true" data-label="Provisions All Components" points="395.13059999999996,141.8 395.1306000000001,175.8 662.5913333333334,175.8 662.5913333333334,514 672.9045000000001,514 672.9045000000001,556" fill="none" stroke="var(--_line)" stroke-width="2" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="CFN" data-to="Storage_Layer" data-style="thick" data-arrow-start="false" data-arrow-end="true" data-label="Provisions" points="277.9284,141.8 277.9284000000001,175.8 114.61800000000005,175.8 114.61800000000005,1154.7 134.11800000000005,1154.7 134.11800000000005,1196.7" fill="none" stroke="var(--_line)" stroke-width="2" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="CFN" data-to="Monitoring_Layer" data-style="thick" data-arrow-start="false" data-arrow-end="true" data-label="Provisions" points="316.9958,141.8 316.9958000000001,187.8 211.2020000000001,187.8 211.2020000000001,1154.7 1138.0786666666668,1154.7 1138.0786666666668,1196.7" fill="none" stroke="var(--_line)" stroke-width="2" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="CFN" data-to="IAM_Layer" data-style="thick" data-arrow-start="false" data-arrow-end="true" data-label="Provisions" points="356.06319999999994,141.8 356.06320000000005,199.8 278.6940833333334,199.8 278.6940833333334,280.1" fill="none" stroke="var(--_line)" stroke-width="2" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="IAM" data-to="EC2" data-style="dotted" data-arrow-start="false" data-arrow-end="true" data-label="Assigned To" points="396.7400833333333,411.70000000000005 396.7400833333333,514 615.9528333333333,514 615.9528333333333,699.6 667.9044999999999,699.6 667.9044999999999,741.6" fill="none" stroke="var(--_line)" stroke-width="1" stroke-dasharray="4 4" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="Users" data-to="SG" data-style="solid" data-arrow-start="false" data-arrow-end="true" data-label="Port 8000" points="710.1646666666666,137.8 710.1646666666666,195.8 780.1693333333333,195.8 780.1693333333333,796.1000000000001 769.8561666666667,796.1000000000001 769.8561666666667,882.1" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="Admin" data-to="SG" data-style="solid" data-arrow-start="false" data-arrow-end="true" data-label="Ports 22 &amp; 8080" points="942.7641666666665,137.8 942.7641666666665,195.8 872.7594999999999,195.8 872.7594999999999,882.1" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="SG" data-to="FastAPIApp" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="821.3078333333333,969.7 821.3078333333333,1011.7 1010.8954999999999,1011.7 1010.8954999999999,1121.9250000000002" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="SG" data-to="JenkinsApp" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="821.3078333333333,969.7 821.3078333333333,1011.7 717.9044999999999,1011.7 717.9044999999999,1121.9250000000002" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="JenkinsApp" data-to="Docker_Engine" data-style="solid" data-arrow-start="true" data-arrow-end="true" data-label="Docker Socket" points="164.05649999999997,135.8250000000001 164.05649999999997,232.80000000000024" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" marker-start="url(#arrowhead-start)" />
+<polyline class="edge" data-from="FastAPIApp" data-to="S3" data-style="dotted" data-arrow-start="false" data-arrow-end="true" data-label="Sync Artifacts" points="970.8954999999999,944.3250000000002 970.8954999999999,1086.4 163.61799999999994,1086.4 163.61799999999994,1154.7 144.11799999999994,1154.7 144.11799999999994,1240.7000000000003" fill="none" stroke="var(--_line)" stroke-width="1" stroke-dasharray="4 4" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="CWAgent" data-to="CWLogs" data-style="solid" data-arrow-start="false" data-arrow-end="true" data-label="Stream Logs" points="1250.6926666666666,1024.4 1250.6926666666666,1086.4 1337.0915,1086.4 1337.0915,1154.7 1380.3076666666666,1154.7 1380.3076666666666,1240.7000000000003" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="CWAgent" data-to="CWAlarm" data-style="solid" data-arrow-start="false" data-arrow-end="true" data-label="Push Metrics" points="1191.2613333333334,1024.4 1191.2613333333334,1086.4 1179.42,1086.4 1179.42,1154.7 1148.0786666666665,1154.7 1148.0786666666663,1240.7000000000003" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<g class="edge-label" data-from="CFN" data-to="Network_Perimeter" data-label="Provisions All Components">
+  <rect x="590.5913333333332" y="341.75" width="143.578" height="30.3" rx="2" ry="2" fill="var(--bg)" stroke="var(--_inner-stroke)" stroke-width="1" />
+  <text x="662.3803333333332" y="356.9" text-anchor="middle" font-size="11" font-weight="400" fill="var(--_text-sec)" dy="3.8499999999999996">Provisions All Components</text>
+</g>
+<g class="edge-label" data-from="CFN" data-to="Storage_Layer" data-label="Provisions">
+  <rect x="79.61799999999994" y="476.70000000000005" width="69.92200000000001" height="30.3" rx="2" ry="2" fill="var(--bg)" stroke="var(--_inner-stroke)" stroke-width="1" />
+  <text x="114.57899999999995" y="491.85" text-anchor="middle" font-size="11" font-weight="400" fill="var(--_text-sec)" dy="3.8499999999999996">Provisions</text>
+</g>
+<g class="edge-label" data-from="CFN" data-to="Monitoring_Layer" data-label="Provisions">
+  <rect x="176.202" y="476.70000000000005" width="69.92200000000001" height="30.3" rx="2" ry="2" fill="var(--bg)" stroke="var(--_inner-stroke)" stroke-width="1" />
+  <text x="211.163" y="491.85" text-anchor="middle" font-size="11" font-weight="400" fill="var(--_text-sec)" dy="3.8499999999999996">Provisions</text>
+</g>
+<g class="edge-label" data-from="CFN" data-to="IAM_Layer" data-label="Provisions">
+  <rect x="243.6940833333333" y="206.8" width="69.92200000000001" height="30.3" rx="2" ry="2" fill="var(--bg)" stroke="var(--_inner-stroke)" stroke-width="1" />
+  <text x="278.6550833333333" y="221.95000000000002" text-anchor="middle" font-size="11" font-weight="400" fill="var(--_text-sec)" dy="3.8499999999999996">Provisions</text>
+</g>
+<g class="edge-label" data-from="IAM" data-to="EC2" data-label="Assigned To">
+  <rect x="357.74008333333336" y="476.70000000000005" width="77.644" height="30.3" rx="2" ry="2" fill="var(--bg)" stroke="var(--_inner-stroke)" stroke-width="1" />
+  <text x="396.56208333333336" y="491.85" text-anchor="middle" font-size="11" font-weight="400" fill="var(--_text-sec)" dy="3.8499999999999996">Assigned To</text>
+</g>
+<g class="edge-label" data-from="Users" data-to="SG" data-label="Port 8000">
+  <rect x="748.1693333333333" y="202.8" width="63.388" height="30.3" rx="2" ry="2" fill="var(--bg)" stroke="var(--_inner-stroke)" stroke-width="1" />
+  <text x="779.8633333333332" y="217.95000000000002" text-anchor="middle" font-size="11" font-weight="400" fill="var(--_text-sec)" dy="3.8499999999999996">Port 8000</text>
+</g>
+<g class="edge-label" data-from="Admin" data-to="SG" data-label="Ports 22 &amp; 8080">
+  <rect x="827.2594999999999" y="202.8" width="90.71200000000002" height="30.3" rx="2" ry="2" fill="var(--bg)" stroke="var(--_inner-stroke)" stroke-width="1" />
+  <text x="872.6154999999999" y="217.95000000000002" text-anchor="middle" font-size="11" font-weight="400" fill="var(--_text-sec)" dy="3.8499999999999996">Ports 22 &amp; 8080</text>
+</g>
+<g class="edge-label" data-from="JenkinsApp" data-to="Docker_Engine" data-label="Docker Socket">
+  <rect x="119.55649999999997" y="191.5" width="88.33600000000001" height="30.3" rx="2" ry="2" fill="var(--bg)" stroke="var(--_inner-stroke)" stroke-width="1" />
+  <text x="163.72449999999998" y="206.65" text-anchor="middle" font-size="11" font-weight="400" fill="var(--_text-sec)" dy="3.8499999999999996">Docker Socket</text>
+</g>
+<g class="edge-label" data-from="FastAPIApp" data-to="S3" data-label="Sync Artifacts">
+  <rect x="121.61799999999994" y="1117.4" width="83.58400000000002" height="30.3" rx="2" ry="2" fill="var(--bg)" stroke="var(--_inner-stroke)" stroke-width="1" />
+  <text x="163.40999999999994" y="1132.5500000000002" text-anchor="middle" font-size="11" font-weight="400" fill="var(--_text-sec)" dy="3.8499999999999996">Sync Artifacts</text>
+</g>
+<g class="edge-label" data-from="CWAgent" data-to="CWLogs" data-label="Stream Logs">
+  <rect x="1298.0915" y="1117.4" width="77.644" height="30.3" rx="2" ry="2" fill="var(--bg)" stroke="var(--_inner-stroke)" stroke-width="1" />
+  <text x="1336.9135" y="1132.5500000000002" text-anchor="middle" font-size="11" font-weight="400" fill="var(--_text-sec)" dy="3.8499999999999996">Stream Logs</text>
+</g>
+<g class="edge-label" data-from="CWAgent" data-to="CWAlarm" data-label="Push Metrics">
+  <rect x="1138.92" y="1117.4" width="80.61400000000002" height="30.3" rx="2" ry="2" fill="var(--bg)" stroke="var(--_inner-stroke)" stroke-width="1" />
+  <text x="1179.227" y="1132.5500000000002" text-anchor="middle" font-size="11" font-weight="400" fill="var(--_text-sec)" dy="3.8499999999999996">Push Metrics</text>
+</g>
+<g class="node" data-id="Users" data-label="Web Users / Browser
+(HTTP: Port 8000)" data-shape="rectangle">
+  <rect x="626.5751666666665" y="84" width="167.179" height="53.800000000000004" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="710.1646666666666" y="110.9" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)"><tspan x="710.1646666666666" dy="-3.9000000000000012">Web Users / Browser</tspan><tspan x="710.1646666666666" dy="16.900000000000002">(HTTP: Port 8000)</tspan></text>
+</g>
+<g class="node" data-id="Admin" data-label="Administrator / Developer
+(SSH: Port 22 | Jenkins: Port 8080)" data-shape="rectangle">
+  <rect x="821.7541666666665" y="84" width="242.01999999999998" height="53.800000000000004" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="942.7641666666665" y="110.9" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)"><tspan x="942.7641666666665" dy="-3.9000000000000012">Administrator / Developer</tspan><tspan x="942.7641666666665" dy="16.900000000000002">(SSH: Port 22 | Jenkins: Port 8080)</tspan></text>
+</g>
+<g class="node" data-id="CFN" data-label="AWS CloudFormation
+(cloudformation/infra.yaml)" data-shape="rectangle">
+  <rect x="278.861" y="370.1" width="195.33699999999996" height="53.800000000000004" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="376.5295" y="397" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)"><tspan x="376.5295" dy="-3.9000000000000012">AWS CloudFormation</tspan><tspan x="376.5295" dy="16.900000000000002">(cloudformation/infra.yaml)</tspan></text>
+</g>
+<g class="node" data-id="IAM" data-label="IAM Role &amp; Instance Profile
+• CloudWatchAgentServerPolicy
+• S3 Read/Write Policy
+• SSM Managed Core" data-shape="rectangle">
+  <rect x="318.6940833333333" y="606.2" width="236.09199999999996" height="87.60000000000001" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="436.7400833333333" y="650" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)"><tspan x="436.7400833333333" dy="-20.8">IAM Role &amp; Instance Profile</tspan><tspan x="436.7400833333333" dy="16.900000000000002">• CloudWatchAgentServerPolicy</tspan><tspan x="436.7400833333333" dy="16.900000000000002">• S3 Read/Write Policy</tspan><tspan x="436.7400833333333" dy="16.900000000000002">• SSM Managed Core</tspan></text>
+</g>
+<g class="node" data-id="S3" data-label="Amazon S3 Artifacts Bucket
+(hn-hit-predictor-acc-region)
+• AES-256 Server Encryption
+• Public Access Block Enabled
+• models/model.joblib backup" data-shape="rectangle">
+  <rect x="72" y="1522.8000000000002" width="224.236" height="104.50000000000001" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="184.118" y="1575.0500000000002" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)"><tspan x="184.118" dy="-29.250000000000004">Amazon S3 Artifacts Bucket</tspan><tspan x="184.118" dy="16.900000000000002">(hn-hit-predictor-acc-region)</tspan><tspan x="184.118" dy="16.900000000000002">• AES-256 Server Encryption</tspan><tspan x="184.118" dy="16.900000000000002">• Public Access Block Enabled</tspan><tspan x="184.118" dy="16.900000000000002">• models/model.joblib backup</tspan></text>
+</g>
+<g class="node" data-id="CWLogs" data-label="CloudWatch Log Group
+(/aws/ec2/hn-hit-predictor)
+7-Day Retention Limit" data-shape="rectangle">
+  <rect x="1321.8981666666668" y="1522.8000000000002" width="196.81899999999996" height="70.7" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="1420.3076666666668" y="1558.15" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)"><tspan x="1420.3076666666668" dy="-12.350000000000001">CloudWatch Log Group</tspan><tspan x="1420.3076666666668" dy="16.900000000000002">(/aws/ec2/hn-hit-predictor)</tspan><tspan x="1420.3076666666668" dy="16.900000000000002">7-Day Retention Limit</tspan></text>
+</g>
+<g class="node" data-id="CWAlarm" data-label="CloudWatch Alarm
+(HighCPUAlarm: CPU &gt;= 80%)" data-shape="rectangle">
+  <rect x="1082.2591666666667" y="1522.8000000000002" width="211.639" height="53.800000000000004" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="1188.0786666666668" y="1549.7000000000003" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)"><tspan x="1188.0786666666668" dy="-3.9000000000000012">CloudWatch Alarm</tspan><tspan x="1188.0786666666668" dy="16.900000000000002">(HighCPUAlarm: CPU &gt;= 80%)</tspan></text>
+</g>
+<g class="node" data-id="SG" data-label="AWS Security Group (ServerSecurityGroup)
+• Port 8000: 0.0.0.0/0 (Public Web UI &amp; API)
+• Port 8080: Admin CIDR (Jenkins Dashboard)
+• Port 22: Admin CIDR (SSH Terminal)" data-shape="rectangle">
+  <rect x="666.9528333333333" y="882.1" width="308.7099999999999" height="87.60000000000001" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="821.3078333333333" y="925.9" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)"><tspan x="821.3078333333333" dy="-20.8">AWS Security Group (ServerSecurityGroup)</tspan><tspan x="821.3078333333333" dy="16.900000000000002">• Port 8000: 0.0.0.0/0 (Public Web UI &amp; API)</tspan><tspan x="821.3078333333333" dy="16.900000000000002">• Port 8080: Admin CIDR (Jenkins Dashboard)</tspan><tspan x="821.3078333333333" dy="16.900000000000002">• Port 22: Admin CIDR (SSH Terminal)</tspan></text>
+</g>
+<g class="node" data-id="EBS" data-label="20 GB gp3 SSD Volume
++ 2 GB Swapfile (OOM Protection)" data-shape="rectangle">
+  <rect x="294.202" y="1163.2" width="231.64599999999996" height="53.800000000000004" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="410.025" y="1190.1000000000001" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)"><tspan x="410.025" dy="-3.9000000000000012">20 GB gp3 SSD Volume</tspan><tspan x="410.025" dy="16.900000000000002">+ 2 GB Swapfile (OOM Protection)</tspan></text>
+</g>
+<g class="node" data-id="CWAgent" data-label="CloudWatch Agent
+(RAM, Disk, CPU, Logs)" data-shape="rectangle">
+  <rect x="1171.83" y="1252.7" width="178.29399999999998" height="53.800000000000004" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="1260.9769999999999" y="1279.6000000000001" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)"><tspan x="1260.9769999999999" dy="-3.9000000000000012">CloudWatch Agent</tspan><tspan x="1260.9769999999999" dy="16.900000000000002">(RAM, Disk, CPU, Logs)</tspan></text>
+</g>
+<g class="node" data-id="FastAPIApp" data-label="hn-hit-predictor-api:latest
+FastAPI Web Service (Port 8000)
+• GET / (Web UI)
+• POST /predict (Inference)
+• GET /health (Healthcheck)" data-shape="rectangle">
+  <rect x="893.9609999999999" y="1121.9250000000002" width="233.86899999999997" height="104.50000000000001" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="1010.8954999999999" y="1174.1750000000002" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)"><tspan x="1010.8954999999999" dy="-29.250000000000004">hn-hit-predictor-api:latest</tspan><tspan x="1010.8954999999999" dy="16.900000000000002">FastAPI Web Service (Port 8000)</tspan><tspan x="1010.8954999999999" dy="16.900000000000002">• GET / (Web UI)</tspan><tspan x="1010.8954999999999" dy="16.900000000000002">• POST /predict (Inference)</tspan><tspan x="1010.8954999999999" dy="16.900000000000002">• GET /health (Healthcheck)</tspan></text>
+</g>
+<g class="node" data-id="JenkinsApp" data-label="hn-jenkins-local
+Jenkins LTS Controller (Port 8080)
+• 7-Stage Declarative Pipeline
+• Docker-in-Docker (/var/run/docker.sock)" data-shape="rectangle">
+  <rect x="569.848" y="1121.9250000000002" width="296.11299999999994" height="87.60000000000001" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="717.9044999999999" y="1165.7250000000001" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)"><tspan x="717.9044999999999" dy="-20.8">hn-jenkins-local</tspan><tspan x="717.9044999999999" dy="16.900000000000002">Jenkins LTS Controller (Port 8080)</tspan><tspan x="717.9044999999999" dy="16.900000000000002">• 7-Stage Declarative Pipeline</tspan><tspan x="717.9044999999999" dy="16.900000000000002">• Docker-in-Docker (/var/run/docker.sock)</tspan></text>
+</g>
+</svg>
