@@ -1,101 +1,153 @@
-# 🚀 Ubiquitous Adventure: The Incremental Learning Journey
+# 🚀 Ubiquitous Adventure: The Incremental Learning Vault
 
-Welcome to the **Ubiquitous Adventure** repository! This is a living knowledge base and workspace dedicated to the philosophy of **incremental learning**—the idea that small, consistent, daily deep dives compound into massive expertise over time.
+Welcome to **Ubiquitous Adventure**! This repository is a structured personal knowledge base and engineering workspace built in **Obsidian**. It reflects a philosophy of **incremental learning**—compounding daily deep dives in systems, backend architecture, algorithms, AI, and DevOps into durable expertise.
 
 > *"The secret of getting ahead is getting started. The secret of getting started is breaking your complex overwhelming tasks into small manageable tasks, and starting on the first one."*
 
 ---
 
-## 🎯 The Core Philosophy
+## 🎯 Core Principles
 
-1.  **Deep Work Over Surface Scanning**: We don't just learn *how* to use a tool; we dive into *why* it was built and *how* it operates under the hood.
-2.  **Applied Knowledge**: Theoretical notes are immediately followed by practical projects (e.g., pairing Golang concurrency theory with a Concurrent Seat Booking project).
-3.  **Compound Growth**: Writing atomic notes, system design teardowns, and architecture specs ensures that yesterday's learnings become today's foundations.
-
----
-
-## 📂 Repository Structure
-
-This workspace is categorized into specialized domains of learning:
-
-### 🤖 1. AI / Machine Learning
-*   **[`/AI - ML`](./AI%20-%20ML/)**: The primary home for all AI and ML study material.
-    *   **[`/AI - ML/Topics`](./AI%20-%20ML/Topics/)**: Structured deep-dive series covering core ML engineering concepts:
-        *   `01 Fundamentals of RAG` — Retrieval-Augmented Generation architecture and patterns.
-        *   `02 Chunking Strategies` — How to split documents for optimal vector retrieval.
-        *   `03 Reranking System` — Cross-encoder reranking for improved retrieval precision.
-        *   `04 LLM Internals - Transformer and KV Cache` — Attention mechanisms and inference optimization.
-        *   `05 RAG vs Fine-Tuning and Quantization` — When to fine-tune vs. augment, and model compression.
-        *   `06 Agentic Systems - ReAct, Tools, and Memory` — Building autonomous reasoning agents.
-        *   `07 Vector Databases - Internals and Tradeoffs` — HNSW, IVF, ANN algorithms, and database internals.
-        *   `08 MLOps - Serving, RAGAS Evaluation, and Monitoring` — Production ML pipelines and evaluation.
-    *   **[`/AI - ML/ML Interviews`](./AI%20-%20ML/ML%20Interviews/)**: ML system design interview walkthroughs.
-        *   `Build a Visual Search System` — End-to-end Pinterest-style visual search design covering representation learning, contrastive training (SimCLR/MoCo/InfoNCE), nDCG evaluation, and ANN serving (IVF-PQ, HNSW, Faiss).
-    *   **[`/AI - ML/Llamaindex`](./AI%20-%20ML/Llamaindex/)**: Framework-specific notes on LlamaIndex for RAG pipelines.
-    *   `Different frameworks.md` — Comparative analysis of AI/ML frameworks.
-    *   `Ml algorithms Distribution.md` — Overview of ML algorithm families and use-case distributions.
-
-### 🧠 2. Architecture & Systems
-*   **[`/DEEP dive`](./DEEP%20dive/)**: Comprehensive, highly-detailed teardowns of modern systems, frameworks, and tools.
-    *   *Includes: Redis Internals, Uber System Design, High-Concurrency Ticket Booking, Dropbox Architecture.*
-*   **[`/System Design`](./System%20Design/)**: General system design patterns, scalability principles, and architectural trade-offs.
-    *   `Back of the envelope.md` — Estimation frameworks: latency numbers, storage calculations, QPS sizing.
-
-### 💻 3. Software Engineering & Languages
-*   **[`/GOLANG`](./GOLANG/)**: Deep explorations into Go mechanics — from basic syntax to advanced concurrency, HTTP servers, and gRPC.
-    *   **[`/GOLANG/Notes`](./GOLANG/Notes/)**: Phase-by-phase structured Go backend mastery notes:
-        *   *Phase 1: Go Language Fundamentals* — Types, control flow, functions, closures.
-        *   *Phase 2: Concurrency* — Goroutines, channels, the M:N scheduler, sync primitives.
-        *   *Phase 3: HTTP Servers & REST APIs* — `net/http`, middleware, routing patterns.
-        *   *Phase 4: Databases* — SQL drivers, `sqlx`, connection pooling, migrations.
-        *   *Phase 5: Authentication & Security* — JWT, OAuth2, bcrypt, HTTPS.
-        *   *Phase 6: Testing* — Table-driven tests, mocks, benchmarks.
-        *   *Phase 7: gRPC & Protocol Buffers* — Protobuf schemas, streaming, interceptors.
-        *   *Phase 8: Microservices Patterns* — Service mesh, circuit breakers, service discovery.
-        *   *Phase 9: Deployment & DevOps* — Docker, Kubernetes, CI/CD.
-        *   *Phase 10: Advanced Go Performance* — pprof, escape analysis, memory optimization.
-    *   **[`/GOLANG/Reugular topics`](./GOLANG/Reugular%20topics/)**: Standalone deep dives on specific Go concepts.
-        *   `Structs.md` — Memory layout, embedding/composition, struct tags, reflection, alignment padding, and interview Q&A.
-    *   `golang_execution_and_binary_notes.md` — How Go compiles and links binaries, runtime bootstrapping.
-    *   `Complete Go Backend Mastery Roadmap.md` — The source roadmap document.
-*   **[`/DSA`](./DSA/)**: Data Structures and Algorithms practice.
-
-### 🗄️ 4. Data & Infrastructure
-*   **[`/Databases`](./Databases/)**: Relational/NoSQL storage engines, page/block file layouts, vector databases (pgvector), query optimizations, and execution planning.
-    *   *Recent: Updated Cassandra notes (NoSQL deep dive).*
-*   **[`/Big Data`](./Big%20Data/) & [`/Data Engineering`](./Data%20Engineering/)**: Distributed data processing and pipelines.
-*   **[`/Tools`](./Tools/)**: CI/CD pipelines, container orchestration, API testing, and automation (Docker, Kubernetes, Jenkins, Postman/REST APIs).
-
-### 🛠️ 5. Applied Projects
-*   **[`/Projects`](./Projects/)**: The proving ground where theory becomes code.
-    *   *Examples: Concurrent Seat Booking System, Docker Cleanup Daemon, MdMaker.*
-
-### 📝 6. Personal Knowledge Management (PKM)
-*   **[`/Atomic Notes`](./Atomic%20Notes/) & [`/DailyNotes`](./DailyNotes/)**: Daily scratchpads and Zettelkasten-style interconnected thoughts.
-*   **[`/Backend (theory)`](./Backend%20(theory)/)**: Backend engineering theory: protocols, distributed systems fundamentals.
+1. **First-Principles Depth**: We don't just memorize syntax or high-level APIs; we dive into internals (CPU cache mechanics, disk layouts, memory allocators, network runtimes, and distributed consensus).
+2. **Theory Paired with Code**: Theoretical notes directly anchor practical implementations (e.g., Go concurrency primitives connected to distributed ticket booking with Redis).
+3. **Connected & Navigable**: Every topic belongs to an intuitive domain bucket (max 2 levels deep) with clean wikilinks, visual diagrams, and Obsidian graph synergy.
 
 ---
 
-## 📈 The Incremental Process
+## 🗂️ Knowledge Map & Domain Structure
 
-1.  **Read & Research**: Take raw information and distill it into `/Atomic Notes`.
-2.  **Deep Dive**: Consolidate atomic notes into comprehensive, structured documents in `/DEEP dive` or domain folders.
-3.  **Build**: Validate the deep dive by building a real-world application in `/Projects`.
-4.  **Refine**: Update notes based on practical bugs, bottlenecks, and engineering challenges faced during the build phase.
+```
+ubiquitous-adventure/
+├── 🤖 AI & ML/                 ← RAG architecture, LLM internals, MLOps & system designs
+├── ⚙️ Backend/                 ← HTTP/HTTPS, Spring Boot, JPA, OS networking & REST API standards
+├── 📊 Big Data/                ← Hadoop, Hive, HBase, Spark, Kafka & Data Engineering roadmap
+├── 🗄️ Databases/               ← Relational internals, SQL optimization, NoSQL & Vector stores
+├── 💻 DSA/                     ← Data structures, algorithm patterns, competitive programming
+├── 🐹 Golang/                  ← 10-phase backend roadmap, concurrency, memory layout & binaries
+├── ☁️  Cloud and DevOps/ ← AWS cloud infrastructure, Terraform IaC, CI/CD & DevSecOps
+├── 📐 Low Level Design/        ← Design patterns and object-oriented architecture
+├── 🚀 Projects/                ← Hands-on production systems, learning guides & vivas
+├── 🏗️ System Design/           ← High-level architectures, scaling heuristics & deep dives
+├── 🛠️ Tools/                   ← Production infrastructure (Docker, Kubernetes, Jenkins)
+├── 📅 Daily Notes/             ← Daily study logs & incremental tracking
+├── 🎨 Excalidraw/ & Assets/    ← Interactive visual diagrams, system blueprints & media
+└── 📝 Templates/               ← Standardized templates for problems & daily tracking
+```
 
 ---
 
-## 🗂️ Recent Changes
+### Detailed Domain Breakdown
 
-| Date | Change |
-| :--- | :--- |
-| 2026-06-26 | Added `AI - ML/` folder — new home for all AI/ML notes (migrated and expanded from `AiWorkflows/`) |
-| 2026-06-26 | Added `AI - ML/ML Interviews/Build a Visual Search System.md` — Pinterest-style visual search system design with full ML depth |
-| 2026-06-26 | Added `System Design/Back of the envelope.md` — estimation and sizing reference |
-| 2026-06-25 | Added `GOLANG/Reugular topics/Structs.md` — in-depth Go structs deep dive with memory layout, tags, embedding, and interview Q&A |
-| 2026-06-25 | Expanded `GOLANG/Notes/` — all 10 phase notes with Obsidian properties, code examples, and interview questions |
-| 2026-06-25 | Updated `Databases/NO SQL/Cassandra.md` |
-| 2026-06-25 | Updated `Projects/MdMaker documentation.md` |
+#### 🤖 1. [AI & ML](./AI%20%26%20ML/)
+Modern Retrieval-Augmented Generation (RAG), vector search systems, and LLM foundations:
+* **[Topics](./AI%20%26%20ML/Topics/)**: Sequenced deep-dive curriculum:
+  * `01 Fundamentals of RAG` — Core architectures, naive vs. advanced retrieval.
+  * `02 Chunking Strategies` — Semantic, sentence-window, and hierarchical splitting.
+  * `03 Reranking system` — Cross-encoders and reciprocal rank fusion.
+  * `04 LLM Internals - Transformer and KV Cache` — Multi-head attention & KV cache optimization.
+  * `05 RAG vs Fine-Tuning and Quantization` — Trade-offs, LoRA/QLoRA, and quantization.
+  * `06 Agentic Systems - ReAct, Tools, and Memory` — ReAct loops, planning, and tool calling.
+  * `07 Vector Databases - Internals and Tradeoffs` — HNSW, IVF, vector indexing.
+  * `08 MLOps - Serving, RAGAS Evaluation, and Monitoring` — RAGAS metrics & model serving.
+* **[ML Interviews](./AI%20%26%20ML/ML%20Interviews/)**:
+  * `Build a visual Search System.md` — Large-scale Pinterest-style visual search (SimCLR/MoCo, ANN).
+  * `PDF RAG System Design.md` — Reasoned stack for a 2 GB PDF RAG system (PyMuPDF, BGE-M3, Qdrant, Qwen3 on RTX 3090).
+* **[Llamaindex](./AI%20%26%20ML/Llamaindex/)** & **Framework Comparisons**: Hands-on guides and architecture diagrams.
+
+---
+
+#### ⚙️ 2. [Backend](./Backend/)
+Protocols, frameworks, and low-level communication:
+* **Core Theory**: `HTTP and HTTPS.md`, `Kernel Networking Basics.md`, `Compiler Internals.md`, `Compile Time Output.md`, `Networking in Hurry.md`.
+* **Java & Spring Ecosystem**: `Spring Boot REST API Flow and Implementation.md`, `Spring Data JPA CRUD Internals.md`.
+* **[REST API](./Backend/REST%20API/)**: Protocol design, `REST API Request.md`, `REST API Status Codes.md`, and `Postman.md`.
+* **Roadmap**: `Backend Engineering Roadmap.md`.
+
+---
+
+#### 🗄️ 3. [Databases](./Databases/)
+Relational theory, query execution engines, distributed consistency, and NoSQL storage:
+* **[Fundamentals](./Databases/Fundamentals/)**:
+  * Data Models, Schema Design & Normalization, Data Types, Constraints.
+  * Indexing deep dives (`Indexes.md`, `Indexes at Scale.md`).
+  * Storage mechanics: `Storage Engines.md`, `Page and Block Storage.md`.
+  * Distributed guarantees: `CAP Theorem.md`, `Distributed Consensus.md`, `Database Locks & Concurrency.md`, `MVCC.md`, `Transaction Isolation & Anomalies.md`, `Why Clusters Are Needed.md`.
+* **[SQL](./Databases/SQL/)**: `SQL Fundamentals.md`, `Window Functions.md`, `CTEs.md`, `Aggregation.md`, `Full-text Search.md`, `Query Optimization & Execution Plans.md`, and `Partition BY vs Group BY.md`.
+* **[NoSQL](./Databases/NoSQL/)**: `Cassandra.md`, `Partition and Clustering Key.md`, `Vector Databases & pgvector.md`.
+* **Exam & Review Guides**: `GATE DBMS Guide.md`, `Topics To Cover.md`.
+
+---
+
+#### 📊 4. [Big Data](./Big%20Data/)
+Distributed data processing, warehousing, and real-time streaming:
+* **Core Curriculum**: Chapters on HDFS, MapReduce/YARN, Hive, HBase, Cassandra, and clustering.
+* **[Labs](./Big%20Data/Labs/)**: Practical commands and Java ETLs (`Hadoop Commands.md`, `Hive Commands.md`, `HBase and Hive Commands.md`, `Big Data Using Java.md`).
+* **Roadmap**: `Data Engineering Roadmap.md`.
+
+---
+
+#### 💻 5. [DSA (Data Structures & Algorithms)](./DSA/)
+Problem-solving strategies, patterns, and competitive programming:
+* **[Guides](./DSA/Guides/)**: `DSA Java Guide.md`, `Python DSA Guide.md`, `DSA Pattern Questions.md`, `How to Approach DSA.md`.
+* **[Questions](./DSA/Questions/)**: Core interview questions on Binary Trees, Graphs, Heaps, Linked Lists, LFU Cache, M-ary Tree locks, and Juspay analysis.
+* **[Competitive](./DSA/Competitive/)**: `Codeforces Master Sheet.md`, `CPP Templates.md`, `Practice Questions Tracker.md`, plus clean source solutions in `Solutions/`.
+
+---
+
+#### 🐹 6. [Golang](./Golang/)
+End-to-end Go backend engineering:
+* **[Phases](./Golang/Phases/)**: Structured 10-phase path:
+  1. *Fundamentals*, 2. *Concurrency & Scheduler*, 3. *HTTP & REST APIs*, 4. *Databases & Connection Pools*, 5. *Authentication & JWT*, 6. *Testing & Benchmarking*, 7. *gRPC & Protobuf*, 8. *Microservice Patterns*, 9. *Deployment & DevOps*, 10. *Advanced Go Performance & Memory Allocations*.
+* **Deep Dives**: `Structs.md` (memory alignment, padding, reflection), `Execution and Binaries.md`, and `Roadmap.md`.
+
+---
+
+#### 🏗️ 7. [System Design](./System%20Design/) & [Low Level Design](./Low%20Level%20Design/)
+Architectural principles for high-throughput, fault-tolerant distributed systems:
+* **Foundations**: `Scaling to Millions.md`, `Back of the envelope.md`, `Rate limiter.md`, `Cascading Failures.md`, `consistent hashing.md`.
+* **[Deep Dives](./System%20Design/Deep%20Dives/)**: Detailed production case studies:
+  * `Dropbox.md` — Block storage, sync protocol, and metadata architecture.
+  * `Uber.md` — Geohashing, dispatch system, and real-time location streaming.
+  * `Stripe Monolith.md` — Idempotency engines, payment state machines, and safe deployments.
+  * `Redis.md` — Single-threaded event loops, RESP protocol, replication, and persistence (RDB/AOF).
+  * `High Concurrency Booking.md` — Distributed locking and hot-row race condition mitigations.
+* **Low Level Design**: `Design Patterns.md` (Creational, Structural, Behavioral patterns).
+
+---
+
+#### ☁️ 8. [INT378 Cloud and DevOps](./INT378%20Cloud%20and%20DevOps/)
+Complete academic and professional cloud engineering curriculum:
+* **Theory Units**: Cloud Infrastructure (Unit 1), IaC (Unit 2), CI/CD (Unit 3), Observability (Unit 4), DevSecOps & Security (Unit 5), Serverless & FinOps (Unit 6).
+* **Labs & Code**: 11 end-to-end practical labs with Terraform configs, CloudFormation templates, Dockerfiles, and Jenkins pipelines.
+* **DevOps Rabbit Holes**: Container runtime syscalls, packet lifecycle, Kubernetes pod networking, and distributed failure modes.
+
+---
+
+#### 🛠️ 9. [Tools](./Tools/)
+Production deployment and containerization toolchains:
+* **[Docker](./Tools/Docker/)**: Storyboards, lifecycle, commands, and layer caching.
+* **[Kubernetes](./Tools/Kubernetes/)**: Architecture, control plane components, pods, services, and workloads.
+* **[Jenkins](./Tools/Jenkins/)**: CI/CD pipelines, Nginx deployment automation, and webhook setups.
+
+---
+
+#### 🚀 10. [Projects](./Projects/)
+Where theory is proven in working code:
+1. **Concurrent Seat Booking**: High-concurrency ticket reservation engine solving race conditions with distributed Redis locks.
+2. **HN-HIT Predictor**: End-to-end ML scoring engine with automated CI/CD and Dockerized deployment.
+3. **Docker Cleanup Daemon**: Custom Go background daemon monitoring container disk pressure and cleaning stale images.
+4. **Data Warehousing in MySQL**: Star/Snowflake schema data pipeline and analytics layer.
+5. **MdMaker**: Automated Markdown-to-HTML database publishing platform backed by Jenkins and Docker.
+6. **Resume Collector**: Multi-candidate ingestion pipeline and schemas.
+
+---
+
+## 📈 Learning Workflow
+
+1. **Ingest & Summarize**: Capture new insights into topic-specific files.
+2. **Synthesize & Cross-Link**: Link related concepts using Obsidian wikilinks (e.g. connecting MVCC in database theory with isolation anomaly examples).
+3. **Build & Benchmark**: Validate the architecture through projects in `/Projects`.
+4. **Refine**: Continuously prune dead ends and standardize notes for rapid interview review and real-world system design.
 
 ---
 

@@ -1,4 +1,4 @@
----
+﻿---
 tags:
   - concept/remembring
   - theory
@@ -11,21 +11,21 @@ Date: 16-April-2026
 
 
 
-- **[[1.1 Data Models]]** — relational, document, key-value, graph, columnar
-- **[[1.2 Schema design & Normalization]]** — normalization (1NF–5NF), denormalization
-- **[[1.3 Data types]]** — numeric, text, date/time, JSON, arrays, enums
-- **[[1.4 Constraints]]** — primary key, foreign key, unique, check, not null
-- **[[1.5 Indexes]]** — B-tree, hash, GiST, GIN, covering indexes, composite indexes
+- **[[Data Models]]** — relational, document, key-value, graph, columnar
+- **[[Schema Design & Normalization]]** — normalization (1NF–5NF), denormalization
+- **[[Data Types]]** — numeric, text, date/time, JSON, arrays, enums
+- **[[Constraints]]** — primary key, foreign key, unique, check, not null
+- **[[Indexes]]** — B-tree, hash, GiST, GIN, covering indexes, composite indexes
 
 ---
 
 ## 🔍 Querying
 
-- **[[2.1 SQL fundamentals]]** — SELECT, JOIN, GROUP BY, ORDER BY, HAVING
-- **[[2.2 Window Functions]]** — ROW_NUMBER, RANK, LEAD/LAG, PARTITION BY
-- **[[2.3 CTE]]** — recursive and non-recursive (`WITH` clauses)
+- **[[SQL Fundamentals]]** — SELECT, JOIN, GROUP BY, ORDER BY, HAVING
+- **[[Window Functions]]** — ROW_NUMBER, RANK, LEAD/LAG, PARTITION BY
+- **[[CTEs]]** — recursive and non-recursive (`WITH` clauses)
 - **Subqueries** — correlated vs non-correlated
-- **[[2.4 Aggregation]]** — ROLLUP, CUBE, GROUPING SETS
+- **[[Aggregation]]** — ROLLUP, CUBE, GROUPING SETS
 - **Full-text search** — tsvector, tsquery, relevance ranking
 - **[[Query Optimization & Execution Plans|Execution plans]]** — EXPLAIN, EXPLAIN ANALYZE, query cost
 
@@ -33,8 +33,8 @@ Date: 16-April-2026
 
 ## ⚙️ Storage & Internals
 
-- **[[3.1 Database Storage Engines The Engines Beneath Your Data|Storage engines]]** — InnoDB, RocksDB, WiredTiger, LSM trees
-- **[[3.2 Page and Block Storage How Data Is Laid Out on Disk|Page/block storage]]** — how data is laid out on disk
+- **[[Storage Engines|Storage engines]]** — InnoDB, RocksDB, WiredTiger, LSM trees
+- **[[Page and Block Storage|Page/block storage]]** — how data is laid out on disk
 - **[[Database Internals & Storage Engines#3. Heap Files vs. Clustered Storage|Heap files vs clustered storage]]**
 - **[[Database Internals & Storage Engines#4. Write-Ahead Log (WAL)|Write-Ahead Log (WAL)]]** — durability, crash recovery, log replay
 - **[[Database Internals & Storage Engines#5. Buffer Pool & Shared Buffers|Buffer pool / shared buffers]]** — caching pages in memory

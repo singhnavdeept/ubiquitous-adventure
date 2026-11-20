@@ -1,4 +1,4 @@
----
+﻿---
 tags:
   - database/transactions
   - database/isolation-levels
@@ -86,7 +86,7 @@ To prevent these anomalies, the SQL-92 standard defines four isolation levels.
 
 ## 3. Modern Isolation Levels & MVCC Snapshot Isolation
 
-Many modern databases (PostgreSQL, Oracle, MySQL InnoDB) do not use pure lock-based isolation. They use **[[Multi-Version Concurrency Control (MVCC)]]** to implement **Snapshot Isolation (SI)**.
+Many modern databases (PostgreSQL, Oracle, MySQL InnoDB) do not use pure lock-based isolation. They use **[[MVCC|Multi-Version Concurrency Control (MVCC)]]** to implement **Snapshot Isolation (SI)**.
 
 ### Snapshot Isolation
 * **Core Principle**: *"Readers never block writers, and writers never block readers."*

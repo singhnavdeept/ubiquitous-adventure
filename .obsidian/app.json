@@ -1,0 +1,8 @@
+{
+  "alwaysUpdateLinks": true,
+  "promptDelete": false,
+  "attachmentFolderPath": "Assets",
+  "showInlineTitle": true,
+  "readableLineLength": true,
+  "showLineNumber": false
+}

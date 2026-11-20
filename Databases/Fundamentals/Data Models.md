@@ -1,4 +1,4 @@
----
+﻿---
 tags:
   - database/data-models
   - database/core-foundation
@@ -15,7 +15,7 @@ Data is organized into **tuples** (rows) grouped into **relations** (tables) wit
 ### The Physics (What's Happening on Disk)
 - **Storage Layout:** Data is stored row-wise. A row for `Users` (ID, Name, Email, CreatedAt) is written contiguously on a page.
 - **Indexing:** B-Trees. Crucial point: *Every* secondary index in a relational DB is essentially a hidden copy of the indexed column(s) plus the primary key pointer.
-- **Concurrency:** [[Multi-Version Concurrency Control (MVCC)]] is the modern default (Postgres, Oracle, MySQL InnoDB). Writers do not block readers. You are always looking at a *snapshot* of the past.
+- **Concurrency:** [[MVCC|Multi-Version Concurrency Control (MVCC)]] is the modern default (Postgres, Oracle, MySQL InnoDB). Writers do not block readers. You are always looking at a *snapshot* of the past.
 
 ### When to Use (The Sweet Spot)
 - **Normalized Writes:** You hate updating the same string in 5,000 different places. Update the `category_name` in the `categories` table once; it cascades everywhere.

@@ -1,0 +1,285 @@
+{
+  "main": {
+    "id": "e3a6bfcc84447e6b",
+    "type": "split",
+    "children": [
+      {
+        "id": "d41bc058d1c33a22",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "674a258d1bed9b13",
+            "type": "leaf",
+            "state": {
+              "type": "bases",
+              "state": {
+                "file": "Untitled 1.base",
+                "viewName": "Table"
+              },
+              "icon": "lucide-table",
+              "title": "Untitled 1"
+            }
+          },
+          {
+            "id": "0fd9132e262eeba5",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Databases/SQL/2.2 Window Functions.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "2.2 Window Functions"
+            }
+          },
+          {
+            "id": "54e1d0afd85b41ac",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Cloud and DevOps/01 - Cloud Fundamentals, Linux & Containers/Aux 01 - Computer Networking & VPC Primitives.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Aux 01 - Computer Networking & VPC Primitives"
+            }
+          }
+        ],
+        "currentTab": 2
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "5dcd82bb3c9495e8",
+    "type": "split",
+    "children": [
+      {
+        "id": "a804667066a3a7be",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "cca48b7be13f9dc2",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "6d38cad30acad0ec",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "11f742d115ec5c28",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          },
+          {
+            "id": "70d8b21b1a83de81",
+            "type": "leaf",
+            "pinned": true,
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Databases/Topics To Cover.md",
+                "mode": "source",
+                "source": false
+              },
+              "pinned": true,
+              "icon": "lucide-file",
+              "title": "Topics To Cover"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "988c8acdabdb7f89",
+    "type": "split",
+    "children": [
+      {
+        "id": "39d85b9e2c595fcc",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "fd9bd48a5fe6a9db",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Tools/Kubernetees/03 Architecture of K8.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for 03 Architecture of K8"
+            }
+          },
+          {
+            "id": "c6c8f1d26124d747",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "Tools/Kubernetees/03 Architecture of K8.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from 03 Architecture of K8"
+            }
+          },
+          {
+            "id": "99c792f9c0c1973b",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "52da8c0b58583039",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "All properties"
+            }
+          },
+          {
+            "id": "bb3f52aa7ca3a95a",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "Tools/Kubernetees/03 Architecture of K8.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline of 03 Architecture of K8"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "audio-recorder:Start/stop recording": false,
+      "bases:Create new base": false,
+      "obsidian-excalidraw-plugin:New drawing": false
+    }
+  },
+  "active": "cca48b7be13f9dc2",
+  "lastOpenFiles": [
+    "Cloud and DevOps/00 - Course Hub & Survival Guide/00 - Prerequisite & Auxiliary Knowledge Atlas.md",
+    "Cloud and DevOps/02 - Identity, Access Management & Security/Aux 04 - Identity, Access Management & Cryptographic Foundations.md",
+    "Cloud and DevOps/00 - Course Hub & Survival Guide/INT378 Master Strategy & Curriculum Roadmap.md",
+    "README.md",
+    "Cloud and DevOps/06 - Cloud-Native, Serverless & FinOps/code/lab10-serverless/template.yaml",
+    "Cloud and DevOps/06 - Cloud-Native, Serverless & FinOps/code/lab10-serverless/lambda_function.py",
+    "Cloud and DevOps/05 - Observability, Telemetry & SRE/code/lab08-09-monitoring/prometheus.yml",
+    "Cloud and DevOps/05 - Observability, Telemetry & SRE/code/lab08-09-monitoring/docker-compose.yml",
+    "Cloud and DevOps/05 - Observability, Telemetry & SRE/code/lab08-09-monitoring/alert_rules.yml",
+    "Cloud and DevOps/04 - CI-CD, Agile & DevSecOps Pipelines/code/lab06-07-jenkins-devsecops/Jenkinsfile.devsecops",
+    "Cloud and DevOps/04 - CI-CD, Agile & DevSecOps Pipelines/code/lab06-07-jenkins-devsecops/Jenkinsfile.basic",
+    "Cloud and DevOps/04 - CI-CD, Agile & DevSecOps Pipelines/code/lab06-07-jenkins-devsecops/docker-compose.jenkins.yml",
+    "Cloud and DevOps/03 - Infrastructure as Code (Terraform & CloudFormation)/code/lab05-terraform/variables.tf",
+    "Cloud and DevOps/03 - Infrastructure as Code (Terraform & CloudFormation)/code/lab05-terraform/terraform.tfvars.example",
+    "Cloud and DevOps/07 - Advanced Orchestration & Distributed Resiliency/Rabbit Hole 04 - Distributed Systems Resiliency, Failures & Circuit Breakers.md",
+    "Cloud and DevOps/07 - Advanced Orchestration & Distributed Resiliency/Rabbit Hole 03 - Kubernetes Under the Hood (The Life of a Pod).md",
+    "Cloud and DevOps/06 - Cloud-Native, Serverless & FinOps/Unit 6 - Cloud-Native Development, Serverless & FinOps.md",
+    "Cloud and DevOps/06 - Cloud-Native, Serverless & FinOps/Lab 11 - AWS Cost Explorer, Budgets & FinOps Optimization.md",
+    "Cloud and DevOps/06 - Cloud-Native, Serverless & FinOps/Lab 10 - Serverless Microservice (Lambda, API GW, CloudWatch).md",
+    "Cloud and DevOps/05 - Observability, Telemetry & SRE/Unit 4 - Monitoring, Metrics and Observability.md",
+    "Cloud and DevOps/05 - Observability, Telemetry & SRE/Lab 09 - Grafana Dashboards & Prometheus Data Source.md",
+    "Cloud and DevOps/05 - Observability, Telemetry & SRE/Lab 08 - Prometheus & Node Exporter Metrics & Alerting.md",
+    "Cloud and DevOps/05 - Observability, Telemetry & SRE/Aux 05 - Monitoring Agents, Telemetry & Time-Series Data.md",
+    "Cloud and DevOps/04 - CI-CD, Agile & DevSecOps Pipelines/Unit 3 - Agile and CI-CD Practices for Scalable Systems.md",
+    "Cloud and DevOps/04 - CI-CD, Agile & DevSecOps Pipelines/Lab 07 - DevSecOps Pipeline (SAST, Trivy & Secret Mgmt).md",
+    "Cloud and DevOps/04 - CI-CD, Agile & DevSecOps Pipelines/Lab 06 - Automated CI-CD with Jenkins & GitHub Webhooks.md",
+    "Cloud and DevOps/04 - CI-CD, Agile & DevSecOps Pipelines/Aux 06 - Web Servers, Reverse Proxies & Application Protocols.md",
+    "Cloud and DevOps/01 - Cloud Fundamentals, Linux & Containers/Rabbit Hole 02 - Container Runtime Internals, Syscalls & Escapes.md",
+    "Cloud and DevOps/03 - Infrastructure as Code (Terraform & CloudFormation)/Lab 03 - AWS CloudFormation Templates, Stacks & Rollbacks.md",
+    "Cloud and DevOps/03 - Infrastructure as Code (Terraform & CloudFormation)/Unit 2 - Infrastructure as Code (IaC).md",
+    "Cloud and DevOps/03 - Infrastructure as Code (Terraform & CloudFormation)/Lab 05 - Terraform IaC (EC2, S3 & State Management).md",
+    "Cloud and DevOps/01 - Cloud Fundamentals, Linux & Containers/Unit 1 - Advanced Cloud Infrastructure & Services.md",
+    "Cloud and DevOps/01 - Cloud Fundamentals, Linux & Containers/Rabbit Hole 01 - The Life of a Packet (From Container to Internet and Back).md",
+    "Cloud and DevOps/01 - Cloud Fundamentals, Linux & Containers/Aux 03 - Cloud Compute, Virtualization & Hypervisors.md",
+    "Cloud and DevOps/01 - Cloud Fundamentals, Linux & Containers/Lab 04 - Docker Architecture, Containerization & Hub.md",
+    "Cloud and DevOps/01 - Cloud Fundamentals, Linux & Containers/Lab 01 - AWS EC2, VPC, Security Groups & Web Server.md",
+    "Projects/HN-HIT Predictor/mltranfer.svg",
+    "Projects/HN-HIT Predictor/mermaid-diagram.svg",
+    "Projects/HN-HIT Predictor/docker.svg",
+    "Projects/HN-HIT Predictor/cicd.svg",
+    "Projects/HN-HIT predictor/cicd.svg",
+    "Projects/HN-HIT predictor/mermaid-diagram.svg",
+    "Projects/HN-HIT predictor/docker.svg",
+    "Projects/HN-HIT predictor/mltranfer.svg",
+    "Projects/HN-HIT predictor/Untitled.canvas",
+    "Assets/Pasted Image 20261103003713_682.png",
+    "Assets/Pasted Image 20261103003343_130.png",
+    "Untitled.canvas"
+  ]
+}

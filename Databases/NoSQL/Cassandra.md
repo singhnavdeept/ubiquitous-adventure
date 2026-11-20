@@ -1,4 +1,4 @@
----
+﻿---
 tags:
   - database/nosql
   - database/cassandra
@@ -61,7 +61,7 @@ Cassandra columns support a plethora of [types](https://cassandra.apache.org/doc
 
 One of the most important constructs in Cassandra is the "primary key" of a table. Every row is represented uniquely by a primary key. A primary key consists of one or more partition keys and may include clustering keys. Let's break down what these terms mean.
 
-### [[Partition and Clustering key]] 
+### [[Partition and Clustering Key]] 
 - **Partition Key** - One or more columns that are used to determine what partition the row is in. We'll discuss partitioning of data later in this deep-dive.
 - **Clustering Key** - Zero or more columns that are used to determine the sorted order of rows in a table. Data ordering is important depending on one's data modeling needs, so Cassandra gives users control over this via the clustering keys.
 
